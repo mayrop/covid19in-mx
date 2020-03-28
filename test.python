@@ -1,0 +1,50 @@
+import re
+import datetime
+import csv
+import sys
+
+def main(args):
+    # TODO: refactor
+    source, destination = parse_args(args)
+    lines = list()
+
+    with open(source, 'r') as reader:
+        # Read and print the entire file line by line
+        line = reader.readline()
+        while line != '':
+            if re.match(r"^\d+", line.strip()):
+                line = re.sub("\s{2,}", ",", line.strip())
+                line = re.sub("^(\d+)\s+", "\\1,", line.strip())
+                line = re.sub("(\d+/\d+/\d+)\s+", "\\1,", line.strip())
+                suffix = ","
+
+                match = re.search(r'(\d{5})[\s,]+', line)
+                if match:
+                    m = match.group().replace(" ", "").replace(",","")
+                    # see https://stackoverflow.com/questions/14271791/converting-date-formats-python-unusual-date-formats-extract-ymd
+                    delta = datetime.timedelta(int(m)-2)
+                    date = datetime.date(1900, 1, 1) + delta
+                    date = str(date.strftime("%d/%m/%Y"))
+                    line = re.sub(str(match.group()), date + ",", line.strip())
+                    suffix = suffix + m
+
+                line = line + suffix
+                lines.append(list(line.split(",")))
+
+            line = reader.readline()
+
+    with open(destination, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(lines)
+
+def parse_args(argv):
+    if len(argv) < 2:
+        print('usage: test.py <source> <destination>')
+        exit()
+
+    # TODO: improve & error handling
+
+    return argv[0], argv[1]
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

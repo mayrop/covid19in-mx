@@ -1,0 +1,4 @@
+baseURL = "https://www.coronavirusin.mx"
+languageCode = "es-mx"
+title = "Coronavirus in Mexico"
+theme = "book"

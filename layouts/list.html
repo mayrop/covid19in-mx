@@ -1,0 +1,7 @@
+{{ define "main" }}
+  <article class="markdown">
+    {{- .Content -}}
+    test my
+    {{ range (readDir "static/data") }}{{ .Name }}{{ end }}
+  </article>
+{{ end }}

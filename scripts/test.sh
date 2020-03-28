@@ -17,8 +17,10 @@ do
     fi
 
     if [ ! -f $HTML_FILE ]; then
-        docker run -ti --rm -v $FILE_DIR:/pdf bwits/pdf2htmlex pdf2htmlEX --zoom 1.3 $BASENAME
-        mv $(echo $FILE | sed -e "s/\.pdf/.html/") $HTML_FILE
+        #docker run -ti --rm -v $FILE_DIR:/pdf bwits/pdf2htmlex pdf2htmlEX --zoom 1.3 $BASENAME
+        docker run --rm -i -v $FILE_DIR:"/data" mercstudio/pdftohtml "/data/${BASENAME}"
+        exit
+        #mv $(echo $FILE | sed -e "s/\.pdf/.html/") $HTML_FILE
     fi
 
     if [ ! -f $CSV_FILE ]; then

@@ -1,6 +1,42 @@
 {{ define "main" }}
-  <article class="markdown">
+<article class="markdown">
     {{- .Content -}}
-    {{ range (readDir "static") }}{{ .Name }}{{ end }}
+   
+    <h2>Tabla casos positivos COVID 19</h2>
+    <table>
+      <tr>
+        <th>Fecha</th>
+        <th>PDF</th>
+        <th>CSV</th>
+        <th>TXT</th>
+      </tr>
+      {{ range .Params.positive }}
+      <tr>
+        <td>{{ .date }}</td>
+        <td><a href="/data/results/{{ .pdf }}" target="_blank">Descargar</a></td>
+        <td><a href="/data/results/{{ .csv }}" target="_blank">Descargar</a></td>
+        <td><a href="/data/results/{{ .txt }}" target="_blank">Descargar</a></td>
+      </tr>
+      {{ end }}
+    </table>
+    <h2>Tabla casos sospechosos COVID 19</h2>
+    <table>
+      <tr>
+        <th>Fecha</th>
+        <th>PDF</th>
+        <th>CSV</th>
+        <th>TXT</th>
+      </tr>
+      {{ range .Params.docs.suspected }}
+      <tr>
+        <td>{{ .date }}</td>
+        <td><a href="/data/results/{{ .pdf }}" target="_blank">Descargar</a></td>
+        <td><a href="/data/results/{{ .csv }}" target="_blank">Descargar</a></td>
+        <td><a href="/data/results/{{ .txt }}" target="_blank">Descargar</a></td>
+      </tr>
+      {{ end }}
+       
+
+    </table>
   </article>
 {{ end }}

@@ -1,10 +1,9 @@
 import re
 import datetime
 import csv
-import sys
+import sys 
 
 def main(args):
-    # TODO: refactor
     source, destination = parse_args(args)
     lines = list()
 
@@ -12,24 +11,36 @@ def main(args):
         # Read and print the entire file line by line
         line = reader.readline()
         while line != '':
-            if re.match(r"^\d+", line.strip()):
-                line = re.sub("\s{2,}", ",", line.strip())
-                line = re.sub("^(\d+)\s+", "\\1,", line.strip())
-                line = re.sub("(\d+/\d+/\d+)\s+", "\\1,", line.strip())
-                suffix = ","
+            if not re.match(r"^\d+", line.strip()):
+                line = reader.readline()
+                continue
+            
+            # fixing date            
+            orig_date, processed_date = get_original_date(line)
+            line = line.replace(orig_date, processed_date)
+            # so states / cities do not have spaces in between
+            line = re.sub(r"(\w) (\w)", "\\1_\\2", line.strip())
+            # replacing dates
+            line = re.sub("(\d+/\d+/\d+)", "\\1", line.strip())
+            # replace space with commas
+            line = re.sub("\s+", ",", line.strip())
+            # adding the original date
+            line = line + "," + orig_date
+            # replacing NAs
+            line = re.sub(r",NA,", ",,", line.strip())
+            # bring back spaces instead of underscore
+            line = line.replace("_", " ")
+            # splitting...
+            line = list(line.split(","))
+            
+            # recovered cases...
+            if '*' in line[1]:
+                line[1] = line[1].replace("*", "")
+                line.append("*")
+            else:
+                line.append("")
 
-                match = re.search(r'(\d{5})[\s,]+', line)
-                if match:
-                    m = match.group().replace(" ", "").replace(",","")
-                    # see https://stackoverflow.com/questions/14271791/converting-date-formats-python-unusual-date-formats-extract-ymd
-                    delta = datetime.timedelta(int(m)-2)
-                    date = datetime.date(1900, 1, 1) + delta
-                    date = str(date.strftime("%d/%m/%Y"))
-                    line = re.sub(str(match.group()), date + ",", line.strip())
-                    suffix = suffix + m
-
-                line = line + suffix
-                lines.append(list(line.split(",")))
+            lines.append(line)
 
             line = reader.readline()
 
@@ -45,6 +56,20 @@ def parse_args(argv):
     # TODO: improve & error handling
 
     return argv[0], argv[1]
+
+# replacing excel dates
+# see: https://stackoverflow.com/questions/14271791/converting-date-formats-python-unusual-date-formats-extract-ymd
+def get_original_date(line):
+    match = re.search(r'(\d{5})\s+', line)
+    if not match:
+        return "", ""
+    
+    m = match.group().replace(" ", "").replace(",","")
+    delta = datetime.timedelta(int(m)-2)
+    date = datetime.date(1900, 1, 1) + delta
+    date = str(date.strftime("%d/%m/%Y"))
+    
+    return str(m), date  
 
 if __name__ == "__main__":
     main(sys.argv[1:])

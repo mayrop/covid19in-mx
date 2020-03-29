@@ -4,8 +4,6 @@
   "positive": [
     {
         "pdf": "covid-19-resultado-positivos-indre-2020-03-13.png",
-        "txt": "txt/covid-19-resultado-positivos-indre-2020-03-13.txt",
-        "csv": "csv/covid-19-resultado-positivos-indre-2020-03-13.csv",
         "date": "Marzo, 13 2020"
     },
     {
@@ -87,11 +85,91 @@
         "date": "Marzo, 26 2020"
     },
     {
+        "pdf": "covid-19-resultado-positivos-indre-2020-03-27.pdf",
+        "txt": "txt/covid-19-resultado-positivos-indre-2020-03-27.txt",
+        "csv": "csv/covid-19-resultado-positivos-indre-2020-03-27.csv",
+        "date": "Marzo, 27 2020"
+    },
+    {
         "pdf": "covid-19-resultado-positivos-indre-2020-03-28.pdf",
         "txt": "txt/covid-19-resultado-positivos-indre-2020-03-28.txt",
         "csv": "csv/covid-19-resultado-positivos-indre-2020-03-28.csv",
         "date": "Marzo, 28 2020"
     }
+  ],
+  "suspected": [
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-02-25.pdf",
+        "date": "Febrero 25, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-02-25.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-02-25.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-08.pdf",
+        "date": "Marzo 08, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-08.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-08.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-13.pdf",
+        "date": "Marzo 13, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-13.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-13.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-14.pdf",
+        "date": "Marzo 14, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-14.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-14.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-15.pdf",
+        "date": "Marzo 15, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-15.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-15.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-18.pdf",
+        "date": "Marzo 18, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-18.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-18.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-19.pdf",
+        "date": "Marzo 19, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-19.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-19.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-24.pdf",
+        "date": "Marzo 24, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-24.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-24.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-25.pdf",
+        "date": "Marzo 25, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-25.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-25.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-26.pdf",
+        "date": "Marzo 26, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-26.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-26.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-27.pdf",
+        "date": "Marzo 27, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-27.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-27.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-28.pdf",
+        "date": "Marzo 28, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-28.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-28.txt"
+    } 
   ]
 }
 # COVID-19 casos en México

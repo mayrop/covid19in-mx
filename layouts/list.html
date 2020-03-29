@@ -14,8 +14,8 @@
       <tr>
         <td>{{ .date }}</td>
         <td><a href="/data/results/{{ .pdf }}" target="_blank">Descargar</a></td>
-        <td><a href="/data/results/{{ .csv }}" target="_blank">Descargar</a></td>
-        <td><a href="/data/results/{{ .txt }}" target="_blank">Descargar</a></td>
+        <td>{{ if .csv }}<a href="/data/results/{{ .csv }}" target="_blank">Descargar</a>{{ end }}</td>
+        <td>{{ if .txt }}<a href="/data/results/{{ .txt }}" target="_blank">Descargar</a>{{ end }}</td>
       </tr>
       {{ end }}
     </table>
@@ -27,7 +27,7 @@
         <th>CSV</th>
         <th>TXT</th>
       </tr>
-      {{ range .Params.docs.suspected }}
+      {{ range .Params.suspected }}
       <tr>
         <td>{{ .date }}</td>
         <td><a href="/data/results/{{ .pdf }}" target="_blank">Descargar</a></td>

@@ -129,6 +129,18 @@
         "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-15.txt"
     },
     {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-16.pdf",
+        "date": "Marzo 16, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-16.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-16.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-17.pdf",
+        "date": "Marzo 17, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-17.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-17.txt"
+    },
+    {
         "pdf": "covid-19-resultado-sospechosos-indre-2020-03-18.pdf",
         "date": "Marzo 18, 2020",
         "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-18.csv",
@@ -139,6 +151,30 @@
         "date": "Marzo 19, 2020",
         "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-19.csv",
         "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-19.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-20.pdf",
+        "date": "Marzo 20, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-20.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-20.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-21.pdf",
+        "date": "Marzo 21, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-21.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-21.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-22.pdf",
+        "date": "Marzo 22, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-22.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-22.txt"
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-23.pdf",
+        "date": "Marzo 23, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-23.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-23.txt"
     },
     {
         "pdf": "covid-19-resultado-sospechosos-indre-2020-03-24.pdf",

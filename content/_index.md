@@ -1,5 +1,5 @@
 {
-  "title": "Intro",
+  "title": "Casos de Covid-19 en México",
   "type": "docs",
   "positive": [
     {

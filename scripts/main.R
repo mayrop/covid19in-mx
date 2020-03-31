@@ -42,11 +42,11 @@ rows_orig <- setDT(rows_orig, keep.rownames = TRUE)[]
 
 # we create an ID per patient based on different factors that stay constant between all files
 rows <- rows_orig %>% 
-  tidyr::separate(rn, into = c("File", "Row"), sep = "\\.") %>%
+  tidyr::separate(rn, into = c("file", "row"), sep = "\\.") %>%
   dplyr::rowwise() %>%
   dplyr::mutate(
-    Type = ifelse(grepl("positivos", File), "Positive", "Suspected"),
-    PatientId = paste0(
+    type = ifelse(grepl("positivos", file), "Positive", "Suspected"),
+    patient_id = paste0(
       slugify(c(
         as.character(Estado), 
         as.character(Sexo), 
@@ -62,12 +62,15 @@ rows <- rows_orig %>%
 
 # we add how many rows we find per file
 rows <- rows %>%
+  dplyr::select(
+    -rows_per_file #when we run this command, make sure it doesn't cause issues
+  ) %>%
   dplyr::group_by(
-    File
+    file
   ) %>%
   tidyr::nest() %>%
   dplyr::mutate(
-    RowsPerFile = purrr::map_int(data, ~nrow(.x)),
+    rows_per_file = purrr::map_int(data, ~nrow(.x)),
   ) %>%
   tidyr::unnest(
     cols=data
@@ -75,20 +78,19 @@ rows <- rows %>%
   dplyr::ungroup()
 
 # we extract all the files where PatientX is listed
-rowsPerPatient <- rows %>%
-  dplyr::group_by(PatientId) %>%
+rows <- rows %>%
+  dplyr::group_by(patient_id) %>%
+  tidyr::nest() %>%
   dplyr::mutate(
-    FilesForPatient = map_chr(data, function(.x) {
-      .x$File %>% paste0(collapse=", ")
+    files_per_patient = map_chr(data, function(.x) {
+      .x$file %>% paste0(collapse=", ")
     }),
   ) %>%
-  tidyr::unnest(
-    cols=data
-  ) %>% 
+  tidyr::unnest(cols=data) %>%
   dplyr::ungroup()
 
 dplyr::slice(1) %>% 
-  dplyr::select(PatientId, FilesForPatient) %>%
+  dplyr::select(patient_id, files_for_patient) %>%
   View()
 
 rows %>%

@@ -87,6 +87,15 @@ rowsPerPatient <- rows %>%
   ) %>% 
   dplyr::ungroup()
 
-lyr::slice(1) %>% 
-  dplyr::select(Id, diff_files) %>%
+dplyr::slice(1) %>% 
+  dplyr::select(PatientId, FilesForPatient) %>%
+  View()
+
+rows %>%
+  dplyr::group_by(
+    File
+  ) %>% dplyr::slice(1) %>% 
+  dplyr::select(
+    File, RowsPerFile
+  ) %>%
   View()

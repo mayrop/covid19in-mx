@@ -107,6 +107,12 @@
         "txt": "txt/covid-19-resultado-positivos-indre-2020-03-30.txt",
         "csv": "csv/covid-19-resultado-positivos-indre-2020-03-30.csv",
         "date": "Marzo 30, 2020"
+    },
+    {
+        "pdf": "covid-19-resultado-positivos-indre-2020-03-31.pdf",
+        "txt": "txt/covid-19-resultado-positivos-indre-2020-03-31.txt",
+        "csv": "csv/covid-19-resultado-positivos-indre-2020-03-31.csv",
+        "date": "Marzo 31, 2020"
     } 
   ],
   "suspected": [
@@ -229,6 +235,13 @@
         "date": "Marzo 30, 2020",
         "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-30.csv",
         "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-30.txt"
+ 
+    },
+    {
+        "pdf": "covid-19-resultado-sospechosos-indre-2020-03-31.pdf",
+        "date": "Marzo 31, 2020",
+        "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-31.csv",
+        "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-31.txt"
  
     }
   ]

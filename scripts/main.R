@@ -81,6 +81,55 @@ create_files_lookup <- function(files) {
     )
 }
 
+
+map_tables <- function(yesterday, today) {
+  
+  new_ids = setdiff(
+    today$patient_id,
+    yesterday$patient_id
+  )
+  
+  deleted_ids = setdiff(
+    yesterday$patient_id,
+    today$patient_id
+  )
+  
+  case_ids_new_cases = today %>% 
+    dplyr::filter(patient_id %in% new_ids)
+  
+  case_ids_deleted_cases = yesterday %>% 
+    dplyr::filter(patient_id %in% deleted_ids)
+  
+  new_df = yesterday
+  
+  # first remove from yesterday the deleted cases
+  for (case in rownames(case_ids_deleted_cases)) {
+    row_id <- as.integer(case_ids_deleted_cases[case, 1])
+    
+    new_df <- rbind(
+      new_df[1:row_id-1,], new_df[-(1:row_id),]
+    )
+  }   
+  
+  # then add new cases
+  for (case in rownames(case_ids_new_cases)) {
+    row_id <- as.integer(case_ids_new_cases[case, 1]) - 1
+    patient_id <- case_ids_new_cases[case, 2]
+    
+    new_df <- rbind(
+      new_df[1:row_id,], c(NA, patient_id), new_df[-(1:row_id),]
+    )
+  }  
+  
+  return(
+    list(
+      case_ids_new_cases=case_ids_new_cases,
+      case_ids_deleted_cases=case_ids_deleted_cases,
+      new_df=new_df
+    )
+  )
+}
+
 # -------------------------------------------------------------------------------------
 
 filenames <- list.files(
@@ -166,57 +215,9 @@ for (f in my_unique_files) {
     dplyr::mutate()
 }
 
-m <- function(yesterday, today) {
-
-  new_ids = setdiff(
-    today$patient_id,
-    yesterday$patient_id
-  )
-  
-  deleted_ids = setdiff(
-    yesterday$patient_id,
-    today$patient_id
-  )
-  
-  case_ids_new_cases = today %>% 
-    dplyr::filter(patient_id %in% new_ids)
-  
-  case_ids_deleted_cases = yesterday %>% 
-    dplyr::filter(patient_id %in% deleted_ids)
-  
-  new_df = yesterday
-
-  # first remove from yesterday the deleted cases
-  for (case in rownames(case_ids_deleted_cases)) {
-    row_id <- as.integer(case_ids_deleted_cases[case, 1])
-
-    new_df <- rbind(
-      new_df[1:row_id-1,], new_df[-(1:row_id),]
-    )
-  }   
-  
-  # then add new cases
-  for (case in rownames(case_ids_new_cases)) {
-    row_id <- as.integer(case_ids_new_cases[case, 1]) - 1
-    patient_id <- case_ids_new_cases[case, 2]
-    
-    new_df <- rbind(
-      new_df[1:row_id,], c(NA, patient_id), new_df[-(1:row_id),]
-    )
-  }  
-  
-  return(case_ids_deleted_cases)
-  return(
-    list(
-      case_ids_new_cases=case_ids_new_cases,
-      case_ids_deleted_cases=case_ids_deleted_cases,
-      new_df=new_df
-    )
-  )
-}
 
 #result = 
-print(m(
+print(map_tables(
   ids_positivos$positivos_2020_03_15, 
   ids_positivos$positivos_2020_03_16
 ))

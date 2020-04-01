@@ -83,22 +83,12 @@ create_files_lookup <- function(files) {
 
 
 map_tables <- function(yesterday, today) {
-  
-  new_ids = setdiff(
-    today$patient_id,
-    yesterday$patient_id
-  )
-  
-  deleted_ids = setdiff(
-    yesterday$patient_id,
-    today$patient_id
-  )
-  
-  case_ids_new_cases = today %>% 
-    dplyr::filter(patient_id %in% new_ids)
+
+  case_ids_new_cases <- today %>% 
+    dplyr::anti_join(yesterday, by="patient_id")
   
   case_ids_deleted_cases = yesterday %>% 
-    dplyr::filter(patient_id %in% deleted_ids)
+    dplyr::anti_join(today, by="patient_id")
   
   new_df = yesterday
   
@@ -114,12 +104,22 @@ map_tables <- function(yesterday, today) {
   # then add new cases
   for (case in rownames(case_ids_new_cases)) {
     row_id <- as.integer(case_ids_new_cases[case, 1]) - 1
-    patient_id <- case_ids_new_cases[case, 2]
+    patient_id <- case_ids_new_cases[case, 2] %>% as.character()
     
     new_df <- rbind(
       new_df[1:row_id,], c(NA, patient_id), new_df[-(1:row_id),]
     )
   }  
+  
+  col_prefix <- colnames(new_df)[1]
+  col_case_id <- colnames(today)[1]
+  col_patient_id <- paste0("patient_id_", col_case_id)
+  
+  new_df <- new_df %>% 
+    dplyr::mutate(!!col_case_id := dplyr::row_number()) %>%
+    dplyr:::rename(!!col_patient_id := patient_id) %>%
+    # convert to symbol and evaluate
+    dplyr::mutate(!!col_prefix := as.integer(!!rlang::sym(col_prefix)))
   
   return(
     list(
@@ -129,6 +129,31 @@ map_tables <- function(yesterday, today) {
     )
   )
 }
+
+
+get_ids_for_type <- function(file_type="positivos", rows, files_lookup) {
+  my_unique_files <- files_lookup %>% 
+    dplyr::filter(type == file_type) %>% 
+    dplyr::pull(file_id) %>% 
+    unique()
+  
+  ids_positivos = list()
+  
+  for (f in my_unique_files) {
+    file_rows = rows %>% 
+      dplyr::filter(file_id == f)
+    
+    ids_positivos[[f]] <- file_rows %>% 
+      dplyr::select(Caso, patient_id) %>% 
+      # remember !! is for evaluating right away
+      # so we evaluate the index and set it as string
+      dplyr::rename(!!f := Caso) %>%
+      dplyr::mutate()
+  }
+  
+  return(ids_positivos)
+}
+
 
 # -------------------------------------------------------------------------------------
 
@@ -197,35 +222,59 @@ rows <- rows %>%
   ) %>%
   as.data.frame()
   
-my_unique_files <- files_lookup %>% 
-  dplyr::filter(type == "positivos") %>% 
-  dplyr::pull(file_id) %>% unique()
 
-ids_positivos = list()
+# we add how many rows we find per file
+rows <- rows %>%
+  dplyr::group_by(
+    file_id
+  ) %>%
+  tidyr::nest() %>%
+  dplyr::mutate(
+    rows_per_file = purrr::map_int(data, ~nrow(.x)),
+  ) %>%
+  tidyr::unnest(
+    cols=data
+  ) %>% 
+  dplyr::ungroup()
 
-for (f in my_unique_files) {
-  file_rows = rows %>% 
-    dplyr::filter(file_id == f)
+# double check numbers
+rows %>%
+  dplyr::group_by(
+    file_id
+  ) %>% dplyr::slice(1) %>% 
+  dplyr::select(
+    file_id, rows_per_file
+  ) %>%
+  View()
 
-  ids_positivos[[f]] <- file_rows %>% 
-    dplyr::select(Caso, patient_id) %>% 
-    # remember !! is for evaluating right away
-    # so we evaluate the index and set it as string
-    dplyr::rename(!!f := Caso) %>%
-    dplyr::mutate()
-}
+ids_positivos = get_ids_for_type("positivos", rows, files_lookup)
 
 
 #result = 
-print(map_tables(
+x <- map_tables(
   ids_positivos$positivos_2020_03_15, 
   ids_positivos$positivos_2020_03_16
-))
+)
 
-print(m(
+my_map_15 <- ids_positivos$positivos_2020_03_15 %>%
+  dplyr::full_join(
+    x$new_df, by=c("positivos_2020_03_15")
+  )
+
+x <- map_tables(
   ids_positivos$positivos_2020_03_16, 
   ids_positivos$positivos_2020_03_17
-))
+)
+
+my_map_16 <- ids_positivos$positivos_2020_03_16 %>%
+  dplyr::full_join(
+    x$new_df, by=c("positivos_2020_03_16")
+  )
+
+my_map <- my_map_15 %>%
+  dplyr::full_join(
+    my_map_16, by="positivos_2020_03_16", na_matches = "never"
+  )
 
 print(m(
   ids_positivos$positivos_2020_03_18, 
@@ -287,20 +336,6 @@ print(m(
 
 
 
-# we add how many rows we find per file
-rows <- rows %>%
-  dplyr::group_by(
-    file_id
-  ) %>%
-  tidyr::nest() %>%
-  dplyr::mutate(
-    rows_per_file = purrr::map_int(data, ~nrow(.x)),
-  ) %>%
-  tidyr::unnest(
-    cols=data
-  ) %>% 
-  dplyr::ungroup()
-
 # we extract all the files where PatientX is listed
 rows <- rows %>%
   dplyr::group_by(patient_id) %>%
@@ -337,11 +372,3 @@ rows %>%
   ) %>% 
   View()
 
-rows %>%
-  dplyr::group_by(
-    File
-  ) %>% dplyr::slice(1) %>% 
-  dplyr::select(
-    File, RowsPerFile
-  ) %>%
-  View()

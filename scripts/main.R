@@ -249,89 +249,24 @@ rows %>%
 
 ids_positivos = get_ids_for_type("positivos", rows, files_lookup)
 
+ids_positivos_colnames <- names(ids_positivos)
+my_map <- ids_positivos[[ids_positivos_colnames[1]]]
 
-#result = 
-x <- map_tables(
-  ids_positivos$positivos_2020_03_15, 
-  ids_positivos$positivos_2020_03_16
-)
-
-my_map_15 <- ids_positivos$positivos_2020_03_15 %>%
-  dplyr::full_join(
-    x$new_df, by=c("positivos_2020_03_15")
+for (i in 2:length(ids_positivos_colnames)) {
+  yesterday <- ids_positivos_colnames[i-1]
+  today <- ids_positivos_colnames[i]
+  
+  mapped_table <- map_tables(
+    ids_positivos[[yesterday]], 
+    ids_positivos[[today]]
   )
+  
+  my_map <- my_map %>%
+    dplyr::full_join(
+      mapped_table$new_df, by=c(yesterday), na_matches="never"
+    )
+}
 
-x <- map_tables(
-  ids_positivos$positivos_2020_03_16, 
-  ids_positivos$positivos_2020_03_17
-)
-
-my_map_16 <- ids_positivos$positivos_2020_03_16 %>%
-  dplyr::full_join(
-    x$new_df, by=c("positivos_2020_03_16")
-  )
-
-my_map <- my_map_15 %>%
-  dplyr::full_join(
-    my_map_16, by="positivos_2020_03_16", na_matches = "never"
-  )
-
-print(m(
-  ids_positivos$positivos_2020_03_18, 
-  ids_positivos$positivos_2020_03_19
-))
-
-
-print(m(
-  ids_positivos$positivos_2020_03_19, 
-  ids_positivos$positivos_2020_03_20
-))
-
-print(m(
-  ids_positivos$positivos_2020_03_20, 
-  ids_positivos$positivos_2020_03_21
-))
-
-
-print(m(
-  ids_positivos$positivos_2020_03_21, 
-  ids_positivos$positivos_2020_03_22
-))
-
-print(m(
-  ids_positivos$positivos_2020_03_22, 
-  ids_positivos$positivos_2020_03_23
-))
-
-print(m(
-  ids_positivos$positivos_2020_03_23, 
-  ids_positivos$positivos_2020_03_24
-))
-
-print(m(
-  ids_positivos$positivos_2020_03_24, 
-  ids_positivos$positivos_2020_03_25
-))
-
-print(m(
-  ids_positivos$positivos_2020_03_25, 
-  ids_positivos$positivos_2020_03_26
-))
-
-print(m(
-  ids_positivos$positivos_2020_03_26, 
-  ids_positivos$positivos_2020_03_27
-))
-
-print(m(
-  ids_positivos$positivos_2020_03_27, 
-  ids_positivos$positivos_2020_03_28
-))
-
-print(m(
-  ids_positivos$positivos_2020_03_28, 
-  ids_positivos$positivos_2020_03_29
-))
 
 
 

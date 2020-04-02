@@ -1,4 +1,4 @@
-Caso,Estado,Localidad,Sexo,Edad,FechaInicioSintomas,Identificacion,Procedencia,FechaLlegada,Contacto,FechaInicioSintomasOriginal,Recuperado
+no_caso,estado,localidad,sexo,edad,fecha_inicio_sintomas,identificacion,procedencia,fecha_llegada,contacto,fecha_inicio_sintomas_original,recuperado
 1,BAJA CALIFORNIA,,M,56,13/03/2020,SOSPECHOSO,,05/03/2020,SI,,
 2,SAN LUIS POTOSÍ,,F,22,11/03/2020,SOSPECHOSO,ESPAÑA,06/03/2020,NO,,
 3,CIUDAD DE MÉXICO,,F,26,13/03/2020,SOSPECHOSO,ESPAÑA,13/03/2020,NO,,

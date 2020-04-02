@@ -111,11 +111,18 @@ def get_original_date(column):
 
 def get_header():
     return [
-        "Caso", "Estado", "Localidad", 
-        "Sexo", "Edad", "FechaInicioSintomas", 
-        "Identificacion", "Procedencia", "FechaLlegada",
-        "Contacto",
-        "FechaInicioSintomasOriginal", "Recuperado"
+        "no_caso",
+        "estado",
+        "localidad", 
+        "sexo",
+        "edad", 
+        "fecha_inicio_sintomas", 
+        "identificacion", 
+        "procedencia", 
+        "fecha_llegada",
+        "contacto",
+        "fecha_inicio_sintomas_original", 
+        "recuperado"
     ]
 
 if __name__ == "__main__":

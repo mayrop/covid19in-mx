@@ -1,4 +1,4 @@
-Caso,Estado,Localidad,Sexo,Edad,FechaInicioSintomas,Identificacion,Procedencia,FechaLlegada,Contacto,FechaInicioSintomasOriginal,Recuperado
+no_caso,estado,localidad,sexo,edad,fecha_inicio_sintomas,identificacion,procedencia,fecha_llegada,contacto,fecha_inicio_sintomas_original,recuperado
 1,PUEBLA,,M,55,23/03/2020,SOSPECHOSO,,,SI,,
 2,SONORA,,F,31,18/03/2020,SOSPECHOSO,,,SI,,
 3,GUANAJUATO,,F,25,23/03/2020,SOSPECHOSO,ESTADOS UNIDOS,27/03/2020,NO,,

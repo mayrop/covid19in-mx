@@ -1,4 +1,4 @@
-Caso,Estado,Localidad,Sexo,Edad,FechaInicioSintomas,Identificacion,Procedencia,FechaLlegada,Contacto,FechaInicioSintomasOriginal,Recuperado
+no_caso,estado,localidad,sexo,edad,fecha_inicio_sintomas,identificacion,procedencia,fecha_llegada,contacto,fecha_inicio_sintomas_original,recuperado
 1,BAJA CALIFORNIA,,F,24,24/02/2020,SOSPECHOSO,ITALIA,02/03/2020,NO,,
 2,CIUDAD DE MÉXICO,,M,30,27/02/2020,SOSPECHOSO,ITALIA,18/02/2020,NO,,
 3,BAJA CALIFORNIA,,F,40,29/02/2020,SOSPECHOSO,FRANCIA,24/02/2020,NO,,

@@ -83,14 +83,27 @@ create_files_lookup <- function(files) {
 
 
 map_tables <- function(yesterday, today) {
-
   case_ids_new_cases <- today %>% 
     dplyr::anti_join(yesterday, by="patient_id")
   
   case_ids_deleted_cases = yesterday %>% 
     dplyr::anti_join(today, by="patient_id")
   
+  case_ids_moved_up_cases <- yesterday %>% 
+    dplyr::inner_join(today, by="patient_id") %>% # first we join both tables
+    # then we check which ids from yesterday were moved up
+    # colnames(yesterday)[1] is a string, i.e. positivos_2020_03_19
+    # rlang::sym converts that string into a symbol
+    # and !! evaluates it right away
+    dplyr::filter(
+      !!rlang::sym(colnames(yesterday)[1]) > !!rlang::sym(colnames(today)[1])
+    )
+  
+  # assignment of data frame
   new_df = yesterday
+  
+  print("deleting cases...")
+  print(case_ids_deleted_cases)
   
   # first remove from yesterday the deleted cases
   for (case in rownames(case_ids_deleted_cases)) {
@@ -99,7 +112,43 @@ map_tables <- function(yesterday, today) {
     new_df <- rbind(
       new_df[1:row_id-1,], new_df[-(1:row_id),]
     )
-  }   
+  }
+  
+  print("moving up...")
+  print(case_ids_moved_up_cases)
+  
+  # first we move up all the cases that need to be moved
+  for (case in rownames(case_ids_moved_up_cases)) {
+    # can do this in a mutate but i am NOT going to do it today
+    row <- case_ids_moved_up_cases[case, ]
+    original_old_row_id <- as.integer(row[, 1])
+    original_new_row_id <- as.integer(row[, 3])
+    patient_id <- row[, 2] %>% as.character()
+    
+    # removing deleted cases
+    total_before <- sum(case_ids_deleted_cases[, 1] < original_old_row_id)
+    
+    if (original_old_row_id - total_before <= original_new_row_id) {
+      print("nothing to doo....")
+      next
+    }
+    
+    new_row_id <- which(new_df[, 1] == original_new_row_id)
+    old_row_id <- which(new_df[, 2] == patient_id)
+    
+    new_row_id <- new_row_id - 1 # so it inserts in the right key
+    
+    # we first remove it 
+    new_df <- rbind(new_df[1:old_row_id-1,], new_df[-(1:old_row_id),])
+    
+    # we then add it
+    new_df <- rbind(
+      new_df[1:new_row_id,], c(original_old_row_id, patient_id), new_df[-(1:new_row_id),]
+    )
+  }
+  
+  print("adding new cases...")
+  print(nrow(case_ids_deleted_cases))
   
   # then add new cases
   for (case in rownames(case_ids_new_cases)) {
@@ -178,7 +227,21 @@ rows_orig <- setDT(rows_orig, keep.rownames = TRUE)[]
 
 # we create an ID per patient based on different factors that stay constant between all files
 rows <- rows_orig %>% 
-  tidyr::separate(rn, into = c("file_id", "row"), sep = "\\.") %>%
+  tidyr::separate(rn, into = c("file_id", "row"), sep = "\\.")
+
+# fixing for rows %>% dplyr::filter(Procedencia == 'EN INVESTIGACIÓN'), that person later shows up as "Contacto"
+# see line 64 in http://localhost:1313/data/results/covid-19-resultado-positivos-indre-2020-03-21.pdf and
+# http://localhost:1313/data/results/covid-19-resultado-positivos-indre-2020-03-20.pdf
+if (nrow(rows[!is.na(rows$Procedencia) & rows$Procedencia=="EN INVESTIGACIÓN",]) == 2) {
+  rows[!is.na(rows$Procedencia) & rows$Procedencia=="EN INVESTIGACIÓN",]$Contacto <- "SI"
+  rows[!is.na(rows$Procedencia) & rows$Procedencia=="EN INVESTIGACIÓN",]$Procedencia <- NA
+}
+
+# http://localhost:1313/data/results/covid-19-resultado-positivos-indre-2020-03-22.pdf
+# row 166 appears as contacto
+
+
+rows <- rows %>%
   dplyr::rowwise() %>%
   dplyr::mutate(
     patient_id = paste0(
@@ -202,10 +265,8 @@ rows <- rows_orig %>%
   dplyr::arrange(file_date_std)
 
 # fixing cuba...
-rows[
-  rows$patient_id=="ciudad-de-mexico_m_64_10-03-2020_cuba_10-03-2020_si",
-]$patient_id = "ciudad-de-mexico_m_64_10-03-2020_NA_10-03-2020_si"
-
+rows[rows$patient_id=="ciudad-de-mexico_m_64_10-03-2020_cuba_10-03-2020_si",]$patient_id = "ciudad-de-mexico_m_64_10-03-2020_NA_10-03-2020_si"
+#ciudad-de-mexico_m_41_09-03-2020_NA_NA_si1
 
 rows <- rows %>%
   dplyr::group_by(
@@ -247,27 +308,101 @@ rows %>%
   ) %>%
   View()
 
+
+
 ids_positivos = get_ids_for_type("positivos", rows, files_lookup)
 
 ids_positivos_colnames <- names(ids_positivos)
+
+mmm <- function() {
 my_map <- ids_positivos[[ids_positivos_colnames[1]]]
 
 for (i in 2:length(ids_positivos_colnames)) {
   yesterday <- ids_positivos_colnames[i-1]
   today <- ids_positivos_colnames[i]
-  
+
   mapped_table <- map_tables(
     ids_positivos[[yesterday]], 
     ids_positivos[[today]]
   )
   
+  new_patient_col <- colnames(mapped_table$new_df)[2]
+  join_cols <- c(setNames(yesterday, yesterday), "patient_id" = new_patient_col)
+  if (i == 2) {
+    join_cols <- yesterday
+  }
+  # join by id too...
   my_map <- my_map %>%
     dplyr::full_join(
-      mapped_table$new_df, by=c(yesterday), na_matches="never"
+      mapped_table$new_df, by=c(join_cols), na_matches="never"
     )
 }
+}
+
+mapped_table <- map_tables(
+  ids_positivos[["positivos_2020_03_20"]], 
+  ids_positivos[["positivos_2020_03_21"]]
+)
+
+myx <- my_map %>% 
+  dplyr::rowwise() %>%
+  dplyr::mutate(
+    unique_values = length(unique(c(
+      patient_id, 
+      patient_id_positivos_2020_03_15,
+      patient_id_positivos_2020_03_16, 
+      patient_id_positivos_2020_03_17,
+      patient_id_positivos_2020_03_18,
+      patient_id_positivos_2020_03_19,
+      patient_id_positivos_2020_03_20,
+      patient_id_positivos_2020_03_21,
+      patient_id_positivos_2020_03_22,
+      patient_id_positivos_2020_03_23,
+      patient_id_positivos_2020_03_24,
+      patient_id_positivos_2020_03_25,
+      patient_id_positivos_2020_03_26,
+      patient_id_positivos_2020_03_27,
+      patient_id_positivos_2020_03_28,
+      patient_id_positivos_2020_03_29,
+      patient_id_positivos_2020_03_30,
+      patient_id_positivos_2020_03_31
+    )))
+  ) 
+
+myx %>%  as.data.frame() %>%
+  dplyr::pull(unique_values) %>% table()
+  
+myx %>% View()
+
+  x %>% 
+    dplyr::rowwise() %>%
+    dplyr::mutate(
+      unique_values = length(unique(c(
+        patient_id, 
+        patient_id_positivos_2020_03_15,
+        patient_id_positivos_2020_03_16, 
+        patient_id_positivos_2020_03_17,
+        patient_id_positivos_2020_03_18,
+        patient_id_positivos_2020_03_19,
+        patient_id_positivos_2020_03_20,
+        patient_id_positivos_2020_03_21
+      )))
+    ) %>% View()
+  as.data.frame() %>%
+    dplyr::pull(unique_values) %>% table()  
 
 
+
+
+x <- map_tables(
+  ids_positivos$positivos_2020_03_20, 
+  ids_positivos$positivos_2020_03_21
+)
+
+my_map <- ids_positivos$positivos_2020_03_20 %>%
+  dplyr::full_join(
+    x$new_df, by=c("positivos_2020_03_20")
+  )
 
 
 

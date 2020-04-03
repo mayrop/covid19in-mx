@@ -89,54 +89,10 @@ map_tables <- function(yesterday, today) {
   case_ids_deleted_cases = yesterday %>% 
     dplyr::anti_join(today, by="patient_id")
   
-  case_ids_moved_up_cases <- yesterday %>% 
-    dplyr::inner_join(today, by="patient_id") %>% # first we join both tables
-    # then we check which ids from yesterday were moved up
-    # colnames(yesterday)[1] is a string, i.e. positivos_2020_03_19
-    # rlang::sym converts that string into a symbol
-    # and !! evaluates it right away
-    dplyr::filter(
-      !!rlang::sym(colnames(yesterday)[1]) > !!rlang::sym(colnames(today)[1])
-    ) %>%
-    dplyr::mutate(
-      moved=0
-    )
-  
-  print("moving up...")
-  print(case_ids_moved_up_cases)
-  
-  # first we move up all the cases that need to be moved
-  for (case in rownames(case_ids_moved_up_cases)) {
-    # can do this in a mutate but i am NOT going to do it today
-    row <- case_ids_moved_up_cases[case, ]
-    original_old_row_id <- as.integer(row[, 1])
-    original_new_row_id <- as.integer(row[, 3])
-    patient_id <- row[, 2] %>% as.character()
-    
-    # removing deleted cases
-    total_before <- sum(case_ids_deleted_cases[, 1] < original_old_row_id)
-    
-    if (original_old_row_id - total_before <= original_new_row_id) {
-      print("nothing to doo....")
-      next
-    }
-    
-    case_ids_moved_up_cases[case_ids_moved_up_cases$patient_id == patient_id, ]$moved = 1
-  }
-  
-  case_ids_moved_up_cases <- case_ids_moved_up_cases %>%
-    dplyr::filter(
-      moved == 1
-    ) %>%
-    dplyr::select(
-      -moved
-    )
-  
   return(
     list(
       case_ids_new_cases=case_ids_new_cases,
-      case_ids_deleted_cases=case_ids_deleted_cases,
-      case_ids_moved_up_cases=case_ids_moved_up_cases
+      case_ids_deleted_cases=case_ids_deleted_cases
     )
   )
 }
@@ -155,11 +111,10 @@ get_ids_for_type <- function(file_type="positivos", rows, files_lookup) {
       dplyr::filter(file_id == f)
     
     ids_positivos[[f]] <- file_rows %>% 
-      dplyr::select(no_caso, patient_id) %>% 
+      dplyr::select(patient_id, no_caso) %>% 
       # remember !! is for evaluating right away
       # so we evaluate the index and set it as string
-      dplyr::rename(!!f := no_caso) %>%
-      dplyr::mutate()
+      dplyr::rename(!!f := no_caso)
   }
   
   return(ids_positivos)
@@ -241,7 +196,7 @@ rows <- rows %>%
   dplyr::rowwise() %>%
   dplyr::mutate(
     patient_id_bak = patient_id,
-    patient_id = paste0(patient_id, patient_id_row, collapse = "_")
+    patient_id = paste0(patient_id, patient_id_row, sep ="_")
   ) %>%
   as.data.frame()
   
@@ -279,6 +234,10 @@ ids_positivos_colnames <- names(ids_positivos)
 my_map <- ids_positivos[[ids_positivos_colnames[1]]]
 
 for (i in 2:length(ids_positivos_colnames)) {
+  if (i == 2) {
+    my_map <- ids_positivos[[ids_positivos_colnames[i-1]]]
+  }
+  
   yesterday <- ids_positivos_colnames[i-1]
   today <- ids_positivos_colnames[i]
 
@@ -288,6 +247,8 @@ for (i in 2:length(ids_positivos_colnames)) {
   )
   
   new_col <- paste0("status_", today)
+  new_data_col <- paste0("data_", today)
+  
   my_map <- my_map %>% 
     dplyr::full_join(
       ids_positivos[[today]], by="patient_id", na_matches="never"
@@ -298,31 +259,26 @@ for (i in 2:length(ids_positivos_colnames)) {
         patient_id %in% mapped_table$case_ids_deleted_cases$patient_id ~ "REMOVED", 
         TRUE ~ "SAME"
       )
+    ) %>%
+    dplyr::rowwise() %>%
+    dplyr::mutate(
+      !!new_data_col := purrr::pmap(
+        .l = list(!!rlang::sym(today), !!rlang::sym(new_col)),
+        .f = function(x, y) { 
+          tibble(x=x, y=y)
+        }
+      )
     )
 }
 
-mapped_table <- map_tables(
-  ids_positivos[["positivos_2020_03_22"]], 
-  ids_positivos[["positivos_2020_03_23"]]
-)
 
+my_map %>%
+  dplyr::select(-starts_with("positivos"), -starts_with("status")) %>%
+  tidyr::gather(date, data, -patient_id, -starts_with("status"), -starts_with("positivos")) %>%
+  tidyr::unnest(cols = data) %>%
+  View()
 
-  as.data.frame() %>%
-    dplyr::pull(unique_values) %>% table()  
-
-
-
-
-x <- map_tables(
-  ids_positivos$positivos_2020_03_20, 
-  ids_positivos$positivos_2020_03_21
-)
-
-my_map <- ids_positivos$positivos_2020_03_20 %>%
-  dplyr::full_join(
-    x$new_df, by=c("positivos_2020_03_20")
-  )
-
+  
 
 
 # we extract all the files where PatientX is listed

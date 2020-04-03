@@ -154,10 +154,6 @@ if (nrow(rows[!is.na(rows$procedencia) & rows$procedencia=="EN INVESTIGACIÓN",]
   rows[!is.na(rows$procedencia) & rows$procedencia=="EN INVESTIGACIÓN",]$procedencia <- NA
 }
 
-# http://localhost:1313/data/results/covid-19-resultado-positivos-indre-2020-03-22.pdf
-# row 166 appears as contacto
-
-
 rows <- rows %>%
   dplyr::rowwise() %>%
   dplyr::mutate(
@@ -182,7 +178,9 @@ rows <- rows %>%
   dplyr::arrange(file_date_std)
 
 # fixing cuba...
-rows[rows$patient_id=="ciudad-de-mexico_m_64_10-03-2020_cuba_10-03-2020_si",]$patient_id = "ciudad-de-mexico_m_64_10-03-2020_NA_10-03-2020_si"
+rows[
+  rows$patient_id=="ciudad-de-mexico_m_64_10-03-2020_cuba_10-03-2020_si",
+]$patient_id = "ciudad-de-mexico_m_64_10-03-2020_NA_10-03-2020_si"
 #ciudad-de-mexico_m_41_09-03-2020_NA_NA_si1
 
 rows <- rows %>%
@@ -256,7 +254,8 @@ for (i in 2:length(ids_positivos_colnames)) {
     dplyr::mutate(
       !!new_col := dplyr::case_when(
         patient_id %in% mapped_table$case_ids_new_cases$patient_id ~ "ADDED", 
-        patient_id %in% mapped_table$case_ids_deleted_cases$patient_id ~ "REMOVED", 
+        patient_id %in% mapped_table$case_ids_deleted_cases$patient_id ~ "REMOVED",
+        is.na(!!rlang::sym(today)) ~ "NOT EXISTENT",
         TRUE ~ "SAME"
       )
     ) %>%
@@ -272,13 +271,29 @@ for (i in 2:length(ids_positivos_colnames)) {
 }
 
 
-my_map %>%
+my_map <- my_map %>%
   dplyr::select(-starts_with("positivos"), -starts_with("status")) %>%
   tidyr::gather(date, data, -patient_id, -starts_with("status"), -starts_with("positivos")) %>%
-  tidyr::unnest(cols = data) %>%
+  tidyr::unnest(cols = data)
+
+#checking things that were removed
+my_map %>%
+  dplyr::arrange(date) %>%
+  dplyr::group_by(patient_id) %>%
+  tidyr::nest() %>%
+  dplyr::mutate(
+    date_added = map_chr(data, function(.x) { 
+      .x %>% dplyr::filter(y == "ADDED") %>% dplyr::pull(date) %>% paste0(., "", collapse=NULL)}),
+    date_removed = map_chr(data, function(.x) { 
+      .x %>% dplyr::filter(y == "REMOVED") %>% dplyr::pull(date) %>% paste0(., "", collapse=NULL)})
+  ) %>% 
+  tidyr::unnest(cols=data) %>%
+  dplyr::filter(
+    date_removed != "" & y != "NOT EXISTENT"
+  ) %>%
   View()
 
-  
+View(my_map)
 
 
 # we extract all the files where PatientX is listed

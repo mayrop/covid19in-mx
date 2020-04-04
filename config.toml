@@ -1,4 +1,8 @@
-baseURL = "https://www.coronavirusin.mx"
+baseURL = "https://www.covid19in.mx"
 languageCode = "es-mx"
-title = "Coronavirus in Mexico"
+title = "COVID-19 en Mexico"
 theme = "book"
+
+[params]
+  BookMenuBundle = "/menu"
+  BookSearch = false

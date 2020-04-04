@@ -13,3 +13,21 @@
 [context.development.environment]
   HUGO_VERSION = "0.68.3"
 
+# Redirects and headers are GLOBAL for all builds – they do not get scoped to
+# contexts no matter where you define them in the file.
+# For context-specific rules, use _headers or _redirects files, which are
+# PER-DEPLOY.
+
+# A basic redirect rule
+[[redirects]]
+  from = "https://coronavirus.mx/"
+  to = "https://www.covid19in.mx"
+  status = 301
+  force = true
+
+# A basic redirect rule
+[[redirects]]
+  from = "https://www.coronavirus.mx/"
+  to = "https://www.covid19in.mx"
+  status = 301
+  force = true  

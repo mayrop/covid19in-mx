@@ -1,4 +1,3 @@
-
 # fixing for rows %>% dplyr::filter(procedencia == 'EN INVESTIGACIÓN'), that person later shows up as "Contacto"
 # see line 64 in http://localhost:1313/data/results/covid-19-resultado-positivos-indre-2020-03-21.pdf and
 # http://localhost:1313/data/results/covid-19-resultado-positivos-indre-2020-03-20.pdf
@@ -36,7 +35,8 @@ rows[
     "ciudad-de-mexico_m_64_10-03-2020_contacto-cuba_10-03-2020_1"
   ) & 
     rows$file_id %in% c(
-      "positivos_2020_03_14", "positivos_2020_03_15", "positivos_2020_03_18", "positivos_2020_03_19"
+      "positivos_2020_03_13", "positivos_2020_03_14", "positivos_2020_03_15", 
+      "positivos_2020_03_18", "positivos_2020_03_19"
     ), c("origin_fixed")
   ] <- "CONTACTO"
 
@@ -46,7 +46,8 @@ rows[
     "ciudad-de-mexico_m_64_10-03-2020_contacto-cuba_10-03-2020_1"
   ) & 
     rows$file_id %in% c(
-      "positivos_2020_03_14", "positivos_2020_03_15", "positivos_2020_03_18", "positivos_2020_03_19"
+      "positivos_2020_03_13", "positivos_2020_03_14", "positivos_2020_03_15", 
+      "positivos_2020_03_18", "positivos_2020_03_19"
     ), c("date_origin_fixed")
   ] <- "positivos_2020_03_20"
 
@@ -334,10 +335,6 @@ rows[
   ] <- "positivos_2020_03_24"
 
 
-
-
-
-
 #http://localhost:1313/data/results/txt/covid-19-resultado-positivos-indre-2020-04-02.txt
 #http://localhost:1313/data/results/txt/covid-19-resultado-positivos-indre-2020-03-22.txt
 #135       MÉXICO         F   52   10/03/2020   confirmado      España        12/03/2020
@@ -355,7 +352,7 @@ rows[
       "positivos_2020_03_27", "positivos_2020_03_28", "positivos_2020_03_29", 
       "positivos_2020_03_30", "positivos_2020_03_31", "positivos_2020_04_01", 
       "positivos_2020_04_02"
-    ), c("removed_at")
+    ), c("date_removed")
   ] <- "positivos_2020_04_03"
 
 
@@ -368,7 +365,7 @@ rows[
   ) & 
     rows$file_id %in% c(
       "positivos_2020_03_15"
-    ), c("removed_at")
+    ), c("date_removed")
   ] <- "positivos_2020_03_16"
 
 
@@ -383,7 +380,7 @@ rows[
       "positivos_2020_03_26", "positivos_2020_03_27", "positivos_2020_03_28", 
       "positivos_2020_03_29", "positivos_2020_03_30", "positivos_2020_03_31",
       "positivos_2020_04_01"
-    ), c("removed_at")
+    ), c("date_removed")
   ] <- "positivos_2020_04_02"
 
 
@@ -395,7 +392,7 @@ rows[
   ) & 
     rows$file_id %in% c(
       "positivos_2020_03_31"
-    ), c("removed_at")
+    ), c("date_removed")
   ] <- "positivos_2020_04_01"
 
 
@@ -409,7 +406,7 @@ rows[
   ) & 
     rows$file_id %in% c(
       "positivos_2020_03_27"
-    ), c("removed_at")
+    ), c("date_removed")
   ] <- "positivos_2020_03_28"
 
 
@@ -423,7 +420,7 @@ rows[
     rows$file_id %in% c(
       "positivos_2020_03_26", "positivos_2020_03_27", "positivos_2020_03_28",
       "positivos_2020_03_29", "positivos_2020_03_30", "positivos_2020_03_31"
-    ), c("removed_at")
+    ), c("date_removed")
   ] <- "positivos_2020_04_01"
 
 
@@ -436,7 +433,7 @@ rows[
   ) & 
     rows$file_id %in% c(
       "positivos_2020_03_24", "positivos_2020_03_25", "positivos_2020_03_26"
-    ), c("removed_at")
+    ), c("date_removed")
   ] <- "positivos_2020_03_27"
 
 
@@ -449,7 +446,7 @@ rows[
     rows$file_id %in% c(
       "positivos_2020_03_22", "positivos_2020_03_23", "positivos_2020_03_24",
       "positivos_2020_03_25"
-    ), c("removed_at")
+    ), c("date_removed")
   ] <- "positivos_2020_03_26"
 
 
@@ -463,7 +460,7 @@ rows[
     rows$file_id %in% c(
       "positivos_2020_03_26", "positivos_2020_03_27", "positivos_2020_03_28",
       "positivos_2020_03_29", "positivos_2020_03_30", "positivos_2020_03_31"
-    ), c("removed_at")
+    ), c("date_removed")
   ] <- "positivos_2020_04_01"
 
 
@@ -477,7 +474,7 @@ rows[
     rows$file_id %in% c(
       "positivos_2020_03_26", "positivos_2020_03_27", "positivos_2020_03_28",
       "positivos_2020_03_29", "positivos_2020_03_30", "positivos_2020_03_31"
-    ), c("removed_at")
+    ), c("date_removed")
   ] <- "positivos_2020_04_01"
 
 
@@ -492,7 +489,7 @@ rows[
       "positivos_2020_03_26", "positivos_2020_03_27", "positivos_2020_03_28",
       "positivos_2020_03_29", "positivos_2020_03_30", "positivos_2020_03_31",
       "positivos_2020_04_01"
-    ), c("removed_at")
+    ), c("date_removed")
   ] <- "positivos_2020_04_02"
 
 

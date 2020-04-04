@@ -30,8 +30,9 @@ rows_orig <- setDT(rows_orig, keep.rownames = TRUE)[]
 
 # we create an ID per patient based on different factors that stay constant between all files
 rows <- rows_orig %>% 
-  tidyr::separate(rn, into = c("file_id", "row"), sep = "\\.") %>%
+  tidyr::separate(rn, into = c("file_id", "row"), sep = "\\.") %>% 
   dplyr::select(-row)
+# ignore warning Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [1]. 
 
 colnames(rows) <- c(
   "file_id", "case", "state", "city", "sex",
@@ -46,8 +47,8 @@ rows <- rows %>%
     origin_fixed = NA,
     date_origin_fixed = NA,
     sex_fixed = NA,
-    date_age_fixed = NA,
-    removed_at = NA
+    date_sex_fixed = NA,
+    date_removed = NA
   )
 
 rows <- rows %>%
@@ -87,10 +88,6 @@ rows <- rows %>%
   ) %>%
   as.data.frame()
   
-# todo - add file with "original"
-
-rows_before_fix <- rows
-
 source("_fixes.R")
 
 rows <- rows %>%
@@ -110,7 +107,7 @@ rows <- rows %>%
         as.character(date_symptoms), 
         as.character(origin_id), 
         as.character(date_arrival),
-        as.character(removed_at)
+        as.character(date_removed)
       )), "_", collapse=""
     ),
     file_id = as.character(file_id)
@@ -201,8 +198,6 @@ for (i in 1:length(positive_ids_colnames)) {
       )
     )
 }
-
-
 
 my_map <- my_map %>%
   dplyr::select(-starts_with("positivos"), -starts_with("status")) %>%

@@ -18,7 +18,7 @@ def main(args):
         for key, values in lines.items():
             values = [None if x == '' or x == "NA" else x for x in values]
 
-            if len(values) > 1 and not "Caso" in values[0] and values[1] != "1":
+            if len(values) > 1 and not "Caso" in values[0]:
                 writer.writerow(values) 
 
 
@@ -68,61 +68,50 @@ def fix_lines(lines):
         if line[3] not in ["M", "F"]:
             line.insert(2, "")
 
-        orig_date, new_date = get_original_date(line[5])
-        line[5] = new_date
-
-        line.append(orig_date)
-
         if "*" in line[1]:
             line[1] = line[1].replace("*", "")
-            line.append("*")
+            line.append("SI")
         else:
-            line.append("")
-            
+            line.append("NA")
+        
+        line.append(get_fixed_date(line[5]))
+
         # converting to uppercase the state and status
         line[1] = line[1].upper() # state
         line[2] = line[2].upper() # locality
         line[6] = line[6].upper() # status
         line[7] = line[7].upper() # where they come from
-        
-        line.insert(9, "NO")
-        
-        if "CONTACTO" in line[7]:
-            line[9] = "SI"
-            line[7] = re.sub(r"CONTACTO(?:\s*[,/]\s*)?(.*)", "\\1", line[7])
-        
-        # converting to uppercase the state
     return lines
+
 
 
 # replacing excel dates
 # see: https://stackoverflow.com/questions/14271791/converting-date-formats-python-unusual-date-formats-extract-ymd
-def get_original_date(column):
+def get_fixed_date(column):
     match = re.search(r'(\d{5})', column)
     if not match:
-        return "", column
+        return ""
     
     m = match.group().replace(" ", "").replace(",","")
     delta = datetime.timedelta(int(m)-2)
     date = datetime.date(1900, 1, 1) + delta
     date = str(date.strftime("%d/%m/%Y"))
     
-    return str(m), date   
+    return date     
 
 def get_header():
     return [
-        "no_caso",
+        "caso",
         "estado",
         "localidad", 
         "sexo",
         "edad", 
-        "fecha_inicio_sintomas", 
-        "identificacion", 
+        "fecha_sintomas", 
+        "situacion", 
         "procedencia", 
         "fecha_llegada",
-        "contacto",
-        "fecha_inicio_sintomas_original", 
-        "recuperado"
+        "recuperado",
+        "fecha_sintomas_corregido"
     ]
 
 if __name__ == "__main__":

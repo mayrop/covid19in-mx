@@ -1,0 +1,44 @@
+{{ define "main" }}
+<article class="markdown">
+    {{- .Content -}}
+  
+    
+    {{ $products := getJSON "/data/files.json" }}
+
+    <h2>Tabla de Casos Positivos COVID-19 en Mexico</h2>
+
+    {{ range sort $products.positive "date" "desc"  }}
+      <div class="book-expand">
+        <label>
+          <div class="book-expand-head flex justify-between">
+            <span>{{ .title }}</span>
+            <span>{{ "↕" }}</span>
+          </div>
+          <input type="checkbox" class="hidden" />
+          <div class="book-expand-content markdown-inner">
+            {{ partial "cases-table.html" (dict "products" .items "type" "Positivos") }}
+          </div>
+        </label>
+      </div>
+    {{ end }}
+
+    <h2>Tabla de Casos Sospechosos COVID-19 en Mexico</h2>
+
+    {{ range sort $products.positive "date" "desc"  }}
+      <div class="book-expand">
+        <label>
+          <div class="book-expand-head flex justify-between">
+            <span>{{ .title }}</span>
+            <span>{{ "↕" }}</span>
+          </div>
+          <input type="checkbox" class="hidden" />
+          <div class="book-expand-content markdown-inner">
+            {{ partial "cases-table.html" (dict "products" .items "type" "Sospechosos") }}
+          </div>
+        </label>
+      </div>
+    {{ end }}
+
+
+  </article>
+{{ end }}

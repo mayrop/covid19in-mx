@@ -494,3 +494,71 @@ rows[
 
 
 
+#1194 COAHUILA F 0 28/03/2020 Confirmado Contacto NA
+#1189 COAHUILA F 37 28/03/2020 Confirmado Contacto NA
+#http://localhost:1313/data/results/covid-19-resultado-positivos-indre-2020-04-03.pdf
+#http://localhost:1313/data/results/covid-19-resultado-positivos-indre-2020-04-04.pdf
+rows[
+  rows$patient_id %in% c(
+    "coahuila_f_0_28-03-2020_contacto_NA_1"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_03_31", "positivos_2020_04_01", "positivos_2020_04_02",
+      "positivos_2020_04_03"
+    ), c("age_fixed")
+  ] <- 37
+
+rows[
+  rows$patient_id %in% c(
+    "coahuila_f_0_28-03-2020_contacto_NA_1"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_03_31", "positivos_2020_04_01", "positivos_2020_04_02",
+      "positivos_2020_04_03"
+    ), c("date_age_fixed")
+  ] <- "positivos_2020_04_04"
+
+
+
+#638 MÉXICO M 37 21/03/2020 Confirmado Contacto NA
+#http://localhost:1313/data/results/covid-19-resultado-positivos-indre-2020-04-03.pdf
+
+rows[
+  rows$patient_id %in% c(
+    "mexico_m_37_21-03-2020_contacto_NA_1"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_03_26", "positivos_2020_03_27", "positivos_2020_03_28",
+      "positivos_2020_03_29", "positivos_2020_03_30", "positivos_2020_03_31",
+      "positivos_2020_04_01", "positivos_2020_04_02", "positivos_2020_04_03"
+    ), c("date_removed")
+  ] <- "positivos_2020_04_04"
+
+
+
+# 633 MÉXICO F 22 24/03/2020 Confirmado Contacto NA
+#http://localhost:1313/data/results/covid-19-resultado-positivos-indre-2020-04-03.pdf
+rows[
+  rows$patient_id %in% c(
+    "mexico_f_22_24-03-2020_contacto_NA_1"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_03_26", "positivos_2020_03_27", "positivos_2020_03_28",
+      "positivos_2020_03_29", "positivos_2020_03_30", "positivos_2020_03_31",
+      "positivos_2020_04_01", "positivos_2020_04_02", "positivos_2020_04_03"
+    ), c("date_removed")
+  ] <- "positivos_2020_04_04"
+
+
+# 634 MÉXICO F 22 16/03/2020 Confirmado Contacto 15/03/2020
+#http://localhost:1313/data/results/covid-19-resultado-positivos-indre-2020-04-03.pdf
+rows[
+  rows$patient_id %in% c(
+    "mexico_f_22_16-03-2020_contacto_15-03-2020_1"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_03_26", "positivos_2020_03_27", "positivos_2020_03_28",
+      "positivos_2020_03_29", "positivos_2020_03_30", "positivos_2020_03_31",
+      "positivos_2020_04_01", "positivos_2020_04_02", "positivos_2020_04_03"
+    ), c("date_removed")
+  ] <- "positivos_2020_04_04"

@@ -31,7 +31,10 @@ rows_orig <- setDT(rows_orig, keep.rownames = TRUE)[]
 # we create an ID per patient based on different factors that stay constant between all files
 rows <- rows_orig %>% 
   tidyr::separate(rn, into = c("file_id", "row"), sep = "\\.") %>% 
-  dplyr::select(-row)
+  dplyr::select(-row) %>%
+  dplyr::filter(
+    grepl("positivos", file_id)
+  )
 # ignore warning Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [1]. 
 
 colnames(rows) <- c(

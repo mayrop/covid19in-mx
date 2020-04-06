@@ -3,6 +3,23 @@
 
 # F U N C T I O N S
 
+init_files <- function(path) {
+  filenames <- list.files(
+    path = path, 
+    pattern="*.csv", 
+    full.names=TRUE
+  )
+  
+  indexes <- basename(filenames)
+  indexes <- gsub("[A-z0-9-]+(positivos|sospechosos)-(.*?)([0-9-]+).csv", "\\1\\3", indexes)
+  names(filenames) <- gsub("-+", "_", indexes)
+  
+  files <- lapply(filenames, read.csv, header=TRUE, na.strings="")
+  files[["sospechosos_2020_02_25"]] <- NULL
+  
+  files
+}
+
 # add_time_columns(times, "my_time", "etc", tz = "UTC", hours=TRUE, format="%Y-%m-%d %H:%M:%S")
 
 add_time_columns <- function(df, column, prefix, format="%Y-%m-%d", tz="America/Los_Angeles", hours = FALSE) {
@@ -68,10 +85,15 @@ create_files_lookup <- function(files) {
   files_lookup %>% 
     dplyr::mutate(temp = gsub("([a-z]+)_(.*)", "\\1.\\2", file_id)) %>%
     tidyr::separate(temp, c("type", "file_date"), sep="\\.") %>%
+    dplyr::group_by(type) %>% 
+    dplyr::arrange(file_date) %>%
+    dplyr::mutate(file_day = dplyr::row_number()) %>%
+    dplyr::ungroup() %>%
     add_time_columns("file_date", prefix="file_date", format="%Y_%m_%d") %>%
     dplyr::mutate(
       file_id = as.character(file_id)
-    )
+    ) %>%
+    as.data.frame()
 }
 
 

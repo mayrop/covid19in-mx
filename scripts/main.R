@@ -8,20 +8,8 @@ library(lubridate)
 
 source("_functions.R")
 
-filenames <- list.files(
-  path = "../static/data/results/csv", 
-  pattern="*.csv", 
-  full.names=TRUE
-)
+files <- init_files("../static/data/results/csv")
 
-indexes <- basename(filenames)
-indexes <- gsub("[A-z0-9-]+(positivos|sospechosos)-(.*?)([0-9-]+).csv", "\\1\\3", indexes)
-names(filenames) <- gsub("-+", "_", indexes)
-
-files <- lapply(filenames, read.csv, header=TRUE, na.strings="")
-files[["sospechosos_2020_02_25"]] <- NULL
-
-str(files)
 files_lookup <- create_files_lookup(files)
 my_files_lookup <- dlply(files_lookup, 1, c)
 
@@ -57,7 +45,11 @@ rows <- rows %>%
 
 rows <- rows %>%
   dplyr::mutate(
-    date_symptoms_id = ifelse(is.na(date_symptoms_fixed), as.character(date_symptoms), as.character(date_symptoms_fixed))
+    date_symptoms_id = ifelse(
+      is.na(date_symptoms_fixed), 
+      as.character(date_symptoms), 
+      as.character(date_symptoms_fixed)
+    )
   )
 
 rows <- rows %>%
@@ -175,21 +167,23 @@ rows <- rows %>%
     files_per_patient = map_chr(data, function(.x) {
       .x$file_id %>% paste0(collapse=", ")
     }),
+    files_per_patient_total = map_int(data, function(.x) {
+      .x$file_id %>% length()
+    }),
   ) %>%
   tidyr::unnest(cols=data) %>%
   dplyr::ungroup()
 
-
 rows %>%
   dplyr::group_by(patient_id) %>%
   dplyr::slice(1) %>% 
-  dplyr::select(patient_id, files_per_patient) %>%
+  dplyr::select(patient_id, files_per_patient_total) %>%
   View()
 
 rows %>%
-  dplyr::group_by(file_id, patient_id) %>%
+  dplyr::group_by(file_id, patient_id_unique) %>%
   dplyr::summarise(
-    rows_per_file_and_patient = n()
+    rows_per_file_and_patient = dplyr::n()
   ) %>% 
   View()
 
@@ -197,28 +191,56 @@ rows <- rows %>%
   dplyr::group_by(patient_id) %>%
   tidyr::nest() %>%
   dplyr::mutate(
-    date_added = purrr::map_chr(data, ~.x[1, ]$file_date_iso %>% paste0("")),
+    date_confirmed = purrr::map_chr(data, ~.x[1, ]$file_date_iso %>% paste0("")),
     date_removed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_removed[1]]]$file_date_iso %>% paste0("")),
     date_age_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_age_fixed[1]]]$file_date_iso %>% paste0("")),
     date_sex_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_sex_fixed[1]]]$file_date_iso %>% paste0("")),
     date_origin_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_origin_fixed[1]]]$file_date_iso %>% paste0("")),
+    date_date_symptoms_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_date_symptoms_fixed[1]]]$file_date_iso %>% paste0("")),
     # TODO: clean & improve later with "R" style
     date_removed_temp = ifelse(date_removed_temp == "", NA, date_removed_temp),
     date_age_fixed_temp = ifelse(date_age_fixed_temp == "", NA, date_age_fixed_temp),
     date_sex_fixed_temp = ifelse(date_sex_fixed_temp == "", NA, date_sex_fixed_temp),
     date_origin_fixed_temp = ifelse(date_origin_fixed_temp == "", NA, date_origin_fixed_temp),
+    date_date_symptoms_fixed_temp = ifelse(date_date_symptoms_fixed_temp == "", NA, date_date_symptoms_fixed_temp), 
     any_fixed = sum(
       !is.na(date_removed_temp), 
       !is.na(date_age_fixed_temp),
       !is.na(date_sex_fixed_temp),
-      !is.na(date_origin_fixed_temp)
+      !is.na(date_origin_fixed_temp),
+      !is.na(date_date_symptoms_fixed_temp)
     )
   ) %>% 
   tidyr::unnest(cols=data) 
 
 
-rows %>% 
-  tidyr::spread(key=file_id, value=case) %>% 
-  View()
+processed <- rows %>%
+  dplyr::mutate(
+    day_confirmed = min(file_day)
+  ) %>%
+  dplyr::select(
+    file_id,
+    case,
+    state,
+    age_id,
+    sex_id,
+    situation,
+    date_confirmed,
+    day_confirmed,
+    date_symptoms_id,
+    origin_id,
+    date_arrival,
+    date_removed_temp,
+    date_age_fixed_temp,
+    date_sex_fixed_temp,
+    date_origin_fixed_temp,
+    date_date_symptoms_fixed_temp,
+    any_fixed,
+    patient_id,
+    patient_id_unique,
+    files_per_patient_total
+  ) %>%
+  tidyr::spread(key=file_id, value=case)
+
 
 

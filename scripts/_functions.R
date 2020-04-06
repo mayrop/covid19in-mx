@@ -15,6 +15,7 @@ add_time_columns <- function(df, column, prefix, format="%Y-%m-%d", tz="America/
       # remember !! is for evaluating right away
       # remember sym is for converting strings to symbols
       !!colname := as.POSIXct(!!rlang::sym(column), format=format, tz=tz, usetz=TRUE),
+      !!paste0(prefix, "_friendly") := lubridate::as_date(!!rlang::sym(colname)),
       !!paste0(prefix, "_day") := day(!!rlang::sym(colname)),
       !!paste0(prefix, "_month") := month(!!rlang::sym(colname)),
       !!paste0(prefix, "_month_name") := factor(!!rlang::sym(paste0(prefix, "_month")), levels = 1:12, labels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")),

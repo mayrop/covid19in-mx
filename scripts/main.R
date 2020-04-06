@@ -24,6 +24,7 @@ files[["sospechosos_2020_02_25"]] <- NULL
 
 str(files)
 files_lookup <- create_files_lookup(files)
+my_files_lookup <- dlply(files_lookup, 1, c)
 
 rows_orig <- do.call(rbind, files)
 rows_orig <- setDT(rows_orig, keep.rownames = TRUE)[]
@@ -158,85 +159,7 @@ rows %>%
   View()
 
 
-positive_ids = get_ids_for_type("positivos", rows, files_lookup)
-
-positive_ids_colnames <- names(positive_ids)
-
-for (i in 1:length(positive_ids_colnames)) {
-  yesterday <- ifelse(i > 1, positive_ids_colnames[i-1], NA)
-  today <- positive_ids_colnames[i]
-  
-  new_col <- paste0("status_", today)
-  new_data_col <- paste0("data_", today)
-
-  mapped_table <- map_tables(
-    today, yesterday, positive_ids
-  )
-  
-  if (i == 1) {
-    my_map <- positive_ids[[positive_ids_colnames[1]]]
-  } else {
-    my_map <- my_map %>% 
-      dplyr::full_join(
-        positive_ids[[today]], by="patient_id", na_matches="never"
-      )    
-  }
-  
-  my_map <- my_map %>%
-    dplyr::mutate(
-      !!new_col := dplyr::case_when(
-        patient_id %in% mapped_table$new_rows$patient_id ~ "ADDED", 
-        patient_id %in% mapped_table$deleted_rows$patient_id ~ "REMOVED",
-        is.na(!!rlang::sym(today)) ~ "NOT EXISTENT",
-        TRUE ~ "SAME"
-      )
-    ) %>%
-    dplyr::rowwise() %>%
-    dplyr::mutate(
-      !!new_data_col := purrr::pmap(
-        .l = list(!!rlang::sym(today), !!rlang::sym(new_col)),
-        .f = function(x, y) { 
-          tibble(x=x, y=y)
-        }
-      )
-    )
-}
-
-my_map <- my_map %>%
-  dplyr::select(-starts_with("positivos"), -starts_with("status")) %>%
-  tidyr::gather(date, data, -patient_id, -starts_with("status"), -starts_with("positivos")) %>%
-  tidyr::unnest(cols = data)
-
-#checking things that were removed
-my_map %>%
-  dplyr::arrange(date) %>%
-  dplyr::group_by(patient_id) %>%
-  tidyr::nest() %>%
-  dplyr::mutate(
-    date_added = map_chr(data, function(.x) { 
-      temp <- .x %>% dplyr::filter(y == "ADDED") %>% dplyr::pull(date) %>% paste0(., "", collapse=NULL)
-      if (length(temp) > 1) {
-        return("CHECK")
-      } 
-      temp
-    }),
-    date_removed = map_chr(data, function(.x) { 
-      temp <- .x %>% dplyr::filter(y == "REMOVED") %>% dplyr::pull(date) %>% paste0(., "", collapse=NULL)
-      if (length(temp) > 1) {
-        return("CHECK")
-      } 
-      temp 
-    })
-  ) %>% 
-  tidyr::unnest(cols=data) %>%
-  dplyr::filter(
-    date_removed != "" & y != "NOT EXISTENT"
-  ) %>%
-  View()
-
-View(my_map)
-
-
+source("_sanity-check.R")
 
 # we extract all the files where PatientX is listed
 rows <- rows %>%
@@ -263,4 +186,33 @@ rows %>%
     rows_per_file_and_patient = n()
   ) %>% 
   View()
+
+rows <- rows %>%
+  dplyr::group_by(patient_id) %>%
+  tidyr::nest() %>%
+  dplyr::mutate(
+    date_added = purrr::map_chr(data, ~.x[1, ]$file_date_friendly %>% paste0("")),
+    date_removed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_removed[1]]]$file_date_friendly %>% paste0("")),
+    date_age_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_age_fixed[1]]]$file_date_friendly %>% paste0("")),
+    date_sex_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_sex_fixed[1]]]$file_date_friendly %>% paste0("")),
+    date_origin_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_origin_fixed[1]]]$file_date_friendly %>% paste0("")),
+    # TODO: clean & improve later with "R" style
+    date_removed_temp = ifelse(date_removed_temp == "", NA, date_removed_temp),
+    date_age_fixed_temp = ifelse(date_age_fixed_temp == "", NA, date_age_fixed_temp),
+    date_sex_fixed_temp = ifelse(date_sex_fixed_temp == "", NA, date_sex_fixed_temp),
+    date_origin_fixed_temp = ifelse(date_origin_fixed_temp == "", NA, date_origin_fixed_temp),
+    any_fixed = sum(
+      !is.na(date_removed_temp), 
+      !is.na(date_age_fixed_temp),
+      !is.na(date_sex_fixed_temp),
+      !is.na(date_origin_fixed_temp)
+    )
+  ) %>% 
+  tidyr::unnest(cols=data) 
+
+
+rows %>% 
+  tidyr::spread(key=file_id, value=case) %>% 
+  View()
+
 

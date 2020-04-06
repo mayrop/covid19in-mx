@@ -18,7 +18,7 @@ def main(args):
         for key, values in lines.items():
             values = [None if x == '' or x == "NA" else x for x in values]
 
-            if len(values) > 1 and not "Caso" in values[0]:
+            if len(values) > 1 and not "CASO" in values[0]:
                 writer.writerow(values) 
 
 
@@ -58,13 +58,13 @@ def get_lines(soup):
             lines[row_id].append(str(div.get_text()).strip())
 
     return lines 
-
+    
 
 def fix_lines(lines):
     for key, line in lines.items():
         if len(line) == 1:
             continue
-
+            
         if line[3] not in ["M", "F"]:
             line.insert(2, "")
 
@@ -73,16 +73,19 @@ def fix_lines(lines):
             line.append("SI")
         else:
             line.append("NA")
-        
+
         line.append(get_fixed_date(line[5]))
-
-        # converting to uppercase the state and status
-        line[1] = line[1].upper() # state
-        line[2] = line[2].upper() # locality
-        line[6] = line[6].upper() # status
-        line[7] = line[7].upper() # where they come from
+    
+        # converting to uppercase the state and status        
+        line = [col.upper() for col in line]
+        # remove accents (keep ñ)
+        line = [strip_accents(col) for col in line]
+        # change date to iso format
+        line = [re.sub("(\d+)/(\d+)/(\d+)", "\\3-\\2-\\1", col) for col in line]
+        
+        lines[key] = line
+ 
     return lines
-
 
 
 # replacing excel dates
@@ -97,7 +100,30 @@ def get_fixed_date(column):
     date = datetime.date(1900, 1, 1) + delta
     date = str(date.strftime("%d/%m/%Y"))
     
-    return date     
+    return date    
+
+
+
+def strip_accents(text):
+    """
+    could have done this:
+    https://stackoverflow.com/questions/517923/what-is-the-best-way-to-remove-accents-in-a-python-unicode-string
+    """
+
+    rep = {
+        "Á": "A", 
+        "É": "E",
+        "Í": "I",
+        "Ó": "O",
+        "Ú": "U"
+    }
+
+    rep = dict((re.escape(k), v) for k, v in rep.items()) 
+    pattern = re.compile("|".join(rep.keys()))
+    text = pattern.sub(lambda m: rep[re.escape(m.group(0))], text)
+    
+    return text
+     
 
 def get_header():
     return [

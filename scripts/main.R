@@ -6,7 +6,6 @@ library(purrr)
 library(forcats)
 library(lubridate)
 
-
 source("_functions.R")
 
 filenames <- list.files(
@@ -191,11 +190,11 @@ rows <- rows %>%
   dplyr::group_by(patient_id) %>%
   tidyr::nest() %>%
   dplyr::mutate(
-    date_added = purrr::map_chr(data, ~.x[1, ]$file_date_friendly %>% paste0("")),
-    date_removed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_removed[1]]]$file_date_friendly %>% paste0("")),
-    date_age_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_age_fixed[1]]]$file_date_friendly %>% paste0("")),
-    date_sex_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_sex_fixed[1]]]$file_date_friendly %>% paste0("")),
-    date_origin_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_origin_fixed[1]]]$file_date_friendly %>% paste0("")),
+    date_added = purrr::map_chr(data, ~.x[1, ]$file_date_iso %>% paste0("")),
+    date_removed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_removed[1]]]$file_date_iso %>% paste0("")),
+    date_age_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_age_fixed[1]]]$file_date_iso %>% paste0("")),
+    date_sex_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_sex_fixed[1]]]$file_date_iso %>% paste0("")),
+    date_origin_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_origin_fixed[1]]]$file_date_iso %>% paste0("")),
     # TODO: clean & improve later with "R" style
     date_removed_temp = ifelse(date_removed_temp == "", NA, date_removed_temp),
     date_age_fixed_temp = ifelse(date_age_fixed_temp == "", NA, date_age_fixed_temp),

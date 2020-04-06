@@ -51,7 +51,13 @@ rows <- rows %>%
     date_origin_fixed = NA,
     sex_fixed = NA,
     date_sex_fixed = NA,
-    date_removed = NA
+    date_removed = NA,
+    date_date_symptoms_fixed = NA
+  )
+
+rows <- rows %>%
+  dplyr::mutate(
+    date_symptoms_id = ifelse(is.na(date_symptoms_fixed), as.character(date_symptoms), as.character(date_symptoms_fixed))
   )
 
 rows <- rows %>%
@@ -62,7 +68,7 @@ rows <- rows %>%
         as.character(state), 
         as.character(sex), 
         age,
-        as.character(date_symptoms), 
+        as.character(date_symptoms_id), 
         as.character(origin), 
         as.character(date_arrival)
       )), "_", collapse=""
@@ -98,6 +104,7 @@ rows <- rows %>%
     age_id = ifelse(is.na(age_fixed), age, age_fixed),
     sex_id = ifelse(is.na(sex_fixed), as.character(sex), as.character(sex_fixed)),
     origin_id = ifelse(is.na(origin_fixed), as.character(origin), as.character(origin_fixed)),
+    date_symptoms_id = ifelse(is.na(date_symptoms_fixed), as.character(date_symptoms), as.character(date_symptoms_fixed)),
     patient_id_bak = patient_id
   ) %>%
   dplyr::rowwise() %>%
@@ -107,7 +114,7 @@ rows <- rows %>%
         as.character(state), 
         as.character(sex_id), 
         age_id,
-        as.character(date_symptoms), 
+        as.character(date_symptoms_id), 
         as.character(origin_id), 
         as.character(date_arrival),
         as.character(date_removed)

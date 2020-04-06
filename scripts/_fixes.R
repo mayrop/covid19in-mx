@@ -564,10 +564,115 @@ rows[
   ] <- "positivos_2020_04_04"
 
 
+# 634 MÉXICO F 22 16/03/2020 Confirmado Contacto 15/03/2020
+#http://localhost:1313/data/results/covid-19-resultado-positivos-indre-2020-04-03.pdf
+rows[
+  rows$patient_id %in% c(
+    "mexico_f_22_2020-03-16_contacto_2020-03-15_1"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_03_26", "positivos_2020_03_27", "positivos_2020_03_28",
+      "positivos_2020_03_29", "positivos_2020_03_30", "positivos_2020_03_31",
+      "positivos_2020_04_01", "positivos_2020_04_02", "positivos_2020_04_03"
+    ), c("date_removed")
+  ] <- "positivos_2020_04_04"
 
 
-jalisco_f_49_2020-03-12_espana_2020-03-09_NA_1	 167
-jalisco_m_49_2020-03-13_estados-unidos_2020-03-08_NA_1	198
-ciudad-de-mexico_m_45_2020-03-13_espana_2020-03-19_NA_2	 1156
-ciudad-de-mexico_m_42_2020-03-09_contacto_NA_NA_1	1699
-queretaro_m_49_2020-01-30_contacto_NA_NA_1	1834
+# 167       JALISCO        F   49   12/03/2020   Confirmado      España        09/03/2020
+# https://covid19in.mx/data/results/txt/covid-19-resultado-positivos-indre-2020-04-04.txt
+rows[
+  rows$patient_id %in% c(
+    "jalisco_f_49_2020-03-12_espana_2020-03-09_1"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_03_19", "positivos_2020_03_20", "positivos_2020_03_21", 
+      "positivos_2020_03_22", "positivos_2020_03_23", "positivos_2020_03_24",
+      "positivos_2020_03_25", "positivos_2020_03_26", "positivos_2020_03_27",
+      "positivos_2020_03_28", "positivos_2020_03_29", "positivos_2020_03_30", 
+      "positivos_2020_03_31", "positivos_2020_04_01", "positivos_2020_04_02",
+      "positivos_2020_04_03", "positivos_2020_04_04"
+    ), c("date_removed")
+  ] <- "positivos_2020_04_05"
+
+
+# 198       JALISCO        M   49   13/03/2020   Confirmado   Estados Unidos   08/03/2020
+# https://covid19in.mx/data/results/txt/covid-19-resultado-positivos-indre-2020-04-04.txt
+rows[
+  rows$patient_id %in% c(
+    "jalisco_m_49_2020-03-13_estados-unidos_2020-03-08_1"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_03_19", "positivos_2020_03_20", "positivos_2020_03_21", 
+      "positivos_2020_03_22", "positivos_2020_03_23", "positivos_2020_03_24",
+      "positivos_2020_03_25", "positivos_2020_03_26", "positivos_2020_03_27",
+      "positivos_2020_03_28", "positivos_2020_03_29", "positivos_2020_03_30", 
+      "positivos_2020_03_31", "positivos_2020_04_01", "positivos_2020_04_02",
+      "positivos_2020_04_03", "positivos_2020_04_04"
+    ), c("date_removed")
+  ] <- "positivos_2020_04_05"
+
+
+# 64   CIUDAD DE MÉXICO   M   59   07/03/2020   Confirmado      España        04/03/2020
+# https://covid19in.mx/data/results/txt/covid-19-resultado-positivos-indre-2020-04-04.txt
+rows[
+  rows$patient_id %in% c(
+    "ciudad-de-mexico_m_59_2020-03-07_espana_2020-03-04_1"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_03_16", "positivos_2020_03_17", "positivos_2020_03_18", 
+      "positivos_2020_03_19", "positivos_2020_03_20", "positivos_2020_03_21", 
+      "positivos_2020_03_22", "positivos_2020_03_23", "positivos_2020_03_24",
+      "positivos_2020_03_25", "positivos_2020_03_26", "positivos_2020_03_27",
+      "positivos_2020_03_28", "positivos_2020_03_29", "positivos_2020_03_30", 
+      "positivos_2020_03_31", "positivos_2020_04_01", "positivos_2020_04_02",
+      "positivos_2020_04_03", "positivos_2020_04_04"
+    ), c("date_removed")
+  ] <- "positivos_2020_04_05"
+
+# 1156    CIUDAD DE MÉXICO     M   45   13/03/2020   Confirmado      España        19/03/2020
+# https://covid19in.mx/data/results/txt/covid-19-resultado-positivos-indre-2020-04-04.txt
+rows[
+  rows$patient_id %in% c(
+    "ciudad-de-mexico_m_45_2020-03-13_espana_2020-03-19_2"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_03_31", "positivos_2020_04_01", "positivos_2020_04_02",
+      "positivos_2020_04_03", "positivos_2020_04_04"
+    ), c("date_removed")
+  ] <- "positivos_2020_04_05"
+
+
+# 1699    CIUDAD DE MÉXICO     M   42   09/03/2020   Confirmado     Contacto          NA
+# https://covid19in.mx/data/results/txt/covid-19-resultado-positivos-indre-2020-04-04.txt
+
+rows[
+  rows$patient_id %in% c(
+    "ciudad-de-mexico_m_42_2020-03-09_contacto_NA_1"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_04_03", "positivos_2020_04_04"
+    ), c("date_removed")
+  ] <- "positivos_2020_04_05"
+
+
+# 1834        QUERETARO         M   49   30/01/2020   Confirmado     Contacto          NA
+# https://covid19in.mx/data/results/txt/covid-19-resultado-positivos-indre-2020-04-04.txt
+rows[
+  rows$patient_id %in% c(
+    "queretaro_m_49_2020-01-30_contacto_NA_1"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_04_04"
+    ), c("date_symptoms_fixed")
+  ] <- "2020-03-30"
+
+rows[
+  rows$patient_id %in% c(
+    "queretaro_m_49_2020-01-30_contacto_NA_1"
+  ) & 
+    rows$file_id %in% c(
+      "positivos_2020_04_04"
+    ), c("date_date_symptoms_fixed")
+  ] <- "positivos_2020_04_05"
+
+

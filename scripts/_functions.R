@@ -143,4 +143,11 @@ get_ids_for_type <- function(file_type="positivos", rows, files_lookup) {
 }
 
 
+pull_original_attribute <- function(df, attr, attr_original) {
+  df %>% 
+    dplyr::filter(!(!!rlang::enquo(attr) %in% !!rlang::enquo(attr_original))) %>% 
+    dplyr::pull(!!rlang::enquo(attr)) %>% unique() %>% 
+    paste0("", collapse = ", ")
+}
+
 # -------------------------------------------------------------------------------------

@@ -187,6 +187,7 @@ rows %>%
   ) %>% 
   View()
 
+# TODO: improve later, see: https://github.com/tidyverse/purrr/issues/254
 rows <- rows %>%
   dplyr::group_by(patient_id) %>%
   tidyr::nest() %>%
@@ -197,7 +198,7 @@ rows <- rows %>%
     date_sex_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_sex_fixed[1]]]$file_date_iso %>% paste0("")),
     date_origin_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_origin_fixed[1]]]$file_date_iso %>% paste0("")),
     date_date_symptoms_fixed_temp = purrr::map_chr(data, ~my_files_lookup[[.x$date_date_symptoms_fixed[1]]]$file_date_iso %>% paste0("")),
-    # TODO: clean & improve later with "R" style
+    # TODO: clean & improve later with "R" style - see: https://github.com/tidyverse/purrr/issues/254
     date_removed_temp = ifelse(date_removed_temp == "", NA, date_removed_temp),
     date_age_fixed_temp = ifelse(date_age_fixed_temp == "", NA, date_age_fixed_temp),
     date_sex_fixed_temp = ifelse(date_sex_fixed_temp == "", NA, date_sex_fixed_temp),
@@ -213,10 +214,30 @@ rows <- rows %>%
   ) %>% 
   tidyr::unnest(cols=data) 
 
+# adding original data
+rows <- rows %>%
+  dplyr::group_by(patient_id) %>%
+  tidyr::nest() %>%
+  dplyr::mutate(
+    age_original = purrr::map_chr(data, ~pull_original_attribute(.x, age, age_id)),
+    sex_original = purrr::map_chr(data, ~pull_original_attribute(.x, sex, sex_id)),
+    origin_original = purrr::map_chr(data, ~pull_original_attribute(.x, origin, origin_id)),
+    date_symptoms_original = purrr::map_chr(data, ~pull_original_attribute(.x, date_symptoms, date_symptoms_id)),
+    # TODO: clean & improve later with "R" style - see: https://github.com/tidyverse/purrr/issues/254
+    age_original = ifelse(age_original == "", NA, age_original),
+    sex_original = ifelse(sex_original == "", NA, sex_original),
+    origin_original = ifelse(origin_original == "", NA, origin_original),
+    date_symptoms_original = ifelse(date_symptoms_original == "", NA, date_symptoms_original)
+  ) %>% 
+  tidyr::unnest(cols=data) %>%
+  dplyr::ungroup()
 
 processed <- rows %>%
   dplyr::mutate(
     day_confirmed = min(file_day)
+  ) %>%
+  dplyr::mutate(
+    file_id = sub("(.)", "\\U\\1", file_id, perl=TRUE)
   ) %>%
   dplyr::select(
     file_id,
@@ -225,22 +246,60 @@ processed <- rows %>%
     age_id,
     sex_id,
     situation,
-    date_confirmed,
-    day_confirmed,
     date_symptoms_id,
     origin_id,
     date_arrival,
+    
+    date_confirmed,
     date_removed_temp,
+    day_confirmed,
+    
+    age_original,
+    sex_original,
+    origin_original,
+    date_symptoms_original,
+    
     date_age_fixed_temp,
     date_sex_fixed_temp,
     date_origin_fixed_temp,
     date_date_symptoms_fixed_temp,
+    
     any_fixed,
     patient_id,
-    patient_id_unique,
-    files_per_patient_total
+    patient_id_unique
+  ) %>%
+  dplyr::rename(
+    Estado = state,
+    Edad = age_id,
+    Sexo = sex_id,
+    Situacion = situation,
+    Fecha_Sintomas = date_symptoms_id,
+    Procedencia = origin_id,
+    Fecha_Llegada = date_arrival,
+    
+    Fecha_Confirmacion_Positivo = date_confirmed,
+    Fecha_Eliminacion = date_removed_temp,
+    Dia_Positivo = day_confirmed,
+    
+    Edad_Original = age_original,
+    Sexo_Original = sex_original,
+    Procedencia_Original = origin_original,
+    Fecha_Sintomas_Original = date_symptoms_original,
+    
+    Edad_Fecha_Correccion = date_age_fixed_temp,
+    Sexo_Fecha_Correccion = date_sex_fixed_temp,
+    Procedencia_Fecha_Correccion = date_origin_fixed_temp,
+    Sintomas_Fecha_Correction = date_date_symptoms_fixed_temp,
+    
+    Total_Inconsistencias = any_fixed,
+    Paciente_Id = patient_id,
+    Paciente_Id_Unico = patient_id_unique
   ) %>%
   tidyr::spread(key=file_id, value=case)
+
+
+write.csv(processed, "../static/data/processed/positivos.csv", row.names=FALSE)
+
 
 
 

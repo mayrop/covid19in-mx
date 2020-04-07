@@ -1,4 +1,4 @@
-caso,estado,localidad,sexo,edad,fecha_sintomas,situacion,procedencia,fecha_llegada,recuperado,fecha_sintomas_corregido
+Caso,Estado,Localidad,Sexo,Edad,Fecha_Sintomas,Situacion,Procedencia,Fecha_Llegada,Recuperado,Fecha_Sintomas_Corregido
 1,SAN LUIS POTOSI,RIO VERDE,F,22,2020-03-11,SOSPECHOSO,ESPAÑA,2020-03-06,,
 2,PUEBLA,PUEBLA,M,49,2020-03-15,SOSPECHOSO,CONTACTO,,,
 3,SAN LUIS POTOSI,SAN LUIS POTOSI,M,25,2020-03-13,SOSPECHOSO,CONTACTO,,,

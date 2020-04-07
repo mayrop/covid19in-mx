@@ -1,4 +1,4 @@
-caso,estado,localidad,sexo,edad,fecha_sintomas,situacion,procedencia,fecha_llegada,recuperado,fecha_sintomas_corregido
+Caso,Estado,Localidad,Sexo,Edad,Fecha_Sintomas,Situacion,Procedencia,Fecha_Llegada,Recuperado,Fecha_Sintomas_Corregido
 1,CIUDAD DE MEXICO,,M,35,2020-02-22,CONFIRMADO,ITALIA,2020-02-22,,
 2,SINALOA,,M,41,2020-02-22,CONFIRMADO,ITALIA,2020-02-21,,
 3,CIUDAD DE MEXICO,,M,59,2020-02-23,CONFIRMADO,ITALIA,2020-02-22,,

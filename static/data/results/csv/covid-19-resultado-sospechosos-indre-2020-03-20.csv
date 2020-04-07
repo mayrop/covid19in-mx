@@ -1,4 +1,4 @@
-caso,estado,localidad,sexo,edad,fecha_sintomas,situacion,procedencia,fecha_llegada,recuperado,fecha_sintomas_corregido
+Caso,Estado,Localidad,Sexo,Edad,Fecha_Sintomas,Situacion,Procedencia,Fecha_Llegada,Recuperado,Fecha_Sintomas_Corregido
 1,SAN LUIS POTOSI,,F,22,2020-03-11,SOSPECHOSO,ESPAÑA,2020-03-06,,
 2,MEXICO,,M,23,2020-03-03,SOSPECHOSO,ESPAÑA,2020-03-02,,
 3,MEXICO,,M,34,2020-02-16,SOSPECHOSO,ITALIA,2020-02-29,,

@@ -1,4 +1,4 @@
-caso,estado,localidad,sexo,edad,fecha_sintomas,situacion,procedencia,fecha_llegada,recuperado,fecha_sintomas_corregido
+Caso,Estado,Localidad,Sexo,Edad,Fecha_Sintomas,Situacion,Procedencia,Fecha_Llegada,Recuperado,Fecha_Sintomas_Corregido
 1,BAJA CALIFORNIA,,F,24,2020-02-24,SOSPECHOSO,ITALIA,2020-03-02,,
 2,CIUDAD DE MEXICO,,M,30,2020-02-27,SOSPECHOSO,ITALIA,2020-02-18,,
 3,BAJA CALIFORNIA,,F,40,2020-02-29,SOSPECHOSO,FRANCIA,2020-02-24,,

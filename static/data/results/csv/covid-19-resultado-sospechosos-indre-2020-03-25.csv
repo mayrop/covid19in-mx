@@ -1,4 +1,4 @@
-caso,estado,localidad,sexo,edad,fecha_sintomas,situacion,procedencia,fecha_llegada,recuperado,fecha_sintomas_corregido
+Caso,Estado,Localidad,Sexo,Edad,Fecha_Sintomas,Situacion,Procedencia,Fecha_Llegada,Recuperado,Fecha_Sintomas_Corregido
 1,PUEBLA,PUEBLA,M,49,2020-03-15,SOSPECHOSO,CONTACTO,,,
 2,GUERRERO,ZONA NORTE,M,29,2020-03-15,SOSPECHOSO,CONTACTO,,,
 3,BAJA CALIFORNIA,TIJUANA,F,34,2020-03-14,SOSPECHOSO,ESTADOS UNIDOS,2020-03-08,,

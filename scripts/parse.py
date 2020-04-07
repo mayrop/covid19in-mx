@@ -65,6 +65,10 @@ def fix_lines(lines):
         if len(line) == 1:
             continue
             
+        # on April 6 they changed the format of the files, removing the date of arrival
+        if len(line) == 7:
+            line.append("NA")
+            
         if line[3] not in ["M", "F"]:
             line.insert(2, "")
 
@@ -79,7 +83,7 @@ def fix_lines(lines):
         # converting to uppercase the state and status        
         line = [col.upper() for col in line]
         # remove accents (keep ñ)
-        line = [strip_accents(col) for col in line]
+        line = [normalize_text(col) for col in line]
         # change date to iso format
         line = [re.sub("(\d+)/(\d+)/(\d+)", "\\3-\\2-\\1", col) for col in line]
         
@@ -103,8 +107,7 @@ def get_fixed_date(column):
     return date    
 
 
-
-def strip_accents(text):
+def normalize_text(text):
     """
     could have done this:
     https://stackoverflow.com/questions/517923/what-is-the-best-way-to-remove-accents-in-a-python-unicode-string
@@ -115,30 +118,39 @@ def strip_accents(text):
         "É": "E",
         "Í": "I",
         "Ó": "O",
-        "Ú": "U"
+        "Ú": "U",
+        "TRIESTE": "ITALIA",
+        "GRAN": "GRAN BRETAÑA",
+        "EMIRATOS": "EMIRATOS ARABES",
+        "ARABIA": "ARABIA SAUDITA",
+        "DISTRITO FEDERAL": "CIUDAD DE MEXICO"
     }
 
     rep = dict((re.escape(k), v) for k, v in rep.items()) 
     pattern = re.compile("|".join(rep.keys()))
     text = pattern.sub(lambda m: rep[re.escape(m.group(0))], text)
     
+    text = re.sub(r"ESTADOS$", "ESTADOS UNIDOS", text)
+    text = re.sub(r"MEX$", "NA", text)
+
     return text
-     
+
 
 def get_header():
     return [
-        "caso",
-        "estado",
-        "localidad", 
-        "sexo",
-        "edad", 
-        "fecha_sintomas", 
-        "situacion", 
-        "procedencia", 
-        "fecha_llegada",
-        "recuperado",
-        "fecha_sintomas_corregido"
+        "Caso",
+        "Estado",
+        "Localidad", 
+        "Sexo",
+        "Edad", 
+        "Fecha_Sintomas", 
+        "Situacion", 
+        "Procedencia", 
+        "Fecha_Llegada",
+        "Recuperado",
+        "Fecha_Sintomas_Corregido"
     ]
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

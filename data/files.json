@@ -164,6 +164,12 @@
                 "txt": "txt/covid-19-resultado-positivos-indre-2020-04-06.txt",
                 "csv": "csv/covid-19-resultado-positivos-indre-2020-04-06.csv",
                 "date": "06/04/2020"
+            },
+            {
+                "pdf": "covid-19-resultado-positivos-indre-2020-04-07.pdf",
+                "txt": "txt/covid-19-resultado-positivos-indre-2020-04-07.txt",
+                "csv": "csv/covid-19-resultado-positivos-indre-2020-04-07.csv",
+                "date": "07/04/2020"
             }
         ]
     } 
@@ -190,6 +196,12 @@
                 "date": "08/03/2020",
                 "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-08.csv",
                 "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-08.txt"
+            },
+            {
+                "pdf": "covid-19-resultado-sospechosos-indre-2020-03-12.pdf",
+                "date": "12/03/2020",
+                "csv": "csv/covid-19-resultado-sospechosos-indre-2020-03-12.csv",
+                "txt": "txt/covid-19-resultado-sospechosos-indre-2020-03-12.txt"
             },
             {
                 "pdf": "covid-19-resultado-sospechosos-indre-2020-03-13.pdf",
@@ -346,6 +358,12 @@
                 "txt": "txt/covid-19-resultado-sospechosos-indre-2020-04-06.txt",
                 "csv": "csv/covid-19-resultado-sospechosos-indre-2020-04-06.csv",
                 "date": "06/04/2020"
+            },
+            {
+                "pdf": "covid-19-resultado-sospechosos-indre-2020-04-07.pdf",
+                "txt": "txt/covid-19-resultado-sospechosos-indre-2020-04-07.txt",
+                "csv": "csv/covid-19-resultado-sospechosos-indre-2020-04-07.csv",
+                "date": "07/04/2020"
             }
         ]
     }

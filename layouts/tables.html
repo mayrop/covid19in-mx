@@ -1,22 +1,82 @@
 {{ define "main" }}
 <article class="markdown">
     {{- .Content -}}
-  
     
-    {{ $products := getJSON "/data/files.json" }}
+    {{ $products := getJSON "https://datos.covid19in.mx/files.json?test" }}
 
-    <h2>Tabla de Casos Positivos COVID-19 en Mexico</h2>
+    {{ $series := $products.series }}
 
-    {{ range sort $products.positive "date" "desc"  }}
+    <h3>Series de Tiempo</h3>
+    <ul>
+      <li>
+        <a href="https://datos.covid19in.mx{{ $series.agregados.totales  }}" target="_blank" data-gtm-type="click" data-gtm-category="PDF Files" data-gtm-action="Download" data-gtm-label="Covid 19 - ">Totales por día</a>
+      </li>
+      <li>
+        <a href="https://datos.covid19in.mx{{ $series.agregados.federal  }}" target="_blank" data-gtm-type="click" data-gtm-category="PDF Files" data-gtm-action="Download" data-gtm-label="Covid 19 - ">Todos los datos (por fecha y estado)</a>
+      </li>
+    </ul>
+
+    <h3>Series de Tiempo por Estado</h3>
+
+    <div class="book-expand">
+      <label>
+        <div class="book-expand-head flex justify-between">
+          <span>Abrir</span>
+          <span>{{ "↕" }}</span>
+        </div>
+        <input type="checkbox" class="hidden" />
+        <div class="book-expand-content markdown-inner">
+          <table>
+            <tr>
+              <th>Fecha</th>
+              <th>CSV</th>
+            </tr>
+            {{ range $series.estatal  }}
+            <tr>
+              
+              <td>{{ .nombre }}</td>
+              <td><a href="https://datos.covid19in.mx{{ .path }}" target="_blank" data-gtm-type="click" data-gtm-category="PDF Files" data-gtm-action="Download" data-gtm-label="Covid 19 - {{ .fecha }}">Descargar</a></td>
+            </tr>
+            {{ end }}
+          </table>
+        </div>
+      </label>
+    </div>
+
+
+    <h3>Series de Tiempo por Fecha</h3>
+
+    {{ range sort $series.federal "date" "asc"  }}
       <div class="book-expand">
         <label>
           <div class="book-expand-head flex justify-between">
-            <span>{{ .title }}</span>
+            <span>{{ .titulo }}</span>
             <span>{{ "↕" }}</span>
           </div>
           <input type="checkbox" class="hidden" />
           <div class="book-expand-content markdown-inner">
-            {{ partial "cases-table.html" (dict "products" .items "type" "Positivos") }}
+            {{ partial "series-date-table.html" (dict "products" .elementos "type" "Positivos") }}
+          </div>
+        </label>
+      </div>
+    {{ end }}
+
+
+
+    {{ $tables := $products.tablas }}
+
+    <h2>Tabla de Casos Positivos COVID-19 en Mexico</h2>
+
+    {{ range sort $tables.positivos "fecha" "asc"  }}
+      <div class="book-expand">
+        <label>
+          <div class="book-expand-head flex justify-between">
+            <span>{{ .titulo }}</span>
+            <span>{{ "↕" }}</span>
+          </div>
+          <input type="checkbox" class="hidden" />
+          <div class="book-expand-content markdown-inner">
+            {{ partial "cases-table.html" (dict "products" .elementos "type" "Positivos") }}
           </div>
         </label>
       </div>
@@ -24,16 +84,16 @@
 
     <h2>Tabla de Casos Sospechosos COVID-19 en Mexico</h2>
 
-    {{ range sort $products.suspected "date" "desc"  }}
+    {{ range sort $tables.sospechosos "fecha" "asc"  }}
       <div class="book-expand">
         <label>
           <div class="book-expand-head flex justify-between">
-            <span>{{ .title }}</span>
+            <span>{{ .titulo }}</span>
             <span>{{ "↕" }}</span>
           </div>
           <input type="checkbox" class="hidden" />
           <div class="book-expand-content markdown-inner">
-            {{ partial "cases-table.html" (dict "products" .items "type" "Sospechosos") }}
+            {{ partial "cases-table.html" (dict "products" .elementos "type" "Sospechosos") }}
           </div>
         </label>
       </div>

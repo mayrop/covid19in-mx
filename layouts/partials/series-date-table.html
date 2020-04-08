@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>Fecha</th>
+    <th>CSV</th>
+  </tr>
+  {{ $type := .type }}
+  {{ range sort .products "fecha" "asc"  }}
+  <tr>
+    <td>{{ .fecha }}</td>
+    <td><a href="https://datos.covid19in.mx{{ .path }}" target="_blank" data-gtm-type="click" data-gtm-category="PDF Files" data-gtm-action="Download" data-gtm-label="Covid 19 - {{ $type }} - {{ .fecha }}">Descargar</a></td>
+  </tr>
+  {{ end }}
+</table>

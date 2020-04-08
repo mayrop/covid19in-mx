@@ -20,14 +20,14 @@
 
 # A basic redirect rule
 [[redirects]]
-  from = "https://coronavirus.mx/"
+  from = "https://coronavirusin.mx/"
   to = "https://www.covid19in.mx"
   status = 301
   force = true
 
 # A basic redirect rule
 [[redirects]]
-  from = "https://www.coronavirus.mx/"
+  from = "https://www.coronavirusin.mx/"
   to = "https://www.covid19in.mx"
   status = 301
   force = true  

@@ -2,7 +2,8 @@
 <article class="markdown">
     {{- .Content -}}
     
-    {{ $products := getJSON "https://datos.covid19in.mx/files.json?test" }}
+    {{ $url := print "https://datos.covid19in.mx/files.json?ts=" now.Unix }}
+    {{ $products := getJSON $url }}
 
     {{ $series := $products.series }}
 

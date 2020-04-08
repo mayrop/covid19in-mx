@@ -44,3 +44,15 @@
   to = "https://datos.covid19in.mx/tablas-diarias/positivos/202004/20200404.pdf"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/data/results/covid-19-resultado-positivos-indre-2020-04-:day.pdf"
+  to = "https://datos.covid19in.mx/tablas-diarias/positivos/202004/202004:day.pdf"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/data/results/covid-19-resultado-:type-indre-2020-04-04.pdf"
+  to = "https://datos.covid19in.mx/tablas-diarias/:type/202004/20200404.pdf"
+  status = 301
+  force = true

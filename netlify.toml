@@ -31,3 +31,16 @@
   to = "https://www.covid19in.mx"
   status = 301
   force = true  
+
+# A basic redirect rule
+[[redirects]]
+  from = "https://www.coronavirusin.mx/"
+  to = "https://www.covid19in.mx"
+  status = 301
+  force = true  
+
+[[redirects]]
+  from = /data/results/covid-19-resultado-:type-indre-:year-:month-:day.pdf
+  to = https://datos.covid19in.mx/tablas-diarias/:type/:year:month/:year:month:day.pdf
+  status = 301
+  force = true

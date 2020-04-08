@@ -9,10 +9,10 @@
     <h3>Series de Tiempo</h3>
     <ul>
       <li>
-        <a href="https://datos.covid19in.mx{{ $series.agregados.totales  }}" target="_blank" data-gtm-type="click" data-gtm-category="PDF Files" data-gtm-action="Download" data-gtm-label="Covid 19 - ">Totales por día</a>
+        <a href="https://datos.covid19in.mx{{ $series.agregados.totales  }}" target="_blank" data-gtm-type="click" data-gtm-category="Time Series Files" data-gtm-action="Download" data-gtm-label="By Day">Totales por día</a>
       </li>
       <li>
-        <a href="https://datos.covid19in.mx{{ $series.agregados.federal  }}" target="_blank" data-gtm-type="click" data-gtm-category="PDF Files" data-gtm-action="Download" data-gtm-label="Covid 19 - ">Todos los datos (por fecha y estado)</a>
+        <a href="https://datos.covid19in.mx{{ $series.agregados.federal  }}" target="_blank" data-gtm-type="click" data-gtm-category="Time Series Files" data-gtm-action="Download" data-gtm-label="By State and Date">Todos los datos (por fecha y estado)</a>
       </li>
     </ul>
 
@@ -35,7 +35,7 @@
             <tr>
               
               <td>{{ .nombre }}</td>
-              <td><a href="https://datos.covid19in.mx{{ .path }}" target="_blank" data-gtm-type="click" data-gtm-category="PDF Files" data-gtm-action="Download" data-gtm-label="Covid 19 - {{ .fecha }}">Descargar</a></td>
+              <td><a href="https://datos.covid19in.mx{{ .path }}" target="_blank" data-gtm-type="click" data-gtm-category="Time Series Files" data-gtm-action="Download" data-gtm-label="By State - {{ .nombre }}">Descargar</a></td>
             </tr>
             {{ end }}
           </table>
@@ -55,12 +55,11 @@
           </div>
           <input type="checkbox" class="hidden" />
           <div class="book-expand-content markdown-inner">
-            {{ partial "series-date-table.html" (dict "products" .elementos "type" "Positivos") }}
+            {{ partial "series-date-table.html" (dict "products" .elementos) }}
           </div>
         </label>
       </div>
     {{ end }}
-
 
 
     {{ $tables := $products.tablas }}

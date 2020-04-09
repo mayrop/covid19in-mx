@@ -1,10 +1,35 @@
-# Coronavirus
+##### :es: Versión en Español
+# COVID-19 en México 🇲🇽
 Información de los casos COVID-19 en México.
 
-Sitio web: https://www.covid19in.mx/
+## :information_source: Información
+* Sitio web: https://www.covid19in.mx/  
+* Repositorio para la recopilación y análisis de datos: https://github.com/mayrop/datos-covid19in-mx 
 
-# Fuentes:
+## :memo: Fuentes:
 * https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449
+* http://ncov.sinave.gob.mx/mapa.aspx
+
+
+------------------------------------------ 
+
+
+##### :uk: English Version 
+
+# COVID-19 in México 🇲🇽
+Information about the COVID-19 cases in México.
+
+## :information_source: Information:
+* Website: https://www.covid19in.mx/
+* Repository for the data processeding and data analysis: https://github.com/mayrop/datos-covid19in-mx 
+
+## :memo: Sources:
+* https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449
+* http://ncov.sinave.gob.mx/mapa.aspx
+
+
+------------------------------------------ 
+
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)

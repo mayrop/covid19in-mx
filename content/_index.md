@@ -17,6 +17,10 @@ El gobierno mantiene un historial de los comunicados técnicos diarios [aquí](h
 
 Hacer análisis con PDF es prácticamente imposible, es por eso que me he dado a la tarea de transformar la información a formatos mas amigables. Este sitio no es el único, existen [otras grandiosas fuentes](/docs/otros/trabajos-similares/) que se están dando a la tarea de hacer algo similar. 
 
+{{< hint info >}}
+**covid19in.mx** es uno de los pocos sitios que normaliza la información de las tablas de casos diarias para su posterior uso. Encuentra más información al respecto [aquí](/docs/metodologia/#normalización-de-la-información).
+{{< /hint >}}
+
 ## Base de datos en formato amigable
 * [Tabla diaria de casos positivos](/docs/datos/tablas-casos/casos-positivos/)
 * [Tabla diaria de casos sospechosos](/docs/datos/tablas-casos/casos-sospechosos/)

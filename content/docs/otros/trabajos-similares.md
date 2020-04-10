@@ -15,3 +15,4 @@ weight: 10
 * https://covid19enmexico.com/
 * https://github.com/covidctdmx/covid_ctd_mx/
 * https://covid19.newtondreams.com/
+* https://covid19.nextia.mx/

@@ -4,6 +4,7 @@ date: 2020-04-04
 linktitle: Series de Tiempo
 title: Series de Tiempo
 weight: 10
+js: "/js/series-de-tiempo.js"
 ---
 
 # Series de Tiempo
@@ -12,6 +13,7 @@ Como se ha mencionado anteriormente, la Secretaría de Salud de México publica 
 
 **Nota:** La información de casos negativos se ha obtenido solo desde el [4 de Abril, 2020](https://github.com/mayrop/datos-covid19in-mx/tree/master/scripts/cache/mapa). Se planea publicar pronto una API con dicha información.
 
+{{< custom-element "mySeries" >}}{{< /custom-element >}}
 
 ## Por Fecha
 {{< timeseries-aggr "uniqueid" >}}

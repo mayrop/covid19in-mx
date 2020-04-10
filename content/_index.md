@@ -2,11 +2,12 @@
 author: "Mayra Valdes"
 date: 2020-04-04
 linktitle: Inicio
-title: Inicio
+title: "COVID-19 en México : Base de Datos : Series de Tiempo"
 weight: 10
+js: '/js/index.js'
 ---
 
-# Información de los casos COVID-19 en México
+# Información de los Casos COVID-19 en México
 
 Hola! Ante la incertidumbre que la situación actual del COVID-19 nos trae, me he dado a la tarea de tratar de ayudar en publicar la información en un formato mas amigable para el resto de la población.
 
@@ -20,3 +21,5 @@ Hacer análisis con PDF es prácticamente imposible, es por eso que me he dado a
 * [Tabla diaria de casos positivos](/docs/datos/tablas-casos/casos-positivos/)
 * [Tabla diaria de casos sospechosos](/docs/datos/tablas-casos/casos-sospechosos/)
 * [Series de tiempo](/docs/datos/series-de-tiempo/)
+
+{{< custom-element "mySeries" >}}{{< /custom-element >}}

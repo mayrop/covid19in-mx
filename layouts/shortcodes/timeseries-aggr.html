@@ -1,0 +1,16 @@
+{{ if .Inner }}{{ end }}
+
+{{ $url := print "https://datos.covid19in.mx/files.json?ts=" now.Unix }}
+{{ $files := getJSON $url }}
+
+{{ $series := $files.series }}
+
+<ul>
+  <li>
+    <a href="https://datos.covid19in.mx{{ $series.agregados.totales  }}" target="_blank" data-gtm-type="click" data-gtm-category="Time Series Files" data-gtm-action="Download" data-gtm-label="By Day">Totales por día</a>
+  </li>
+  <li>
+    <a href="https://datos.covid19in.mx{{ $series.agregados.federal  }}" target="_blank" data-gtm-type="click" data-gtm-category="Time Series Files" data-gtm-action="Download" data-gtm-label="By State and Date">Todos los datos (por fecha y estado)</a>
+  </li>
+</ul>
+

@@ -24,7 +24,7 @@ Plotly.d3.csv('https://datos.covid19in.mx/series-de-tiempo/agregados/totales.csv
   var data = [trace1,trace2];
 
   var layout = {
-    title: 'Series de Tiempo de Casos COVID-19 en Mexico',
+    title: 'Casos COVID-19 en Mexico',
     xaxis: {
       autorange: true,
       range: [],
@@ -34,6 +34,10 @@ Plotly.d3.csv('https://datos.covid19in.mx/series-de-tiempo/agregados/totales.csv
       autorange: true,
       range: [0, 0],
       type: 'linear'
+    },
+    legend : {
+      orientation: 'h',
+      y:-0.15
     }
   };
 

@@ -2,7 +2,7 @@
 author: "Mayra Valdes"
 date: 2020-04-04
 linktitle: Inicio
-title: "COVID-19 en México : Base de Datos : Series de Tiempo"
+title: "COVID-19 en México"
 weight: 10
 js: '/js/index.js'
 ---

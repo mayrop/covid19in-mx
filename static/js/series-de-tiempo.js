@@ -9,31 +9,41 @@ Plotly.d3.csv('https://datos.covid19in.mx/series-de-tiempo/agregados/totales.csv
     name: 'Casos Positivos',
     x: unpack(rows, 'Fecha'),
     y: unpack(rows, 'Positivos'),
-    line: {color: '#17BECF'}
+    line: {color: '#D81B1B'}
   }
 
   var trace2 = {
     type: 'scatter',
     mode: 'lines',
-    name: 'Defunciones',
-    x: unpack(rows, 'Fecha'),
-    y: unpack(rows, 'Defunciones'),
-    line: {color: '#D81B1B'}
-  }
-
-  var trace3 = {
-    type: 'scatter',
-    mode: 'lines',
-    name: 'Sospechosos',
+    name: 'Casos Sospechosos',
     x: unpack(rows, 'Fecha'),
     y: unpack(rows, 'Sospechosos'),
     line: {color: '#FFC20A'}
   }  
 
-  var data = [trace1,trace2,trace3];
+  var trace3 = {
+    type: 'scatter',
+    mode: 'lines',
+    name: 'Casos Negativos',
+    x: unpack(rows, 'Fecha'),
+    y: unpack(rows, 'Negativos'),
+    line: {color: '#005AB5'}
+  }    
+
+  var trace4 = {
+    type: 'scatter',
+    mode: 'lines',
+    name: 'Defunciones',
+    x: unpack(rows, 'Fecha'),
+    y: unpack(rows, 'Defunciones'),
+    line: {color: '#000000'}
+  }
+
+
+  var data = [trace1,trace2,trace3,trace4];
 
   var layout = {
-    title: 'Series de Tiempo de Casos COVID-19 en Mexico',
+    title: 'Casos COVID-19 en Mexico',
     xaxis: {
       autorange: true,
       range: [],

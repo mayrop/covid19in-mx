@@ -5,6 +5,7 @@ linktitle: Series de Tiempo
 title: Series de Tiempo
 weight: 10
 js: "/js/series-de-tiempo.js"
+bookCollapseSection: true
 ---
 
 # Series de Tiempo
@@ -15,14 +16,16 @@ Como se ha mencionado anteriormente, la Secretaría de Salud de México publica 
 
 {{< custom-element "mySeries" >}}{{< /custom-element >}}
 
-## Por Fecha
+## Datos para Descargar
+
+### Por Fecha
 {{< timeseries-aggr "uniqueid" >}}
 {{< /timeseries-aggr >}}
 
-## Por Estado
+### Por Estado
 {{< timeseries-state "uniqueid" >}}
 {{< /timeseries-state >}}
 
-## Por Fecha
+### Por Fecha
 {{< timeseries-date "uniqueid" >}}
 {{< /timeseries-date >}}

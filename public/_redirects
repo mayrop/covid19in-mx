@@ -1,6 +1,7 @@
-/otros/_trabajos-similares/ /docs/acerca/trabajos-similares/ 301!
+/otros/_trabajos-similares/ /docs/acerca/ 301!
+/docs/acerca/trabajos-similares/ /docs/acerca/  301!
 
-# Tables for daily cases
+# Redirect of tables for daily cases
 
 /data/results/covid-19-resultado-positivos-indre-2020-03-13.pdf https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200313.pdf 301!
 /data/results/covid-19-resultado-positivos-indre-2020-03-14.pdf https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200314.pdf 301!

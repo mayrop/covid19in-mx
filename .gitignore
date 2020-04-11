@@ -1,0 +1,13 @@
+# Hidden files
+.ipynb*
+
+# Generated files
+resources/*
+
+# Static files
+static/data/results/html/*
+
+public/*
+!public/_redirects
+
+.Rhistory

@@ -9,6 +9,9 @@ bookToc: false
 
 # Normalización de la columna Estado
 
+## Formato
+El formato del estado para la columna _Estado_ se encontrará en código de 3 letras en [formato ISO](https://www.iso.org/obp/ui/#iso:code:3166:MX).
+
 ## Inconsistencias del formato de Estado
 
 En algunos documentos originales, los nombres de las entidades federativas publicados diferían en acentos y nombres. Hasta hoy (10 de Abril) existen 66 valores diferentes en la columna Estado. Las diferencias mas notables es que en algunos documentos las entidades estan en mayúscula, en otras en minúscula, en algunas se agregan acento y en otras no. 

@@ -16,6 +16,7 @@ Las columnas con sufijo `_Normalizado` fueron transformaadas de la siguiente man
 * El texto estará en mayúsculas.
 * Los acentos fueron removidos.
 * El estado se encontrará en código de 3 letras en [formato ISO](https://www.iso.org/obp/ui/#iso:code:3166:MX).
+* La columna sexo tendrá un valor de `M` para el sexo Masculino, y `F` para el sexo femenino.
 * Las fechas se encontrarán en [formato ISO](https://www.iso.org/iso-8601-date-and-time-format.html) `YYYY-MM-DD`.
 
 Información adicional acerca de normalización de columnas en particular:
@@ -36,12 +37,12 @@ Los archivos CSV contienen las siguientes columnas:
 - `Fecha_Sintomas`: Información original de la columna `Inicio de Fecha de Síntomas`.
 - `Situacion`: Información original de la columna `Identificación de COVID-19 por RTPCR en tiempo real`.
 - `Procedencia`: País (o Contacto) del origen de cada caso. {{< span-color EA0C0C >}} <em><strong>Nota</strong>: Esta columna fue removida desde el 8 de Abril.</em>{{% /span-color %}}
-- `Fecha_Llegada`: Información original de la columna `Fecha de llegada a México`. {{< span-color EA0C0C >}} <em><strong>Nota</strong>: Esta columna fue removida desde el 7 de Abril.</em>{{% /span-color %}}
+- `Fecha_Llegada`: Información original de la columna `Fecha de llegada a México`. {{< span-color EA0C0C >}} <em><strong>Nota</strong>: Esta columna fue removida desde el 6 de Abril.</em>{{% /span-color %}}
 - `Estado_Normalizado`: [Código ISO](https://www.iso.org/obp/ui/#iso:code:3166:MX) de tres letras de cada estado. _Más información de la normalización del estado [aquí](/docs/datos/tablas-casos/normalizacion/estado/)._
 - `Localidad_Normalizado`: Columna con los datos de la columna original `Localidad` en mayúsculas y sin acento.
 - `Sexo_Normalizado`: El valor sera `F` o `M`. _Más información de la normalización de la columna sexo en particular [aquí](/docs/datos/tablas-casos/normalizacion/genero/)._
 - `Fecha_Sintomas_Normalizado`: Fecha de síntomas en [formato ISO](https://www.iso.org/iso-8601-date-and-time-format.html) `YYYY-MM-DD`. _Más información de la normalización de fechas [aquí](/docs/datos/tablas-casos/normalizacion/fecha/)._
-- `Fecha_Sintomas_Corregido`: True o False (se planea cambiar a 1/NA) en un futuro proximo. _Más información de la normalización de fechas [aquí](/docs/datos/tablas-casos/normalizacion/fecha/)._
+- `Fecha_Sintomas_Corregido`: True o False (se planea cambiar a 1/NA) en un futuro próximo. _Más información de la normalización de fechas [aquí](/docs/datos/tablas-casos/normalizacion/fecha/)._
 - `Situacion_Normalizado`: Situación en mayúsculas. Posibles valores `CONFIRMADO` o `SOSPECHOSO`.
 - `Procedencia_Normalizado`: La procedencia normalizada en mayúsculas. _Más información de la normalización de Procedencia en particular [aquí](/docs/datos/tablas-casos/normalizacion/procedencia/)._
 - `Fecha_Llegada_Normalizado"`: Fecha de llegada en [formato ISO](https://www.iso.org/iso-8601-date-and-time-format.html) `YYYY-MM-DD`. _Más información de la normalización de fechas en particular [aquí](/docs/datos/tablas-casos/normalizacion/fecha/)._

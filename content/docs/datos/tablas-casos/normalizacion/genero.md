@@ -9,6 +9,9 @@ bookToc: false
 
 # Normalización de la columna Género (Sexo Masculino/Femenino)
 
+## Formato
+El formato de género para la columna _Sexo_ tendrá un valor de `M` para el sexo Masculino, y `F` para el sexo femenino.
+
 ## Inconsistencias de formato de la columna Sexo
 Al parecer las columnas de Sexo no son consistentes, al tener diferentes valores:
 ```r

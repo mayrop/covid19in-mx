@@ -6,8 +6,6 @@ title: Tablas Diarias de Casos
 weight: 10
 ---
 
-# Tablas de Casos Diarios
-
 En este sitio se publican de manera diaria las tablas de casos [positivos](/docs/datos/tablas-casos/casos-positivos/) y [sospechosos](/docs/datos/tablas-casos/casos-sospechosos/) de Coronavirus COVID-19 en México en diferentes formatos: `PDF` (original), `CSV` y `TXT`. Adicionalmente, como valor agregado, se agregan columnas a los archivos CSV con la normalización de la información. 
 
 * Conoce más acerca de [dichas columnas aquí](/docs/datos/tablas-casos/normalizacion/). Los datos provienen de fuentes oficiales. 

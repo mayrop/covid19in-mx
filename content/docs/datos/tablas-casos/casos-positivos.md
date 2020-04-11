@@ -1,12 +1,10 @@
 ---
 author: "Mayra Valdes"
 date: 2020-04-04
-linktitle: Tabla de Casos Positivos
+linktitle: Tabla Diaria de Casos Positivos
 title: Casos Positivos
 weight: 10
 ---
-
-# Tabla de Casos Positivos
 
 En este sitio se publican de manera diaria las tablas diarias de casos positivos y [sospechosos](/docs/datos/tablas-casos/casos-sospechosos/) de Coronavirus COVID-19 en México en diferentes formatos: `PDF` (original), `CSV` y `TXT`. Adicionalmente, como valor agregado, se agregan columnas a los archivos CSV con la normalización de la información. 
 

@@ -7,8 +7,6 @@ bookCollapseSection: true
 weight: 20
 ---
 
-## Normalización de los Datos
-
 Como muchas bases de datos existentes, los datos originales en los documentos PDF contienen muchas inconsistencias. Como valor agregado de **covid19in.mx**, se agregaron columnas adicionales a los archivos CSV proporcionados por este sitio. En dichas columnas se podrá encontrar los datos originales normalizados para análisis más sencillo.
 
 Las columnas con sufijo `_Normalizado` fueron transformaadas de la siguiente manera:

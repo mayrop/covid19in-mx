@@ -1,13 +1,11 @@
 ---
 author: "Mayra Valdes"
 date: 2020-04-10
-linktitle: Normalización del Estado
+linktitle: Normalización de la columna Estado
 title: Normalización del Estado
 weight: 1
 bookToc: false
 ---
-
-# Normalización de la columna Estado
 
 ## Formato
 El formato del estado para la columna _Estado_ se encontrará en código de 3 letras en [formato ISO](https://www.iso.org/obp/ui/#iso:code:3166:MX).

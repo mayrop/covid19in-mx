@@ -1,12 +1,10 @@
 ---
 author: "Mayra Valdes"
 date: 2020-04-10
-linktitle: Normalización de Fechas
+linktitle: Normalización de la columnas con Fechas 
 title: Normalización de Fechas
 weight: 3
 ---
-
-# Normalización de la columnas con Fechas 
 
 ## Formato
 Las fechas para las columnas _Inicio de Fecha de Síntomas_ y _Fecha de llegada a México_ se encontrarán en [formato ISO](https://www.iso.org/iso-8601-date-and-time-format.html) `YYYY-MM-DD`.

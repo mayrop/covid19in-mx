@@ -6,8 +6,6 @@ weight: 2
 bookFlatSection: true
 ---
 
-# Metodología
-
 ## Introducción
 Diariamente, a las 19:00 horas, se emite una [Conferencia de Prensa](https://coronavirus.gob.mx/noticias/), donde se presenta el informe diario sobre la situación del Coronavirus COVID-19 en México. Dicha conferencia es encabezada comúnmente por [Hugo López-Gatell](https://twitter.com/HLGatell), Subsecretario de Prevención y Promoción de la Salud. 
 
@@ -31,7 +29,7 @@ Como ya se mencionó, el primer reto encontrado para recopilar todas los documen
 * **8 de Marzo**: Tabla de casos sospechosos. El documento fue encontrado en formato original PDF [aquí](https://slp.gob.mx/SSALUD/Documentos%20compartidos/Coronavirus/marzo/Tabla_casos_sospechosos_COVID-19_2020.03.08.pdf). Fue encontrado a través de exhaustas búsquedas en Google hasta encontrar [una interfaz](https://slp.gob.mx/SSALUD/Documentos%20compartidos/Forms/AllItems.aspx?RootFolder=%2FSSALUD%2FDocumentos%20compartidos%2FCoronavirus&FolderCTID=0x0120002C4A6E2BDD73D34899963849CA684C1C&View=%7BFA81CA67%2D551E%2D4BDD%2D9C03%2DCA3F799D0382%7D) del gobierno que probablemente no debería estar pública.
 * **13 de Marzo**: Tabla de casos positivos. El documento fue encontrado en formato PNG [aquí](https://www.scribd.com/document/452680821/Tabla-casos-positivos-resultado-InDRE-2020-03-13).
 
-### Transformación de las Tablas Diarias de Casos Positivos y Negativos 
+### Transformación de las Tablas Diarias de Casos Positivos y Sospechosos 
 Las tablas publicadas por la Secretaría de Salud de México datos tienen un formato PDF. Eso hace practicamente imposible analizar dichos datos sin primero transformar los archivos a un formato amigable (CSV, XLSX, API).
 
 Para empezar, los documentos PDF publicados son muy pesados (tardan mucho en cargar). Se está [utilizando](https://github.com/mayrop/datos-covid19in-mx/blob/master/scripts/processing/compress.sh#L23) una solución automática para la compresión de los PDF. {{< span-style "text-decoration:line-through" >}}Anteriormente se comprimían manualmente usando la excelente <a href="https://smallpdf.com/compress-pdf" target="_blank">herramienta en línea SmallPDF</a>{{< /span-style >}}. Los archivos que se pueden encontrar en este sitio son al menos **50%** mas ligeros que los originalmente publicados. 

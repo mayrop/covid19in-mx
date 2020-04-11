@@ -7,8 +7,6 @@ weight: 4
 bookToc: false
 ---
 
-# Normalización de la Procedencia
-
 ## Inconsistencias de formato de Procedencia
 Hasta el día de hoy (10 de Abril), existen 65 valores distintos en la columna de Procedencia. Dudo que este número vaya a cambiar en un futuro (a menos de que se publiquen datos diferentes), dado que la columna Procedencia fue eliminada el 8 de Abril. Si sólo tomamos los valores de las tablas de positivos, entonces vemos que hay solo 36 valores. Lo que es interesante es que hasta el 5 de Abril solo existían 8 valores diferentes tanto en las tablas de casos positivos como en la tabla de casos sospechosos:
 

@@ -1,15 +1,13 @@
 ---
 author: "Mayra Valdes"
 date: 2020-04-04
-linktitle: Inicio
+linktitle: Información de los Casos COVID-19 en México
 title: "COVID-19 en México"
 weight: 10
 js: '/js/index.js'
 ---
 
-# Información de los Casos COVID-19 en México
-
-Hola! Ante la ansiedad que la situación actual del COVID-19 nos trae, así como el inevitable [#quedateencasa](https://twitter.com/hashtag/QuedateEnCasa), me he dado a la tarea de tratar de ayudar en publicar los datos de los casos de COVID-19 en México en un formato amigable para el resto de la población.
+Hola! Soy [@mayrop](https://twitter.com/@mayrop). Ante la ansiedad que la situación actual del COVID-19 nos trae, así como el inevitable [#quedateencasa](https://twitter.com/hashtag/QuedateEnCasa), me he dado a la tarea de tratar de ayudar en publicar los datos de los casos de COVID-19 en México en un formato amigable para el resto de la población.
 
 Este sitio _no es oficial_. Sin embargo, los datos publicados y usados en este sitio son oficiales, los cuales son publicados por la Secretaría de Salud de México [@SSalud_mx](https://twitter.com/@SSalud_mx) [aquí](https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449). 
 
@@ -20,8 +18,7 @@ Hay diversos retos para analizar los datos con los documentos oficiales, los cua
 {{< /hint >}}
 
 ## Base de datos en formato amigable
-* [Tabla diaria de casos positivos](/docs/datos/tablas-casos/casos-positivos/)
-* [Tabla diaria de casos sospechosos](/docs/datos/tablas-casos/casos-sospechosos/)
+* [Tablas diaria de casos abiertos con COVID-19 en México](/docs/datos/tablas-casos/)
 * [Series de tiempo](/docs/datos/series-de-tiempo/)
 
 {{< custom-element "mySeries" >}}{{< /custom-element >}}

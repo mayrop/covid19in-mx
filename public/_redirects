@@ -1,3 +1,5 @@
+/otros/_trabajos-similares/ /docs/acerca/trabajos-similares/ 301!
+
 # Tables for daily cases
 
 /data/results/covid-19-resultado-positivos-indre-2020-03-13.pdf https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200313.pdf 301!
@@ -49,6 +51,7 @@
 /data/results/covid-19-resultado-sospechosos-indre-2020-04-04.pdf https://datos.covid19in.mx/tablas-diarias/sospechosos/202004/20200404.pdf 301!
 /data/results/covid-19-resultado-sospechosos-indre-2020-04-05.pdf https://datos.covid19in.mx/tablas-diarias/sospechosos/202004/20200405.pdf 301!
 
+# CSV Files
 /data/results/covid-19-resultado-positivos-indre-2020-03-13.csv https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200313.csv 301!
 /data/results/covid-19-resultado-positivos-indre-2020-03-14.csv https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200314.csv 301!
 /data/results/covid-19-resultado-positivos-indre-2020-03-15.csv https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200315.csv 301!
@@ -97,4 +100,54 @@
 /data/results/covid-19-resultado-sospechosos-indre-2020-04-03.csv https://datos.covid19in.mx/tablas-diarias/sospechosos/202004/20200403.csv 301!
 /data/results/covid-19-resultado-sospechosos-indre-2020-04-04.csv https://datos.covid19in.mx/tablas-diarias/sospechosos/202004/20200404.csv 301!
 /data/results/covid-19-resultado-sospechosos-indre-2020-04-05.csv https://datos.covid19in.mx/tablas-diarias/sospechosos/202004/20200405.csv 301!
+
+# TXT Files
+/data/results/covid-19-resultado-positivos-indre-2020-03-13.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200313.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-14.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200314.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-15.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200315.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-16.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200316.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-17.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200317.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-18.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200318.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-19.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200319.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-20.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200320.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-22.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200322.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-23.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200323.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-24.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200324.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-25.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200325.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-26.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200326.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-27.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200327.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-28.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200328.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-29.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200329.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-30.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200330.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-03-31.txt https://datos.covid19in.mx/tablas-diarias/positivos/202003/20200331.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-04-01.txt https://datos.covid19in.mx/tablas-diarias/positivos/202004/20200401.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-04-02.txt https://datos.covid19in.mx/tablas-diarias/positivos/202004/20200402.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-04-03.txt https://datos.covid19in.mx/tablas-diarias/positivos/202004/20200403.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-04-04.txt https://datos.covid19in.mx/tablas-diarias/positivos/202004/20200404.txt 301!
+/data/results/covid-19-resultado-positivos-indre-2020-04-05.txt https://datos.covid19in.mx/tablas-diarias/positivos/202004/20200405.txt 301!
+
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-08.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200308.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-13.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200313.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-14.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200314.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-15.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200315.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-16.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200316.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-17.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200317.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-18.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200318.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-19.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200319.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-20.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200320.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-22.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200322.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-23.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200323.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-24.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200324.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-25.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200325.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-26.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200326.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-27.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200327.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-28.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200328.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-29.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200329.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-30.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200330.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-03-31.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202003/20200331.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-04-01.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202004/20200401.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-04-02.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202004/20200402.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-04-03.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202004/20200403.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-04-04.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202004/20200404.txt 301!
+/data/results/covid-19-resultado-sospechosos-indre-2020-04-05.txt https://datos.covid19in.mx/tablas-diarias/sospechosos/202004/20200405.txt 301!
 

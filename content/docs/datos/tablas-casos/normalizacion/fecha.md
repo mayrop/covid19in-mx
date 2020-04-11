@@ -30,9 +30,9 @@ Los documentos que tienen por lo menos una inconsistencia de este tipo son:
 [13] "sospechosos_2020_04_06" "sospechosos_2020_04_07" "sospechosos_2020_04_08"
 ```
 
-## Solución de las fechas en formato Excel
+## Convirtiendo los 5 dígitos 
 
-La solución que se uso se puede encontrar en el sitio de [Stack Overflow](https://stackoverflow.com/questions/14271791/converting-date-formats-python-unusual-date-formats-extract-ymd/30058862#30058862).
+Al parecer, los números que encontramos con 5 dígitos no es un error, simplemente es un formato de fecha diferente de [Excel](https://gizmokid2005.com/2013/05/convert-excel-5-digit-serial-date-numbers-to-date), que representa los días transcurridos desde el 1ro de Enero de 1900. Para convertir dicho número a una fecha en formato gregoriano, se encontró la solución en [Stack Overflow](https://stackoverflow.com/questions/14271791/converting-date-formats-python-unusual-date-formats-extract-ymd/30058862#30058862).
 
 Ahora vamos a proceder a verificar que las fechas se esten actualizando correctamente. Podemos observar en el [archivo CSV](https://datos.covid19in.mx/tablas-diarias/positivos/202004/20200408.csv) de la misma fecha como se corrigió en la columna `Fecha_Sintomas_Normalizado` a `2020-03-21`. Esto se puede observar via código R:
 ```r
@@ -51,7 +51,7 @@ Ahora vamos a proceder a verificar que las fechas se esten actualizando correcta
 ```
 
 
-## Verificación de la solución
+## Verificación de la Solución
 Podemos verificar que dichos datos fueron corregidos correctamente dado que, posteriormente, el día 9 de Abril, las fechas fueron corregidas en el documento aficial. El mismo caso puede observarse en la fila `2666`. 
 
 ![Caso con la fecha en formato corregido](/images/metodologia/caso02.png)

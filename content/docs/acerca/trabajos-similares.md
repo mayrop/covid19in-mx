@@ -4,6 +4,7 @@ date: 2020-04-04
 linktitle: Trabajos Similares
 title: Trabajos Similares
 weight: 10
+bookFlatSection: true
 ---
 
 # Otros proyectos con Informacion Valiosa

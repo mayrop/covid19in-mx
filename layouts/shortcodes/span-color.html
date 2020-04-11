@@ -1,0 +1,6 @@
+{{ if .Inner }}{{ end }}
+{{ $color := .Get 0 }}
+
+<span style="color: #{{ $color }}">
+    {{ $.Inner }}
+</span>

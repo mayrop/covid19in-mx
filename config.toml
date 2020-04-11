@@ -7,7 +7,6 @@ theme = "book"
 #  information on 'doc' type pages.
 enableGitInfo = false
 
-
 # https://gohugo.io/getting-started/configuration/#configure-blackfriday
 # https://code.luasoftware.com/tutorials/hugo/how-to-create-link-with-target-blanks-in-hugo-markdown/
 # https://agrimprasad.com/post/hugo-goldmark-markdown/#tldr
@@ -37,7 +36,7 @@ enableGitInfo = false
 
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
-  BookRepo = 'https://github.com/mayrop/covid19in-mx'
+  BookRepo = ''
 
   # Enable "Edit this page" links for 'doc' page type.
   # Disabled by default. Uncomment to enable. Requires 'BookRepo' param.

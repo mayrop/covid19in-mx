@@ -15,7 +15,7 @@ En este sitio se publican de manera diaria las tablas de casos [positivos](/docs
 
 ## Tablas
 * [Tablas Diarias de Casos Positivos](/docs/datos/tablas-casos/casos-positivos/)
-* [Tablas Diarias de Casos Sospechosos](/docs/datos/tablas-casos/casos-sopechosos/)
+* [Tablas Diarias de Casos Sospechosos](/docs/datos/tablas-casos/casos-sospechosos/)
 
 ## Annotaciones
 

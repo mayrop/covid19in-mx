@@ -12,7 +12,7 @@ Las fechas para las columnas _Inicio de Fecha de Síntomas_ y _Fecha de llegada 
 
 ## Inconsistencias en las columnas de Fecha
 
-El primer reto y terrible error de los documentos originales, es que algunos de ellos tienen la fecha en un formato diferente, con 5 numeros en vez del formato que comunmente publican `MM/DD/YYYY`. Por ejemplo, lo siguiente se puede encontrar en el documento de la tabla de positivos publicado el [8 de Abril](https://datos.covid19in.mx/tablas-diarias/positivos/202004/20200408.pdf) en la fila 2476. La fecha de inicio de síntomas aparece como `43911`:
+El primer reto y terrible error de los documentos originales, es que algunos de ellos tienen la fecha en un formato diferente, con 5 números en vez del formato que comunmente publican `DD/MM/YYYY`. Por ejemplo, lo siguiente se puede encontrar en el documento de la tabla de positivos publicado el [8 de Abril](https://datos.covid19in.mx/tablas-diarias/positivos/202004/20200408.pdf) en la fila 2476. La fecha de inicio de síntomas aparece como `43911`:
 
 ![Caso con la fecha en formato diferente](/images/metodologia/caso01.png)
 
@@ -32,7 +32,7 @@ Los documentos que tienen por lo menos una inconsistencia de este tipo son:
 
 ## Convirtiendo los 5 dígitos 
 
-Al parecer, los números que encontramos con 5 dígitos no es un error, simplemente es un formato de fecha diferente de [Excel](https://gizmokid2005.com/2013/05/convert-excel-5-digit-serial-date-numbers-to-date), que representa los días transcurridos desde el 1ro de Enero de 1900. Para convertir dicho número a una fecha en formato gregoriano, se encontró la solución en [Stack Overflow](https://stackoverflow.com/questions/14271791/converting-date-formats-python-unusual-date-formats-extract-ymd/30058862#30058862).
+Al parecer, los números que encontramos con 5 dígitos no es un error, simplemente es un formato de fecha diferente de [Excel](https://gizmokid2005.com/2013/05/convert-excel-5-digit-serial-date-numbers-to-date), que representa los días transcurridos desde el 1ro de Enero de 1900. Se encontró la solución en [Stack Overflow](https://stackoverflow.com/questions/14271791/converting-date-formats-python-unusual-date-formats-extract-ymd/30058862#30058862) para convertir dicho número a una fecha en formato ISO.
 
 Ahora vamos a proceder a verificar que las fechas se esten actualizando correctamente. Podemos observar en el [archivo CSV](https://datos.covid19in.mx/tablas-diarias/positivos/202004/20200408.csv) de la misma fecha como se corrigió en la columna `Fecha_Sintomas_Normalizado` a `2020-03-21`. Esto se puede observar via código R:
 ```r

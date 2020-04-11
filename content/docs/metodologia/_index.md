@@ -42,7 +42,9 @@ Para empezar, los documentos PDF publicados son muy pesados (tardan mucho en car
 
 Existen diferentes formas de poder transformar archivos PDF a CSV, por ejemplo herramientas [en línea](https://convertio.co/pdf-csv/). [Gabriel Carranco-Sapiéns](https://github.com/carranco-sga) utiliza [una elegante solución](https://github.com/carranco-sga/Mexico-COVID-19/blob/master/Scraping/pdf_scraping.jl#L7) con el lenguaje de programación [Julia](https://julialang.org/). 
 
-El proceso que se utilizó para este proyecto fue la de primero transformar el PDF a HTML utilizando [pdf2htmlEX](https://github.com/pdf2htmlEX/pdf2htmlEX), para posteriormente parsear dicho HTML a formato CSV. No bastó con obtener la información y pasarla a CSV, sino primero normalizar de los datos. Para obtener más información acerca de la normalización de los datos, haz [click aquí](/docs/datos/tablas-casos/normalizacion/).
+El proceso que se utilizó para este proyecto fue la de primero transformar el PDF a TXT utilizando [pdftotext](https://en.wikipedia.org/wiki/Pdftotext), parte de [Poppler](https://poppler.freedesktop.org/). Anteriormente se convertía a HTML utilizando [pdf2htmlEX](https://github.com/pdf2htmlEX/pdf2htmlEX), para posteriormente parsear dicho HTML a formato CSV. Este proceso era lento y no tan portable.
+
+Adicional a la extracción de información en CSV, se da un valor agregado a los mismos al normalizar de los datos. Para obtener más información acerca de la normalización de los datos que se está empleando, haz [click aquí](/docs/datos/tablas-casos/normalizacion/).
 
 
 ## Código Fuente

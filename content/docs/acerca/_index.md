@@ -6,7 +6,7 @@ weight: 10
 bookFlatSection: true
 ---
 
-Hola! Este proyecto inició el [28 de Marzo](https://github.com/mayrop/covid19in-mx/commit/d472d10cc7a7fad9b11099af8d5ee4f7dc07037c). La meta principal es proveer datos en formato accesible para el análisis de datos con respecto a los casos Coronavirus COVID-19 en México. Como se menciona en la [sección de metodología](/docs/metodologia/), las fuentes usadas para los datos de este sitio provienen de la [Secretaría de Salud de México](https://www.gob.mx/salud/documentos/informacion-internacional-y-nacional-sobre-nuevo-coronavirus-2019-ncov).
+Hola! Este proyecto inició el [28 de Marzo](https://github.com/mayrop/covid19in-mx/commit/d472d10cc7a7fad9b11099af8d5ee4f7dc07037c). La meta principal es proveer datos en formato accesible para el análisis de datos con respecto a los casos Coronavirus (COVID-19) en México. Como se menciona en la [sección de metodología](/docs/metodologia/), las fuentes usadas para los datos de este sitio provienen de la [Secretaría de Salud de México](https://www.gob.mx/salud/documentos/informacion-internacional-y-nacional-sobre-nuevo-coronavirus-2019-ncov).
 
 Por el lado del desarrollo, se utilizan principalmente los lenguajes de programación R y Python. Todo el código fuente para la recopilación y transformación de datos se encuentra [aquí](https://github.com/mayrop/datos-covid19in-mx). No olvides darle star!  Las gráficas son hechas a través de [Plotly](https://plotly.com/javascript/). 
 

@@ -6,7 +6,7 @@ title: Casos Sospechosos
 weight: 10
 ---
 
-En este sitio se publican de manera diaria las tablas diarias de casos [positivos](/docs/datos/tablas-casos/casos-positivos/) y sospechosos de Coronavirus COVID-19 en México en diferentes formatos: `PDF` (original), `CSV` y `TXT`. Adicionalmente, como valor agregado, se agregan columnas a los archivos CSV con la normalización de la información. 
+En este sitio se publican de manera diaria las tablas diarias de casos [positivos](/docs/datos/tablas-casos/casos-positivos/) y sospechosos de Coronavirus (COVID-19) en México en diferentes formatos: `PDF` (original), `CSV` y `TXT`. Adicionalmente, como valor agregado, se agregan columnas a los archivos CSV con la normalización de la información. 
 
 * Conoce más acerca del [formato de las columnas aquí](/docs/datos/tablas-casos/normalizacion/). 
 * Puedes consultar también las annotaciones hechas [aquí](/docs/datos/tablas-casos/). 

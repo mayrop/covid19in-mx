@@ -1,0 +1,11 @@
+<!-- 
+  Partial to generate page name from Title or File name.
+  Accepts Page as context
+-->
+{{ $keywords := "" }}
+
+{{ if .Params.seo.keywords }}
+  {{ $keywords =  .Params.seo.keywords }}
+{{ end }}
+
+{{ return $keywords }}

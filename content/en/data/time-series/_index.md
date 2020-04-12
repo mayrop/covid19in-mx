@@ -1,29 +1,29 @@
 ---
 author: "Mayra Valdes"
 date: 2020-04-04
-linktitle: Series de Tiempo
-title: Series de Tiempo
+linktitle: Time Series
+title: Time Series
 weight: 20
-js: "/js/series-de-tiempo.js"
+js: /js/series-de-tiempo.js
 lang:
-    en: /en/data/time-series/
+    es: /docs/datos/series-de-tiempo/
 bookCollapseSection: true
 ---
 
-Como se detalla en la seccion de [metodología](/docs/metodologia/), los datos de este sitio provienen de fuentes oficiales.
+The process to get the information is detailed in the [methodology section](/en/methodology/). 
 
 {{< custom-element "mySeries" >}}{{< /custom-element >}}
 
-## Datos para Descargar
+## Data to Download
 
-### Por Fecha
+### By Date
 {{< timeseries-aggr "uniqueid" >}}
 {{< /timeseries-aggr >}}
 
-### Por Estado
+### By State
 {{< timeseries-state "uniqueid" >}}
 {{< /timeseries-state >}}
 
-### Por Fecha
+### By Date
 {{< timeseries-date "uniqueid" >}}
 {{< /timeseries-date >}}

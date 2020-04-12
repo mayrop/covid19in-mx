@@ -4,12 +4,14 @@ date: 2020-04-10
 linktitle: Normalización de los Datos
 title: Normalización de los Datos
 bookCollapseSection: true
+lang:
+    en: /en/data/cases-tables/normalization/
 weight: 20
 ---
 
 Como muchas bases de datos existentes, los datos originales en los documentos PDF contienen muchas inconsistencias. Como valor agregado de **covid19in.mx**, se agregaron columnas adicionales a los archivos CSV proporcionados por este sitio. En dichas columnas se podrá encontrar los datos originales normalizados para análisis más sencillo.
 
-Las columnas con sufijo `_Normalizado` fueron transformaadas de la siguiente manera:
+Las columnas con sufijo `_Normalizado` fueron transformadas de la siguiente manera:
 
 * El texto estará en mayúsculas.
 * Los acentos fueron removidos.

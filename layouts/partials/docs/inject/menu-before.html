@@ -1,5 +1,9 @@
 <ul>
     <li class="book-section-flat">
-        <a href="/" class="">Inicio</a>
+        {{ if in .Permalink "/en/" }}
+            <a href="/en/" class="">Home</a>
+        {{ else }}
+            <a href="/" class="">Inicio</a>
+        {{ end }}
     </li>
 </ul>

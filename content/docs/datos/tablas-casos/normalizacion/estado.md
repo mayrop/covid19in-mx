@@ -4,6 +4,8 @@ date: 2020-04-10
 linktitle: Normalización de la columna Estado
 title: Normalización del Estado
 weight: 1
+lang:
+    en: /en/data/cases-tables/normalization/state/
 bookToc: false
 ---
 

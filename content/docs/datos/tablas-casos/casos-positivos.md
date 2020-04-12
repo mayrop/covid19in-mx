@@ -3,6 +3,8 @@ author: "Mayra Valdes"
 date: 2020-04-04
 linktitle: Tabla Diaria de Casos Positivos
 title: Casos Positivos
+lang:
+    en: /en/data/cases-tables/positive-cases/
 weight: 10
 ---
 

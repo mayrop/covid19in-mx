@@ -4,6 +4,8 @@ date: 2020-04-10
 linktitle: Normalización de la Procedencia
 title: Normalización de la Procedencia
 weight: 4
+lang:
+    en: /en/data/cases-tables/normalization/origin/
 bookToc: false
 ---
 

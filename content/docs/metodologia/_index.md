@@ -3,6 +3,8 @@ author: "Mayra Valdes"
 linktitle: Metodología
 title: Metodología
 weight: 2
+lang:
+    en: /en/methodology/
 bookFlatSection: true
 ---
 
@@ -23,7 +25,7 @@ A partir del [28 de Marzo](https://github.com/mayrop/covid19in-mx/commit/d472d10
 Como ya se mencionó, el primer reto encontrado para recopilar todas los documentos de COVID-19 en México fue que, por algún motivo, algunos de los documentos PDF originales son removidos del sitio de la [Secretaría de Salud de México](https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449). Se consiguió obtener los documentos faltantes (del ~15 de Marzo al 28 Marzo) a través de fuentes no oficiales (que inteligentemente archivaron los documentos oficiales):
 * [Serendipia](https://serendipia.digital/2020/03/datos-abiertos-sobre-casos-de-coronavirus-covid-19-en-mexico/). Una gran fuente que publica ambas fuentes, en formato abierto, y en formato original de PDF.
 * [github.com/guzmart/covid19_mex](https://github.com/guzmart/covid19_mex). Un gran trabajo por parte de [@guzmart_](https://twitter.com/guzmart_).
-* [github.com/carranco-sga/Mexico-COVID-19](https://github.com/carranco-sga/Mexico-COVID-19). Otro gran ejemplo de un gran trabajo por parte de [Gabriel Carranco-Sapiéns](https://github.com/carranco-sga).
+* [github.com/carranco-sga/Mexico-COVID-19](https://github.com/carranco-sga/Mexico-COVID-19). Otro gran ejemplo de un gran trabajo por parte de [@carranco-sga](https://github.com/carranco-sga).
 
 ### Documentos Adicionales
 * **8 de Marzo**: Tabla de casos sospechosos. El documento fue encontrado en formato original PDF [aquí](https://slp.gob.mx/SSALUD/Documentos%20compartidos/Coronavirus/marzo/Tabla_casos_sospechosos_COVID-19_2020.03.08.pdf). Fue encontrado a través de exhaustas búsquedas en Google hasta encontrar [una interfaz](https://slp.gob.mx/SSALUD/Documentos%20compartidos/Forms/AllItems.aspx?RootFolder=%2FSSALUD%2FDocumentos%20compartidos%2FCoronavirus&FolderCTID=0x0120002C4A6E2BDD73D34899963849CA684C1C&View=%7BFA81CA67%2D551E%2D4BDD%2D9C03%2DCA3F799D0382%7D) del gobierno que probablemente no debería estar pública.

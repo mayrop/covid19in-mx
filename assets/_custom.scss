@@ -18,3 +18,20 @@
     margin-top: 3rem;
     text-align: center
 }
+
+.menu-social {
+    text-align: center;
+    
+    .language {
+        display: block;
+        margin-bottom: 1rem;
+        
+        &:hover {
+            color: $color-visited-link
+        }
+    }
+
+    .social-icon {
+        padding: .3em .5em;
+    }
+}

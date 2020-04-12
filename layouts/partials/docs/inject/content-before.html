@@ -1,2 +1,9 @@
-<h1 class="heading-1">{{ .Params.linktitle }}</h1>
-<div class="last-modified">Ultima actualización: {{ now.Format "2006-01-02" }}</div>
+{{ if not .Params.hideHeading }}
+    <h1 class="heading-1">{{ .Params.linktitle }}</h1>
+
+    {{ if in .Permalink "/en/" }}
+        <div class="last-modified">Last Updated: {{ if .Params.lastModifiedDate }}{{ .Params.lastModifiedDate.Format "2006-01-02" }}{{ else }}{{ now.Format "2006-01-02" }}{{ end }}</div>
+    {{ else }}
+        <div class="last-modified">Ultima actualización: {{ if .Params.lastModifiedDate }}{{ .Params.lastModifiedDate.Format "2006-01-02" }}{{ else }}{{ now.Format "2006-01-02" }}{{ end }}</div>
+    {{ end }}
+{{ end }}

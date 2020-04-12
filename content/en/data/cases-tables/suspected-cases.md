@@ -1,10 +1,10 @@
 ---
 author: "Mayra Valdes"
 date: 2020-04-04
-linktitle: Tabla Diaria de Casos Sospechosos
-title: Casos Sospechosos
+linktitle: Daily Suspected Cases Tables
+title: Suspected Cases
 lang:
-    en: /en/data/cases-tables/suspected-cases/
+    es: /docs/datos/tablas-casos/casos-sospechosos/
 weight: 10
 ---
 

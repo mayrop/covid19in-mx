@@ -4,6 +4,8 @@ date: 2020-04-10
 linktitle: Normalización de la columna Género (Sexo Masculino/Femenino)
 title: Normalización del Género
 weight: 2
+lang:
+    en: /en/data/cases-tables/normalization/gender/
 bookToc: false
 ---
 

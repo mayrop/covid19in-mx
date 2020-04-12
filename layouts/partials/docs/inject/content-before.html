@@ -2,8 +2,14 @@
     <h1 class="heading-1">{{ .Params.linktitle }}</h1>
 
     {{ if in .Permalink "/en/" }}
-        <div class="last-modified">Last Updated: {{ if .Params.lastModifiedDate }}{{ .Params.lastModifiedDate.Format "2006-01-02" }}{{ else }}{{ now.Format "2006-01-02" }}{{ end }}</div>
+        <div class="last-modified">
+            Last Updated: {{ if .Params.lastModifiedDate }}{{ .Params.lastModifiedDate.Format "2006-01-02" }}{{ else }}{{ now.Format "2006-01-02" }}{{ end }}.
+            {{ if .Params.lang.es }}<a class="language" href="{{ .Params.lang.es }}">Versión en 🇪🇸</a>{{ end }}
+        </div>
     {{ else }}
-        <div class="last-modified">Ultima actualización: {{ if .Params.lastModifiedDate }}{{ .Params.lastModifiedDate.Format "2006-01-02" }}{{ else }}{{ now.Format "2006-01-02" }}{{ end }}</div>
+        <div class="last-modified">
+            Ultima actualización: {{ if .Params.lastModifiedDate }}{{ .Params.lastModifiedDate.Format "2006-01-02" }}{{ else }}{{ now.Format "2006-01-02" }}{{ end }}.
+            {{ if .Params.lang.en }}<a class="language" href="{{ .Params.lang.en }}">Version in 🇬🇧</a>{{ end }}
+        </div>
     {{ end }}
 {{ end }}

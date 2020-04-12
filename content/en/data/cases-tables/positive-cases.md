@@ -8,7 +8,7 @@ lang:
 weight: 10
 ---
 
-In this site we publish every day the table of positive and suspected[/en/data/cases-tables/suspected-cases/] Coronavirus (COVID-19) cases in México in different formats: `PDF` (original), `CSV` y `TXT`. Additionally, we add the normalization of original data.
+In this site we publish every day the table of positive and suspected[/en/data/cases-tables/suspected-cases/] Coronavirus (COVID-19) cases in México in different formats: `PDF` (original), `CSV` and `TXT`. Additionally, we add the normalization of original data.
 
 * Read more about [normalized columns here](/en/data/cases-tables/normalization/). 
 * You can find additional notes [here](/en/data/cases-tables/). 

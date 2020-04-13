@@ -34,7 +34,27 @@ The documents that have at least one of this type of inconsistency are:
 
 ## Fixing the 5-digit date
 
-Apparently, the numbers taht we find is not an error, it is simply the date in a different format from [Excel](https://gizmokid2005.com/2013/05/convert-excel-5-digit-serial-date-numbers-to-date), which represents the days since January 1st, 1900. The solution for the fix can be found in [Stack Overflow](https://stackoverflow.com/questions/14271791/converting-date-formats-python-unusual-date-formats-extract-ymd/30058862#30058862) to convert such number to a date with ISO format.
+Apparently, the numbers taht we find is not an error, it is simply the date in a different format from [Excel](https://gizmokid2005.com/2013/05/convert-excel-5-digit-serial-date-numbers-to-date), which represents the days since January 1st, 1900. The solution for the fix can be found in [Stack Overflow](https://stackoverflow.com/questions/14271791/converting-date-formats-python-unusual-date-formats-extract-ymd/30058862#30058862) to convert such number to a date with ISO format. Below you can find the code in Python code to fix such number:
+
+```Python
+def fix_date(text):
+    if not is_date_in_excel_format(text):
+        print("Date is not in excel format")
+        return text
+    
+    delta = datetime.timedelta(int(text.strip())-2)
+    date = datetime.date(1900, 1, 1) + delta
+    date = str(date.strftime('%Y-%m-%d'))
+    
+    return date
+
+
+def is_date_in_excel_format(text):
+    return re.search(r'^(\d{5})$', text)
+
+print(fix_date('43911'))
+> 2020-03-21
+```
 
 Now we can proceed to verify that the dates that we are updating are actually correct. We can find in the [CSV file](https://datos.covid19in.mx/tablas-diarias/positivos/202004/20200408.csv) from the same date how the date was fixed in the `Fecha_Sintomas_Normalizado` column, with a value of `2020-03-21`:
 ```r

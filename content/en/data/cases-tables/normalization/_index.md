@@ -21,10 +21,10 @@ The columns with the `_Normalizado` suffixes were transformed as follows:
 
 Additional information about the normalization of some columns in particular:
 
-* [Normalization for the State column](/docs/datos/tablas-casos/normalizacion/estado/)
-* [Normalization for the Sex (Gender) column](/docs/datos/tablas-casos/normalizacion/genero/)
-* [Normalization for the Date columns](/docs/datos/tablas-casos/normalizacion/fecha/)
-* [Normalization for the Origin column](/docs/datos/tablas-casos/normalizacion/procedencia/)
+* [Normalization for the State column](/en/data/cases-tables/normalization/state/)
+* [Normalization for the Sex (Gender) column](/en/data/cases-tables/normalization/gender/)
+* [Normalization for the Date columns](/en/data/cases-tables/normalization/date/)
+* [Normalization for the Origin column](/en/data/cases-tables/normalization/origin/)
 
 ## Specs
 The CSV files have the following columns:

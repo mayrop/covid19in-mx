@@ -14,6 +14,10 @@
     .language {
         display: block;
         margin-top: 0.3rem;
+
+        @media screen and (min-width: $mobile-breakpoint) {
+            display: none;
+        }
     }
 }
 

@@ -21,6 +21,14 @@
 <script defer src="{{ $searchJS.RelPermalink }}" integrity="{{ $searchJS.Data.Integrity }}"></script>
 {{ end }}
 
+{{ if .Params.lang.en }}
+    <link rel="alternate" href="{{ .Permalink | absURL }}" hreflang="es-mx" />
+    <link rel="alternate" href="{{ .Params.lang.en | absURL }}" hreflang="en-us" />
+{{ else if .Params.lang.es }}
+    <link rel="alternate" href="{{ .Permalink | absURL }}" hreflang="en-us" />
+    <link rel="alternate" href="{{ .Params.lang.es | absURL }}" hreflang="es-mx" />
+{{ end }}
+
 {{ "<!-- Google Tag Manager -->" | safeHTML }}
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

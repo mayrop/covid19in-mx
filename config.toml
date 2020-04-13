@@ -20,7 +20,7 @@ enableGitInfo = false
 
 [params]
   # SEO Related
-  Keywords = "covid19,mexico,coronavirus,datos,data,api"
+  Keywords = "estadisticas,dataset,covid19,mexico,coronavirus,datos,data,api"
   GTM = "GTM-M4FZ5BH"
 
   # (Optional, default true) Controls table of contents visibility on right side of pages.

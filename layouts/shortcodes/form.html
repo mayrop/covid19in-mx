@@ -1,0 +1,16 @@
+{{ if .Inner }}{{ end }}
+
+<form name="contact" method="POST" role="form">
+    <input type="hidden" name="form-name" value="contact">
+    <div class="book-search">
+      <input type="email" name="email" class="form-control" placeholder="Correo Electrónico" required="">
+    </div>
+    <div class="book-search">
+      <textarea name="message" class="form-control" rows="4" placeholder="Mensaje"></textarea>
+    </div>
+    <div class="text-right"><br>
+      <a class="book-btn" type="submit">Enviar</a> 
+    </div>
+</form>
+
+<p>

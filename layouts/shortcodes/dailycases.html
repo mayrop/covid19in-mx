@@ -1,30 +1,30 @@
 {{ if .Inner }}{{ end }}
 {{ $id := .Get 0 }}
 
-{{ $url := print "https://datos.covid19in.mx/files.json?ts=" now.Unix }}
-{{ $files := getJSON $url }}
-{{ $tables := $files.tablas }}
+{{ $url := print "https://datos.covid19in.mx/meta/tablas_diarias.json?ts=" now.Unix }}
+{{ $tables := getJSON $url }}
 
-{{ range $key, $value := $tables }}
-  {{ if eq $key $id }}
-    {{ range sort $value "fecha" "desc"  }}
-      <h2>{{ .titulo }}</h2>
-      <table>
-        <tr>
-          <th>Fecha</th>
-          <th>PDF</th>
-          <th>CSV</th>
-          <th>TXT</th>
-        </tr>
-        {{ range sort .elementos "fecha" "desc"  }}
-        <tr>
-          <td>{{ .fecha }}</td>
-          <td><a href="https://datos.covid19in.mx{{ .pdf }}" target="_blank" data-gtm-type="click" data-gtm-category="PDF Files" data-gtm-action="Download" data-gtm-label="Covid 19 - {{ title $key }} - {{ .fecha }}">Descargar</a></td>
-          <td>{{ if .csv }}<a href="https://datos.covid19in.mx{{ .csv }}" target="_blank" data-gtm-type="click" data-gtm-category="CSV Files" data-gtm-action="Download" data-gtm-label="Covid 19 - {{ title $key }} - {{ .fecha }}">Descargar</a>{{ end }}</td>
-          <td>{{ if .txt }}<a href="https://datos.covid19in.mx{{ .txt }}" target="_blank" data-gtm-type="click" data-gtm-category="TXT Files" data-gtm-action="Download" data-gtm-label="Covid 19 - {{ title $key }} - {{ .fecha }}">Descargar</a>{{ end }}</td>
-        </tr>
-        {{ end }}
-      </table>
+<table>
+  <th>Fecha</th>
+  <th>PDF</th>
+  <th>CSV</th>
+  <th>TXT</th>
+  {{ range $key, $value := $tables }}
+    {{ if eq $value.Subtype $id }}
+      <tr>
+        <td>
+          {{ $value.Date }}
+        </td>
+        <td>
+          <a href="https://datos.covid19in.mx{{ replaceRE ".csv" ".pdf" $value.File }}" target="_blank" data-gtm-type="click" data-gtm-category="PDF Files" data-gtm-action="Download" data-gtm-label="Covid 19 - {{ title $value.Subtype }} - {{ $value.Date }}">Descargar</a>
+        </td>
+        <td>
+          <a href="https://datos.covid19in.mx{{ $value.File }}" target="_blank" data-gtm-type="click" data-gtm-category="CSV Files" data-gtm-action="Download" data-gtm-label="Covid 19 - {{ title $value.Subtype }} - {{ $value.Date }}">Descargar</a>
+        </td>
+        <td>
+          <a href="https://datos.covid19in.mx{{ replaceRE ".csv" ".txt" $value.File }}" target="_blank" data-gtm-type="click" data-gtm-category="TXT Files" data-gtm-action="Download" data-gtm-label="Covid 19 - {{ title $value.Subtype }} - {{ $value.Date }}">Descargar</a>
+        </td>
+      </tr>
     {{ end }}
   {{ end }}
-{{ end }}
+</table>

@@ -6,6 +6,10 @@ title: Marco Geoestadístico
 weight: 5
 ---
 
+{{< hint info >}}
+**Nota:** Datos disponibles a través del [Paquete R](https://github.com/mayrop/datosmx)! :)
+{{< /hint >}}
+
 Como se menciona en las [fuentes de información](/fuentes-de-informacion/), se tiene una base de datos de 2458 municipios de México, y otra de las 32 entidades federativas en México (31 estados y la Ciudad de México). Los datos presentados están en formato CSV con las coordenadas (centroides) correspondientes cada municipio (y estado), obtenidos a partir del Marco Geoestadístico, junio 2017, diseñado por el INEGI. 
 
 Se tiene además datos en formato SHP, las cuales contienen las siguientes capas de información: 32 polígonos de las Áreas Geoestadísticas Estatales (AGEE), 2458 polígonos de las Áreas Geoestadísticas Municipales (AGEM) en las que se incluyen las 16 Demarcaciones de la Ciudad de México. Cada elemento de estas capas cuenta con atributos de nombre y clave geoestadística. Dichos archivos [fueron simplificados](https://github.com/mayrop/datos-covid19in-mx/blob/master/scripts/analysis/geo_simplify.R) para disminuir su tamaño.

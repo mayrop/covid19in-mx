@@ -9,6 +9,10 @@ lang:
     en: /en/data/cases-tables/
 ---
 
+{{< hint info >}}
+**Nota:** Datos disponibles a través del [Paquete R](https://github.com/mayrop/datosmx)! :)
+{{< /hint >}}
+
 El día [13 de Abril de 2020](https://twitter.com/RicardoDGPS/status/1249864573936644096), la Secretaría de Salud de México, a través de la Dirección General de Epidemiología, publicó datos abiertos sobre casos asociados a COVID-19 con el propósito de facilitar a todos los usuarios que la requieran, el acceso, uso, reutilización y redistribución de los mismos.
 
 Disponibilidad:

@@ -44,3 +44,25 @@
         padding: .3em .5em;
     }
 }
+
+
+.book-tabs {
+    .book-tabs-content {
+        .book-expand {
+            label {
+                width: 100%;
+                padding: 0;
+            }
+        }
+    }
+}
+    
+        
+.list-cols-three {
+    columns: 3;
+}
+
+.list-no-styles {
+    list-style: none;
+    padding-left: 0 !important;
+}

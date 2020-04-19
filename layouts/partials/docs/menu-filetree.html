@@ -1,18 +1,12 @@
 {{ $bookSection := "" }}
 
 {{ if in .Permalink "/en/" }}
-  {{ $bookSection = "en" }}
+  {{ $bookSections := where .Site.Sections "Section" "==" "en" }}
+  {{ .Scratch.Set "BookSections" $bookSections }}
 {{ else }}
-  {{ $bookSection = default "docs" .Site.Params.BookSection  }}
-{{ end }}
-
-{{ if eq $bookSection "*" }}
-  {{ .Scratch.Set "BookSections" .Site.Sections }}
-{{ else }}
-  {{ $bookSections := where .Site.Sections "Section" $bookSection }}
+  {{ $bookSections := where .Site.Sections "Section" "!=" "en" }}
   {{ .Scratch.Set "BookSections" $bookSections }}
 {{ end }}
-
 
 {{ $sections := .Scratch.Get "BookSections" }}
 {{/* If there is only one section to render then render its children, else render all sections */}}
@@ -22,9 +16,9 @@
   {{ end }}
 {{ else }}
   <ul>
-  {{ range where $sections "Params.bookHidden" "!=" true }}
-    {{ template "book-section" (dict "Section" . "CurrentPage" $) }}
-  {{ end }}
+    {{ range where $sections "Params.bookHidden" "!=" true }}
+      {{ template "book-section" (dict "Section" . "CurrentPage" $) }}
+    {{ end }}
   </ul>
 {{ end }}
 

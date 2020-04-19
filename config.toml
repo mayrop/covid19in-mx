@@ -15,6 +15,12 @@ enableGitInfo = false
 #  [markup.blackFriday]
 #    hrefTargetBlank = true
 
+[markup]
+  defaultMarkdownHandler = "goldmark" 
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
 
@@ -38,7 +44,7 @@ enableGitInfo = false
 
   # (Optional, default docs) Specify section of content to render as menu
   # You can also set value to '*' to render all sections to menu
-  BookSection = 'docs'
+  BookSection = ''
 
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.

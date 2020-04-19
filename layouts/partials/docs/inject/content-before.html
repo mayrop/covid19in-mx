@@ -3,12 +3,19 @@
 
     {{ if in .Permalink "/en/" }}
         <div class="last-modified">
-            Last Updated: {{ if .Params.lastModifiedDate }}{{ .Params.lastModifiedDate.Format "2006-01-02" }}{{ else }}{{ now.Format "2006-01-02" }}{{ end }}.
+            Last Updated: {{ if .Params.publishDate }}{{ .Params.publishDate.Format "2006-01-02" }}{{ else }}{{ now.Format "2006-01-02" }}{{ end }}.
             {{ if .Params.lang.es }}<a class="language" href="{{ .Params.lang.es }}">Versión en 🇪🇸</a>{{ end }}
         </div>
+
+        <div class="markdown">
+            <blockquote class="book-hint danger">
+              <strong>Note:</strong> This section may be out of date, only spanish sections are being updated.
+            </blockquote>
+        </div>
+        
     {{ else }}
         <div class="last-modified">
-            Ultima actualización: {{ if .Params.lastModifiedDate }}{{ .Params.lastModifiedDate.Format "2006-01-02" }}{{ else }}{{ now.Format "2006-01-02" }}{{ end }}.
+            Ultima actualización: {{ if .Params.publishDate }}{{ .Params.publishDate.Format "2006-01-02" }}{{ else }}{{ now.Format "2006-01-02" }}{{ end }}.
             {{ if .Params.lang.en }}<a class="language" href="{{ .Params.lang.en }}">Version in 🇬🇧</a>{{ end }}
         </div>
     {{ end }}

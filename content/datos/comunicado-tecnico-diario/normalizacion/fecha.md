@@ -4,7 +4,7 @@ date: 2020-04-10
 linktitle: Normalización de la columnas con Fechas 
 title: Normalización de Fechas
 lang:
-    es: /en/data/cases-tables/normalization/date/
+    en: /en/data/cases-tables/normalization/date/
 weight: 3
 ---
 

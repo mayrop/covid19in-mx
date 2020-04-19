@@ -4,7 +4,7 @@ linktitle: About de covid19in.mx
 title: About
 weight: 10
 lang:
-    es: /docs/acerca/
+    es: /acerca/
 bookFlatSection: true
 ---
 

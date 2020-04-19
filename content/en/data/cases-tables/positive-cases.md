@@ -4,7 +4,7 @@ date: 2020-04-04
 linktitle: Daily Positive Cases Tables
 title: Positive Cases
 lang:
-    es: /docs/datos/tablas-casos/casos-positivos/
+    es: /datos/comunicado-tecnico-diario/casos-positivos/
 weight: 10
 ---
 

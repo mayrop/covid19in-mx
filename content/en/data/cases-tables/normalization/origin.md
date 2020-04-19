@@ -5,7 +5,7 @@ linktitle: Normalization for the Origin column
 title: Origin Normalization
 weight: 4
 lang:
-    es: /docs/datos/tablas-casos/normalizacion/procedencia/
+    es: /datos/comunicado-tecnico-diario/normalizacion/procedencia/
 bookToc: false
 ---
 

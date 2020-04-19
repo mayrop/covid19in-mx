@@ -4,7 +4,7 @@ date: 2020-04-04
 linktitle: Daily Suspected Cases Tables
 title: Suspected Cases
 lang:
-    es: /docs/datos/tablas-casos/casos-sospechosos/
+    es: /datos/comunicado-tecnico-diario/casos-sospechosos/
 weight: 10
 ---
 

@@ -1,7 +1,7 @@
 ---
 author: "Mayra Valdes"
 date: 2020-04-04
-publishDate: 2020-04-04
+publishDate: 2020-04-18
 linktitle: Datos del Coronavirus (COVID-19) en México
 title: COVID-19 en México
 weight: 10
@@ -15,19 +15,16 @@ seo:
 
 ---
 
-Hola! Soy [@mayrop](https://twitter.com/@mayrop). Ante la frustración de las limitaciones que crea los datos oficiales Coronavirus (COVID-19) en México 🇲🇽, así como el inevitable [#quedateencasa](https://twitter.com/hashtag/QuedateEnCasa), me he dado a la tarea de tratar de ayudar en hacer publicos los mismo datos pero en un formato abierto para el resto de la población.
-
-Este sitio _no es oficial_. Sin embargo, los datos publicados y usados en este sitio son oficiales, los cuales son publicados por la Secretaría de Salud de México [@SSalud_mx](https://twitter.com/@SSalud_mx) [aquí](https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449). Los detalles los puedes encontrar en la parte de [metodología](/docs/metodologia/). 🤓 
-
-Este sitio no es el único que se ha dado a esta tarea, existen [otras grandiosas fuentes](/docs/acerca/) que se están trabajando en hacer algo similar. 
-
 {{< hint info >}}
-**covid19in.mx** es uno de los pocos sitios que normaliza la información de las tablas de casos diarias para su posterior uso. Encuentra más información al respecto [aquí](/docs/datos/tablas-casos/normalizacion/).
+**Nota** La Secretaría de Salud de México [@SSalud_mx](https://twitter.com/@SSalud_mx) publica desde el [13 de Abril de 2020](https://twitter.com/RicardoDGPS/status/1249864573936644096) los datos abiertos en formato abierto.
 {{< /hint >}}
 
-## Datos en Formato Abierto
+Hola! _covid19in.mx_ empezó como un esfuerzo de recopilación de datos ante la frustración de las [limitaciones](https://www.youtube.com/watch?v=qP1nNqoHtcM) que creaban los datos oficiales Coronavirus (COVID-19) en México 🇲🇽. Sin embargo, desde el [13 de Abril de 2020](https://twitter.com/RicardoDGPS/status/1249864573936644096) los datos están siendo publicados en [formato abierto](https://www.gob.mx/salud/documentos/datos-abiertos-152127). Se seguirán publicando diferentes datasets para facilitarle la vida a los usuarios. 🤓 
+
+## Datasets y Herramientas Disponibles
 * [Paquete en R](https://github.com/mayrop/r-covid19in-mx). (en construcción) 🚧
-* [Tablas diaria de casos abiertos de Coronavirus (COVID-19) en México](/docs/datos/tablas-casos/) 📋
+* [Datos Abiertos: Coronavirus (COVID-19) en México](/docs/datos/tablas-casos/) 📋
+* [Comunicado Técnico Diario: Coronavirus (COVID-19) en México](/docs/datos/tablas-casos/) 📋
 * [Series de tiempo](/docs/datos/series-de-tiempo/) 📈
 
 {{< custom-element "mySeries" >}}{{< /custom-element >}}

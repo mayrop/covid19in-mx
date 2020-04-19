@@ -2,6 +2,7 @@
 author: "Mayra Valdes"
 date: 2020-04-11
 publishDate: 2020-04-11
+modifiedDate: 2020-04-11
 linktitle: Datasets about Coronavirus (COVID-19) in México
 title: COVID-19 in México
 weight: 10
@@ -14,7 +15,7 @@ seo:
 
 ---
 
-Hi! I'm [@mayrop](https://twitter/mayrop). There are tons of limitations when trying to work with the datasets provided by the government about the Coronavirus disease COVID-19 pandemic in México 🇲🇽. That is why I have been working in this project. The main goal is to publish the original data in an open format.
+Hi! I'm [@mayrop](https://twitter/mayrop). There are tons of [limitations](https://www.youtube.com/watch?v=qP1nNqoHtcM) when trying to work with the datasets provided by the government about the Coronavirus disease COVID-19 pandemic in México 🇲🇽. That is why I have been working in this project. The main goal is to publish the original data in an open format.
 
 This site _is not official_. However, the published data used in this site are published by the Secretaría de Salud de México [@SSalud_mx](https://twitter/@SSalud_mx). All the details about how the data is being retrieved can be found in the [methodology](/docs/metodologia/) section 🤓.
 

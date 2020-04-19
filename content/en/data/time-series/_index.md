@@ -6,11 +6,9 @@ title: Time Series
 weight: 20
 js: /js/series-de-tiempo.js
 lang:
-    es: /docs/datos/series-de-tiempo/
+    es: /datos/series-de-tiempo/
 bookCollapseSection: true
 ---
-
-The process to get the information is detailed in the [methodology section](/en/methodology/). 
 
 {{< custom-element "mySeries" >}}{{< /custom-element >}}
 

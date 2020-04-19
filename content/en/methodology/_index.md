@@ -3,8 +3,6 @@ author: "Mayra Valdes"
 linktitle: Methodology
 title: Methodology
 weight: 2
-lang:
-    es: /docs/metodologia/
 bookFlatSection: true
 ---
 
@@ -15,7 +13,7 @@ While the conference is taking place, the [Secretaría de Salud de México](http
 
 While there is historical data for the daily technical releases [here](https://www.gob.mx/salud/documentos/informacion-internacional-y-nacional-sobre-nuevo-coronavirus-2019-ncov), the daily table for positive and suspected cases are removed after a few days for some reason 🤷. Removing the documents from the official site is not the only problem to analyze the data, publishing them in PDF format makes the process very hard. 
 
-The information for negative cases, as well as deaths is only published as an accumulated daily total in the official documents. However, there is a [map](https://ncov.sinave.gob.mx/mapa.aspx), which is also published by Secretaría de Salud de México where you can visualise (with colors) the situation about every state in Mexico.
+The information for negative cases, as well as deaths is only published as an accumulated daily total in the official documents. However, there is a [map](https://covid19.sinave.gob.mx/), which is also published by Secretaría de Salud de México where you can visualise (with colors) the situation about every state in Mexico.
 
 ## Data Retrieval
 I started this project with the retrieval and data clean up with the daily tables of COVID-19 cases in México on [March 28](https://github.com/mayrop/covid19in-mx/commit/d472d10cc7a7fad9b11099af8d5ee4f7dc07037c). Similarly, on April 4, I started the retrieval of data for negative cases and deaths automatically.
@@ -46,7 +44,7 @@ The process used in this proyect was to first transform the PDF to TXT using [pd
 We also normalize the data. To read more about it [click here](/en/data/cases-tables/normalization/).
 
 ## Negative Cases and Deaths by State
-While the daily press conference from the Secretaría de Salud de México takes place, they give the accumulated number of positive, suspected, negative and deaths for all the country. However, they do not publish the number of negative cases. The only way we have found so far (April 11) to get this information is through [this map](https://ncov.sinave.gob.mx/mapa.aspx). The data used for this map (in JSON format) is retrieved since April 4. The number of negative cases prior to April 4 where [captured manually](https://github.com/mayrop/datos-covid19in-mx/blob/master/scripts/analysis/bak/totales.csv). If you find any error, you can contact me via [Twitter](htttps://twitter.com/@mayrop).  
+While the daily press conference from the Secretaría de Salud de México takes place, they give the accumulated number of positive, suspected, negative and deaths for all the country. However, they do not publish the number of negative cases. The only way we have found so far (April 11) to get this information is through [this map](https://covid19.sinave.gob.mx/). The data used for this map (in JSON format) is retrieved since April 4. The number of negative cases prior to April 4 where [captured manually](https://github.com/mayrop/datos-covid19in-mx/blob/master/scripts/analysis/bak/totales.csv). If you find any error, you can contact me via [Twitter](htttps://twitter.com/@mayrop).  
 
 ## Código Fuente
 All the source code for this process can be found [here](https://github.com/mayrop/datos-covid19in-mx/).

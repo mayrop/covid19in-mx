@@ -5,7 +5,7 @@ linktitle: Normalization for the State column
 title: State Normalization
 weight: 1
 lang:
-    es: /docs/datos/tablas-casos/normalizacion/estado/
+    es: /datos/comunicado-tecnico-diario/normalizacion/estado/
 bookToc: false
 ---
 

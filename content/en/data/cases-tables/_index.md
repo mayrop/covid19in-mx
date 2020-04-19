@@ -4,7 +4,7 @@ date: 2020-04-04
 linktitle: Daily Tables of Positive and Suspected Cases
 title: Daily Tables of Cases
 lang:
-    es: /docs/datos/tablas-casos/
+    es: /datos/comunicado-tecnico-diario/
 weight: 1
 ---
 

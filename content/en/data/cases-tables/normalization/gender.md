@@ -5,7 +5,7 @@ linktitle: Normalization for the Sex (Gender) column
 title: Gender Normalization
 weight: 2
 lang:
-    es: /docs/datos/tablas-casos/normalizacion/genero/
+    es: /datos/comunicado-tecnico-diario/normalizacion/genero/
 bookToc: false
 ---
 

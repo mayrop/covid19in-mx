@@ -1,7 +1,7 @@
 ---
 author: "Mayra Valdes"
-linktitle: Datos
-title: Datos
+linktitle: Datos Disponibles
+title: Datos Disponibles
 weight: 2
 bookFlatSection: true
 ---

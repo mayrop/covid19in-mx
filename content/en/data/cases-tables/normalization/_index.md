@@ -5,7 +5,7 @@ linktitle: Data Normalization
 title: Data Normalization
 bookCollapseSection: true
 lang:
-    es: /docs/datos/tablas-casos/normalizacion/
+    es: /datos/comunicado-tecnico-diario/normalizacion/
 weight: 20
 ---
 

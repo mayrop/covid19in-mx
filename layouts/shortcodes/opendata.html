@@ -1,0 +1,16 @@
+{{ if .Inner }}{{ end }}
+{{ $id := .Get 0 }}
+
+{{ $url := print "https://datos.covid19in.mx/meta/abiertos.json?ts=" now.Unix }}
+{{ $tables := getJSON $url }}
+
+<ul>
+{{ range $key, $value := $tables }}
+  {{ if eq $value.Subtype $id }}
+    <li>
+      <a href="https://github.com/mayrop/datos-covid19in-mx/blob/master/www{{ $value.File }}?raw=true" target="_blank" data-gtm-type="click" data-gtm-category="ZIP Files" data-gtm-action="Download" data-gtm-label="Covid 19 - {{ title $value.Subtype }} - {{ $value.Date }}">{{ $value.Date }}</a>
+    </li>
+  {{ end }}
+{{ end }}
+</ul>
+

@@ -4,7 +4,7 @@ date: 2020-04-10
 linktitle: Normalization for the Date columns
 title: Date Normalization
 lang:
-    es: /docs/datos/tablas-casos/normalizacion/fecha/
+    es: /datos/comunicado-tecnico-diario/normalizacion/fecha/
 weight: 3
 ---
 

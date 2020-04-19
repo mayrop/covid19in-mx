@@ -3,7 +3,7 @@
 {{ $url := print "https://datos.covid19in.mx/meta/series_de_tiempo.json?ts=" now.Unix }}
 {{ $series := getJSON $url }}
 
-<ul>
+<ul class="list-cols-three list-no-styles">
 {{ range $series }}
     {{ if .Date }}
         <li>

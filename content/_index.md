@@ -16,15 +16,15 @@ seo:
 ---
 
 {{< hint info >}}
-**Nota:** La Secretaría de Salud de México [@SSalud_mx](https://twitter.com/@SSalud_mx) publica desde el [13 de Abril de 2020](https://twitter.com/RicardoDGPS/status/1249864573936644096) los datos abiertos en formato abierto.
+**Nota:** La Secretaría de Salud de México [@SSalud_mx](https://twitter.com/@SSalud_mx) publica desde el [12 de Abril de 2020](https://twitter.com/RicardoDGPS/status/1249864573936644096) los datos abiertos en formato abierto.
 {{< /hint >}}
 
-Hola! _covid19in.mx_ empezó como un esfuerzo de recopilación de datos ante la frustración de las [limitaciones](https://www.youtube.com/watch?v=qP1nNqoHtcM) que creaban los datos oficiales Coronavirus (COVID-19) en México 🇲🇽. Sin embargo, desde el [13 de Abril de 2020](https://twitter.com/RicardoDGPS/status/1249864573936644096) los datos están siendo publicados en [formato abierto](https://www.gob.mx/salud/documentos/datos-abiertos-152127). Se seguirán publicando diferentes datasets para facilitarle la vida a los usuarios. 🤓 
+Hola! _covid19in.mx_ empezó como un esfuerzo de recopilación de datos ante la frustración de las [limitaciones](https://www.youtube.com/watch?v=qP1nNqoHtcM) que creaban los datos oficiales Coronavirus (COVID-19) en México 🇲🇽. Sin embargo, desde el [12 de Abril de 2020](https://twitter.com/RicardoDGPS/status/1249864573936644096) los datos están siendo publicados en [formato abierto](https://www.gob.mx/salud/documentos/datos-abiertos-152127). {{< span-style "text-decoration:line-through" >}}Se seguirán publicando diferentes datasets para facilitarle la vida a los usuarios. 🤓 {{< /span-style >}}  _**Nota:** La Secretaría de Salud de México dejó de publicar las tablas de casos diarios el día 19 de Abril de 2020._
 
 ## Datasets y Herramientas Disponibles
 * [Paquete en R](https://github.com/mayrop/datosmx). (en construcción) 🚧
-* [Datos Abiertos: Coronavirus (COVID-19) en México](/docs/datos/tablas-casos/) 📋
-* [Comunicado Técnico Diario: Coronavirus (COVID-19) en México](/docs/datos/tablas-casos/) 📋
+* [Datos Abiertos: Coronavirus (COVID-19) en México](/datos/datos-abiertos-covid-19/) 📋
+* [Comunicado Técnico Diario: Coronavirus (COVID-19) en México](/datos/comunicado-tecnico-diario/) 📋. 
 * [Series de tiempo](/docs/datos/series-de-tiempo/) 📈
 
 {{< custom-element "mySeries" >}}{{< /custom-element >}}

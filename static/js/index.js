@@ -17,7 +17,7 @@ Plotly.d3.csv('https://datos.covid19in.mx/series-de-tiempo/agregados/totales.csv
     mode: 'lines',
     name: 'Defunciones',
     x: unpack(rows, 'Fecha'),
-    y: unpack(rows, 'Defunciones'),
+    y: unpack(rows, 'Defunciones_Positivos'),
     line: {color: '#D81B1B'}
   }
 

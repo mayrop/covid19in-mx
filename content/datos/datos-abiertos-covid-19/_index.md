@@ -1,6 +1,6 @@
 ---
 author: "Mayra Valdes"
-date: 2020-04-18
+date: 2020-04-23
 linktitle: Datos Abiertos COVID-19
 title: Datos Abiertos COVID-19
 weight: 1

@@ -22,10 +22,10 @@ Las bases de datos (o datasets) encontrados en este sitio provienen de fuentes o
 ### Datos Abiertos Coronavirus (COVID-19)
 Fuente Oficial: [Secretaría de Salud de México](https://www.gob.mx/salud/documentos/datos-abiertos-152127), Dirección General de Epidemiología
 
-El día [13 de Abril de 2020](https://twitter.com/RicardoDGPS/status/1249864573936644096), la Secretaría de Salud de México, a través de la Dirección General de Epidemiología, publicó datos abiertos sobre casos asociados a COVID-19 con el propósito de facilitar a todos los usuarios que la requieran, el acceso, uso, reutilización y redistribución de la misma.
+El día [12 de Abril de 2020](https://twitter.com/RicardoDGPS/status/1249864573936644096), la Secretaría de Salud de México, a través de la Dirección General de Epidemiología, publicó datos abiertos sobre casos asociados a COVID-19 con el propósito de facilitar a todos los usuarios que la requieran, el acceso, uso, reutilización y redistribución de la misma.
 
 Disponibilidad:
-* Datos disponibles en formato ZIP desde el 13/04/2020 después de que el Director General de Promoción de la Salud del Gobierno de México, [Ricardo Cortes Alcala](https://twitter.com/RicardoDGPS) anunciara [su disponibilidad](https://twitter.com/RicardoDGPS/status/1249864573936644096).
+* Datos disponibles en formato ZIP desde el 12 de Abril de 2020 después de que el Director General de Promoción de la Salud del Gobierno de México, [Ricardo Cortes Alcala](https://twitter.com/RicardoDGPS) anunciara [su disponibilidad](https://twitter.com/RicardoDGPS/status/1249864573936644096).
 
 --------------------------------------------------------
 
@@ -80,7 +80,7 @@ Fuente Oficial: [Secretaría de Salud de México](https://covid19.sinave.gob.mx/
 Usado para obtener las series diarias de datos. Detalles [aquí](https://www.covid19in.mx/docs/datos/series-de-tiempo/).
 
 Disponibilidad: 
-* Datos segregados por fecha y estados en formato CSV para casos positivos y sospechosos están disponibles desde el 13/03/2020. Dichos datos fueron obtenidos a partir del Comunicado Técnico Diario.
+* Datos segregados por fecha y estados en formato CSV para casos positivos y sospechosos están disponibles desde el 13 de Marzo de 2020. Dichos datos fueron obtenidos a partir del Comunicado Técnico Diario.
 * Datos segregados por fecha y estados en formato CSV por fecha y estados para casos positivos, sospechosos, negativos y defunciones a partir del mapa están disponibles desde el 4 de Abril de 2020. Los datos acumulados para los casos negativos y defunciones antes del 4 de Abril fueron capturados manualmente a partir del Comunicado Técnico Diario. Favor de reportar cualquier error via  [Twitter](https://twitter.com/mayrop) o como un issue en Github.
 
 --------------------------------------------------------

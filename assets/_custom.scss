@@ -59,7 +59,19 @@
     
         
 .list-cols-three {
-    columns: 3;
+    columns: 1;
+
+    @media screen and (min-width: $mobile-breakpoint) {
+        columns: 3;
+    }
+}
+
+.list-cols-two {
+    columns: 1;
+
+    @media screen and (min-width: $mobile-breakpoint) {
+        columns: 2;
+    }
 }
 
 .list-no-styles {

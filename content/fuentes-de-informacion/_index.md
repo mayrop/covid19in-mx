@@ -55,7 +55,7 @@ Fuente Oficial: [Secretaría de Salud de México](https://www.gob.mx/salud/docum
 **Nota** La Secretaría de Salud de México dejó de publicar las tablas de casos diarios el día 19 de Abril de 2020.
 {{< /hint >}}
 
-Usado para las tablas diarias de casos positivos y sospechosos. Detalles [aquí](https://www.covid19in.mx/docs/datos/tablas-casos/).
+Usado para las tablas diarias de casos positivos y sospechosos. Detalles [aquí](/datos/comunicado-tecnico-diario/).
 Disponibilidad: 
 * Datos diarios en formato PDF, CSV y TXT para casos positivos, desde el 13 de Marzo de 2020.
 * Datos diarios en formato PDF, CSV y TXT para casos sospechosos, desde el 11 de Marzo de 2020. Se cuenta ademas con la tabla del dia 8 de Marzo, 2020.
@@ -77,7 +77,7 @@ Fuente Oficial: [Secretaría de Salud de México](https://covid19.sinave.gob.mx/
 **Nota** Los mapas tienen diferente formato desde el [20 de Abril de 2020](https://twitter.com/mayrop/status/1253101360830124033). Se seguirán [descargando](https://github.com/mayrop/datos-covid19in-mx/tree/master/cache/mapa) los diferentes valores, pero las nuevas series de tiempo se crearán a partir de los datos abiertos.
 {{< /hint >}}
 
-Usado para obtener las series diarias de datos. Detalles [aquí](https://www.covid19in.mx/docs/datos/series-de-tiempo/).
+Usado para obtener las series diarias de datos. Detalles [aquí](/datos/series-de-tiempo/).
 
 Disponibilidad: 
 * Datos segregados por fecha y estados en formato CSV para casos positivos y sospechosos están disponibles desde el 13 de Marzo de 2020. Dichos datos fueron obtenidos a partir del Comunicado Técnico Diario.

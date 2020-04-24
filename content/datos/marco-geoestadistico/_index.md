@@ -1,6 +1,6 @@
 ---
 author: "Mayra Valdes"
-date: 2020-04-18
+date: 2020-04-23
 linktitle: Marco Geoestadístico de México
 title: Marco Geoestadístico
 weight: 5
@@ -36,7 +36,7 @@ Los datos originales en formato SHP pueden encontrarse en la [fuente oficial](ht
 | 1             | 5               | Jesús María                                       | -102.4456493 | 21.9321175 | 127835         |
 
 ### Entidades Federativas de México
-| Clave | Nombre              | Nombre_Mayuscula    | Nombre_Completo                 | Abreviatura | ISO_3 | ISO_2 | Longitud     | Latitud    | Poblacion_2019 |
+| Clave | Nombre              | Nombre_Mayuscula    | Nombre_Completo                 | Abreviatura | ISO_3 | RENAPO | Longitud     | Latitud    | Poblacion_2019 |
 |-------|---------------------|---------------------|---------------------------------|-------------|-------|-------|--------------|------------|----------------|
 | 1     | Aguascalientes      | AGUASCALIENTES      | Aguascalientes                  | Ags.        | AGU   | AS    | -102.3619377 | 22.0064411 | 1415421        |
 | 2     | Baja California     | BAJA CALIFORNIA     | Baja California                 | B. C.       | BCN   | BC    | -115.0970657 | 30.5515922 | 3578561        |

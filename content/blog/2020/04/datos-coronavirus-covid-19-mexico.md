@@ -1,15 +1,15 @@
 ---
 date: 2020-04-19
 author: "Mayra Valdes"
-linktitle: Datos del Coronavirus (COVID-19) en México
-title: Datos del Coronavirus (COVID-19) en México
+linktitle: Limitaciones de los datos del Coronavirus (COVID-19) en México
+title: Limitaciones de los datos del Coronavirus (COVID-19) en México
 weight: 1
 hideHeading: true
 bookhidden: true
 ---
 
 {{< hint info >}}
-**Nota:** Esta información ya no es relevante desde que la Secretaría de Salud de México publicó los datos en [formato abierto](/datos/datos-abiertos-covid-19/) el 13 de Abril de 2020. Sin embargo, es bueno documentar la gran cantidad de trabajo que se tenía que hacer para la limpieza y extracción de datos.
+**Nota:** Esta información ya no es relevante desde que la Secretaría de Salud de México publicó los datos en [formato abierto](/datos/datos-abiertos-covid-19/) el 12 de Abril de 2020. Sin embargo, es bueno documentar la gran cantidad de trabajo que se tenía que hacer para la limpieza y extracción de datos.
 {{< /hint >}}
 
 Diariamente, a las 19:00 horas, se emite una [Conferencia de Prensa](https://coronavirus.gob.mx/noticias/), donde se presenta el informe diario sobre la situación del Coronavirus (COVID-19) en México. Dicha conferencia es encabezada comúnmente por [Hugo López-Gatell](https://twitter.com/HLGatell), Subsecretario de Prevención y Promoción de la Salud. 

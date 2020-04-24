@@ -4,7 +4,7 @@
 {{ $url := print "https://datos.covid19in.mx/meta/abiertos.json?ts=" now.Unix }}
 {{ $tables := getJSON $url }}
 
-<ul>
+<ul class="list-cols-two">
 {{ range $key, $value := $tables }}
   {{ if eq $value.Subtype $id }}
     <li>

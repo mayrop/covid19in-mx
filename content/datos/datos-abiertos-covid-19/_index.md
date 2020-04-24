@@ -13,12 +13,9 @@ lang:
 **Nota:** Datos disponibles a través del [Paquete R](https://github.com/mayrop/datosmx)! :)
 {{< /hint >}}
 
-El día [13 de Abril de 2020](https://twitter.com/RicardoDGPS/status/1249864573936644096), la Secretaría de Salud de México, a través de la Dirección General de Epidemiología, publicó datos abiertos sobre casos asociados a COVID-19 con el propósito de facilitar a todos los usuarios que la requieran, el acceso, uso, reutilización y redistribución de los mismos.
+Existen datos abiertos desde el [12 de Abril de 2020](https://www.gob.mx/salud/documentos/datos-abiertos-bases-historicas-direccion-general-de-epidemiologia) publicados por la Secretaría de Salud de México. Los datos mas actuales pueden encontrarse [aquí](https://www.gob.mx/salud/documentos/datos-abiertos-152127). [Ricardo Cortes Alcalá](https://twitter.com/RicardoDGPS), Director General de Promoción de la Salud del Gobierno de México, anunció su disponibilidad el día [13 de Abril de 2020](https://twitter.com/RicardoDGPS/status/1249864573936644096).
 
-Disponibilidad:
-* Datos disponibles en formato ZIP desde el 13 de Abril de 2020 después de que el Director General de Promoción de la Salud del Gobierno de México, [Ricardo Cortes Alcala](https://twitter.com/RicardoDGPS) anunciara [su disponibilidad](https://twitter.com/RicardoDGPS/status/1249864573936644096).
-
-**Fuente Oficial:** [Secretaría de Salud de México](https://www.gob.mx/salud/documentos/datos-abiertos-152127), Dirección General de Epidemiología
+**Fuente Oficial:** [Secretaría de Salud de México](https://www.gob.mx/salud/documentos/datos-abiertos-152127), Dirección General de Epidemiología. (Bases Históricas [aquí](https://www.gob.mx/salud/documentos/datos-abiertos-bases-historicas-direccion-general-de-epidemiologia)).
 
 ## Datos Disponibles
 Ver en [Github](https://github.com/mayrop/datos-covid19in-mx/tree/master/www/abiertos/todos).
@@ -30,7 +27,7 @@ Ver en [Github](https://github.com/mayrop/datos-covid19in-mx/tree/master/www/abi
 
 {{< tabs "diccionario" >}}
 {{< tab "Descriptores" >}}
-**Ultima Actualización**: 13 de Abril de 2020    
+**Ultima Actualización**: 23 de Abril de 2020    
     {{< descriptors>}}{{< /descriptors >}}
 {{< /tab >}}
 {{< tab "Catálogos" >}} 

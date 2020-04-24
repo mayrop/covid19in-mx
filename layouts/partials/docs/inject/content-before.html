@@ -16,7 +16,6 @@
     {{ else }}
         <div class="last-modified">
             Ultima actualización: {{ if .Params.publishDate }}{{ .Params.publishDate.Format "2006-01-02" }}{{ else }}{{ now.Format "2006-01-02" }}{{ end }}.
-            {{ if .Params.lang.en }}<a class="language" href="{{ .Params.lang.en }}">Version in 🇬🇧</a>{{ end }}
         </div>
     {{ end }}
 {{ end }}

@@ -23,6 +23,7 @@ Los siguientes sitios tienen un trabajo similar al realizado a **covid19in.mx**,
 * **[covidatos.mx](https://covidatos.mx/)**. Excelentes visualizaciones y contribuciones por parte de [@elzr](https://twitter.com/elzr).
 * **[covid19enmexico.com](https://covid19enmexico.com/)**. Sitio web donde se pueden encontrar interesantes visualizaciones. Elaborado por [@FelipeNava92](https://twitter.com/FelipeNava92) y [@Jackelyn2808](https://twitter.com/Jackelyn2808).
 * **[covid_ctd_mx](https://github.com/covidctdmx/covid_ctd_mx/)**. Una gran solución técnica por su simpleza para la extracción y transformación de PDF a CSV.
+* **[directorio_covid19_mx](https://github.com/eduardofv/directorio_covid19_mx)**. Un diretorio de otros recursos de COVID-19 en México por fuentes intependientes.
 * **[covid19.newtondreams.com](https://covid19.newtondreams.com/)**. Sitio elaborado por [@emirelesg](https://github.com/emirelesg) con una [elegante solución](https://github.com/emirelesg/covid19-mx-report-parser) para procesar los documentos PDF.
 * **[covid19.nextia.mx](https://covid19.nextia.mx/)**.
 * **[mexicovid19.github.io/Mexico](https://mexicovid19.github.io/Mexico/)**.

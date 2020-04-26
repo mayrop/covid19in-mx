@@ -10,7 +10,7 @@ lang:
 ---
 
 {{< hint warning >}}
-**Nota:** Se recomienda usar los [datos abiertos](/datos/datos-abiertos-covid-19/), en lugar de los datos obtenidos del Comunicado Técnico Diario. Sin embargo, la Secretaría de Salud de México hizo publicos dichos datos hasta el 13 de Abril de 2020.
+**Nota:** Se recomienda usar los [datos abiertos](/datos/datos-abiertos-covid-19/), en lugar de los datos obtenidos del Comunicado Técnico Diario. Sin embargo, la Secretaría de Salud de México hizo publicos dichos datos hasta el 12 de Abril de 2020.
 {{< /hint >}}
 
 {{< hint warning >}}

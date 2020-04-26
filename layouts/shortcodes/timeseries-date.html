@@ -6,9 +6,11 @@
 <ul class="list-cols-three list-no-styles">
 {{ range $series }}
     {{ if .Date }}
-        <li>
-            <a href="https://datos.covid19in.mx{{ .File }}" target="_blank" data-gtm-type="click" data-gtm-category="Time Series Files" data-gtm-action="Download" data-gtm-label="By Date - {{ .File }}">{{ .Date }}</a>
-        </li>
+        {{ if not (in .File "federal_res") }}
+            <li>
+                <a href="https://datos.covid19in.mx{{ .File }}" target="_blank" data-gtm-type="click" data-gtm-category="Time Series Files" data-gtm-action="Download" data-gtm-label="By Date - {{ .File }}">{{ .Date }}</a>
+            </li>
+        {{ end }}
     {{ end }}
 {{ end }}
 </ul>

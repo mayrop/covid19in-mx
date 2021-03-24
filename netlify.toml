@@ -24,28 +24,28 @@
 # A basic redirect rule
 [[redirects]]
   from = "https://coronavirusin.mx/*"
-  to = "https://www.datain.mx"
+  to = "https://www.datain.mx/:splat"
   status = 301
   force = true
 
 # A basic redirect rule
 [[redirects]]
   from = "https://www.coronavirusin.mx/*"
-  to = "https://www.datain.mx"
+  to = "https://www.datain.mx/:splat"
   status = 301
   force = true  
 
 # A basic redirect rule
 [[redirects]]
   from = "https://www.covid19in.mx/*"
-  to = "https://www.datain.mx"
+  to = "https://www.datain.mx/:splat"
   status = 301
   force = true  
 
 # A basic redirect rule
 [[redirects]]
   from = "https://covid19in.mx/*"
-  to = "https://www.datain.mx"
+  to = "https://www.datain.mx/:splat"
   status = 301
   force = true
 
